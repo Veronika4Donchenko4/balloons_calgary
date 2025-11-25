@@ -160,7 +160,7 @@ export default function Home() {
                                 {/* News Block Three */}
                                 <div className="news-block-three">
                                     <div className="inner-box">
-                                        <Swiper {...swiperOptions} className="single-item-carousel owl-carousel owl-theme">
+                                        <Swiper {...swiperOptions} className="single-item-carousel ">
                                             <SwiperSlide>
                                             <div className="slide">
                                                 <div className="image">

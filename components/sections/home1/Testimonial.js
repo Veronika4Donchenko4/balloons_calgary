@@ -77,7 +77,7 @@ export default function Testimonial() {
                         <div className="separate"></div>
                     </div>
                     <div className="inner-container">
-                        <Swiper {...swiperOptions} className="single-item-carousel owl-carousel owl-theme">
+                        <Swiper {...swiperOptions} className="single-item-carousel ">
                         
                             {/* Testimonial Block */}
                             <SwiperSlide>

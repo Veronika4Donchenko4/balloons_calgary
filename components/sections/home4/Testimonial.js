@@ -67,7 +67,7 @@ export default function Testimonial() {
             <div className="auto-container">
                 <div className="inner-container">
                     <div className="icon-layer-two" style={{ backgroundImage: 'url(assets/images/resource/testimonial-icon-1.jpg)' }} ></div>
-                    <Swiper {...swiperOptions} className="single-item-carousel owl-carousel owl-theme">
+                    <Swiper {...swiperOptions} className="single-item-carousel ">
                     
                         {/* Testimonial Block Two */}
                         <SwiperSlide>

@@ -64,7 +64,7 @@ export default function Gallery() {
         {/* Gallery Section */}
             <section className="gallery-section">
                 <div className="outer-container">
-                    <Swiper {...swiperOptions} className="gallery-carousel owl-carousel owl-theme">
+                    <Swiper {...swiperOptions} className="gallery-carousel ">
                         
                         {/* Gallery Block */}
                         <SwiperSlide>

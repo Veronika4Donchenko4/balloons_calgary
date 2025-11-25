@@ -71,7 +71,7 @@ export default function Clients() {
                 <div className="inner-container">
                     <div className="sponsors-outer">
                         {/*Sponsors Carousel*/}
-                        <Swiper {...swiperOptions} className="sponsors-carousel owl-carousel owl-theme">
+                        <Swiper {...swiperOptions} className="sponsors-carousel ">
                             <SwiperSlide>
                             <li className="slide-item"><figure className="image-box"><Link href="#"><img src="assets/images/clients/1.jpg" alt=""/></Link></figure></li>
                             </SwiperSlide>

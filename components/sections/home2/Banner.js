@@ -36,7 +36,7 @@ export default function Banner() {
     {/* Banner Section Two */}
     <section className="banner-section-two" id="home">
 		<div className="pattern-layer" style={{ backgroundImage: 'url(assets/images/main-slider/pattern-2.png)' }} ></div>
-		<Swiper {...swiperOptions} className="main-slider-carousel owl-carousel owl-theme">
+		<Swiper {...swiperOptions} className="main-slider-carousel ">
             
 			{/* Slide */}
             <SwiperSlide>

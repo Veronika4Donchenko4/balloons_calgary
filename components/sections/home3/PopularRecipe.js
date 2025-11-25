@@ -68,7 +68,7 @@ export default function PopularRecipe() {
                         <h4>The most popular recipes </h4>
                         <div className="separator"></div>
                     </div>
-                    <Swiper {...swiperOptions} className="posts-carousel owl-carousel owl-theme">
+                    <Swiper {...swiperOptions} className="posts-carousel ">
                     
                         {/* Recipe Block Five */}
                         <SwiperSlide>

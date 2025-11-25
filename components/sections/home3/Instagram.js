@@ -70,7 +70,7 @@ export default function Instagram() {
                     <h4>@ yourinstagram</h4>
                     <div className="separator"></div>
                 </div>
-                <Swiper {...swiperOptions} className="instagram-carousel owl-carousel owl-theme">
+                <Swiper {...swiperOptions} className="instagram-carousel ">
                     
                     {/* Instagram Block */}
                     <SwiperSlide>

@@ -76,7 +76,7 @@ export default function AwardSlider1() {
             </Swiper> */}
             
 
-                <Swiper {...swiperOptions} className="gallery-carousel owl-carousel owl-theme">
+                <Swiper {...swiperOptions} className="gallery-carousel ">
                         
                         {/* Gallery Block */}
                         <SwiperSlide>

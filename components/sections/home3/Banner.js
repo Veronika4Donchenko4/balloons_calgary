@@ -35,7 +35,7 @@ export default function Banner() {
 
             {/* Banner Section */}
             <section className="banner-section-three">
-                <Swiper {...swiperOptions} className="main-slider-carousel owl-carousel owl-theme">
+                <Swiper {...swiperOptions} className="main-slider-carousel ">
                     
                     {/* Slide */}
                     <SwiperSlide>
