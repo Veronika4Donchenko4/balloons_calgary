@@ -50,8 +50,8 @@ export default function Banner() {
                             {/* Content Column */}
                             <div className="content-column col-lg-6 col-md-12 col-sm-12">
                                 <div className="inner-column">
-                                    <h1><span className="first-letter">Heathly</span><span className="second-letter">Smoothie</span></h1>
-                                    <div className="text">Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</div>
+                                    <h1><span className="first-letter">Balloons</span><span className="second-letter">Calgary</span></h1>
+                                    <div className="text">Лєра давай пліз ми оставим тут текст я зроблю просто більше лого в самому верху</div>
                                     <div className="btns-box">
                                         <Link href="menu" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
                                     </div>

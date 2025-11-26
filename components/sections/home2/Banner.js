@@ -41,7 +41,7 @@ export default function Banner() {
 			{/* Slide */}
             <SwiperSlide>
             <div className="slide">
-				<div className="slide-middle-text">Foodily</div>
+				<div className="slide-middle-text">Test</div>
 				<div className="icon-layer-one" style={{ backgroundImage: 'url(assets/images/main-slider/icon-4.png)' }} ></div>
 				<div className="icon-layer-two" style={{ backgroundImage: 'url(assets/images/main-slider/icon-5.png)' }} ></div>
 				<div className="auto-container">

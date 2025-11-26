@@ -5847,7 +5847,7 @@ img{
 
 .btn-style-one:hover{
 	color: #ffffff;
-	background-color:#91ad41;
+	background-color:#EBA99A;
 }
 
 /* Btn Style Two */
@@ -5941,7 +5941,7 @@ img{
 	overflow:hidden;
 	overflow: hidden;
 	border-radius: 50px;
-	background-color:#5dca89;
+	background-color:#EBA99A;
 	padding:7px 35px 6px 7px;
 	text-transform: capitalize;
 	font-family: var(--poppins);
@@ -7568,7 +7568,7 @@ img{
 	overflow:hidden;
 	padding-top:150px;
 	padding-bottom:0px;
-	background-color:#beb996;
+	background-color:#EBA99A;
 }
 
 .banner-section .slide.style-two{
