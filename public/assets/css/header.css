@@ -6,6 +6,16 @@
 
 ***/
 
+
+.header-inst{
+	position:absolute;
+	left:0px;
+	top:0px;
+	padding-top:30px;
+	padding-left:80px;
+	color:#ffffff;
+}
+
 .main-header{
 	position:absolute;
 	left:0px;

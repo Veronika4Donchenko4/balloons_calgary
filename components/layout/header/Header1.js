@@ -14,18 +14,19 @@ export default function Header1({ scroll, handlePopup, handleMobileMenu, handleS
 		{/* Header Upper */}
         <div className="header-upper">
         	<div className="auto-container clearfix">
-            	
-				<div className="pull-left logo-box">
-					<div className="logo"><Link href="/"><img src="assets/images/logo.png" alt="" title=""/></Link></div>
-				</div>
-				
+
+				            	{
+									<ul className="header-inst">
+										<li><Link href="#"><span className="icon fa fa-instagram"></span>instagram</Link></li>
+									</ul>
+								}
+
 				<div className="nav-outer clearfix">
 					{/*Mobile Navigation Toggler*/}
 					<div className="mobile-nav-toggler"><span className="icon flaticon-menu" onClick={handleMobileMenu}></span></div>
 					{/* Main Menu */}
 					<nav className="main-menu navbar-expand-md">
 					<Menu />
-
 					</nav>
 					
 					{/* Main Menu End*/}

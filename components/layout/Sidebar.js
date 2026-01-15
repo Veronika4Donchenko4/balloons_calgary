@@ -38,7 +38,7 @@ export default function Sidebar({ isSidebar, handleSidebar }) {
 								<li className="facebook"><Link href="#" className="fa fa-facebook-f"></Link></li>
 								<li className="twitter"><Link href="#" className="fa fa-twitter"></Link></li>
 								<li className="linkedin"><Link href="#" className="fa fa-linkedin"></Link></li>
-								<li className="instagram"><Link href="#" className="fa fa-instagram"></Link></li>
+								<li className="instagram"><Link href="https://www.instagram.com/balloons_calgary_yyc?igsh=Y3RsN29jN3pkNXZw" className="fa fa-instagram"></Link></li>
 								<li className="youtube"><Link href="#" className="fa fa-youtube"></Link></li>
 							</ul>
 						</div>
