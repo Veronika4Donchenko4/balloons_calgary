@@ -5608,6 +5608,17 @@ body {
 	padding:0px 50px 0px;
 }
 
+.header-inst a {
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.header-inst a:hover {
+  color: #ffffff;
+}
+
+
 a{
 	text-decoration:none;
 	cursor:pointer;
