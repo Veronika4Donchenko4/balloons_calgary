@@ -57,7 +57,12 @@ export default function Banner() {
         className="logo-image"
      />
 </h1>
-                                    <div className="text">test test test</div>
+                                    <div className="text">
+                                    <p>Modern Balloon Sets for Your Special Moments in Calgary</p>
+                                    <p>
+                                     We create ready-made balloon compositions for the most important and joyful occasions.
+                                     Simple, beautiful and stylish solutions for those who want effortless decor with a modern aesthetic.
+                                     </p></div>
                                     <div className="btns-box">
                                         <Link href="menu" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
                                     </div>
