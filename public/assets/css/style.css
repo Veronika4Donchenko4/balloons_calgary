@@ -296,6 +296,7 @@
 	opacity:1;
 	transform: translateX(0px);
 	transition-delay: 500ms;
+	padding-left:50px;
 }
 
 .banner-section .icon-layer-three{

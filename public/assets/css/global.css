@@ -90,7 +90,7 @@ body {
 	background:#ffffff;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
-	font-family: var(--poppins);
+	font-family: var(--tsukimi), sans-serif;
 }
 
 .bordered-layout .page-wrapper{
