@@ -6585,7 +6585,7 @@ img{
 }
 
 .main-menu .navigation > li > ul > li.dropdown:hover > a:after{
-	color:#222222;
+	color:#B46959;
 }
 
 .main-menu .navigation > li > ul > li > ul{
@@ -14585,7 +14585,7 @@ img{
 	
 	.main-header{
 		position:relative;
-		background-color:#222222;
+		background-color: #B46959;
 	}
 	
 	.main-header .nav-outer{
