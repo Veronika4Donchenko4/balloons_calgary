@@ -89,7 +89,7 @@ export default function Banner() {
 
                 {/* Slide */}
                 <SwiperSlide>
-                <div className="slide">
+                <div className="slide style-first">
                     <div className="icon-layer-one" style={{ backgroundImage: 'url(assets/images/main-slider/icon-1.png)' }} ></div>
                     <div className="icon-layer-two" style={{ backgroundImage: 'url(assets/images/main-slider/icon-6.png)' }} ></div>
                     <div className="auto-container">
