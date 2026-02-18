@@ -1,59 +1,68 @@
+"use client"
 import Link from "next/link"
-// import { useRouter } from "next/router"
+import { usePathname } from "next/navigation"
 
 export default function Menu() {
-    // const router = useRouter()
-
+    const pathname = usePathname()
+    const isHome = pathname === "/"
 
     return (
         <>
             <ul className="navigation">
+                {!isHome && (
+                    <li>
+                        <Link href="/">Home</Link>
+                    </li>
+                )}
                 <li className="dropdown">
-                    <Link href="/">Home </Link>
+                    <Link href="#">Girls</Link>
                     <ul>
-                        <li><Link href="/">Home One</Link></li>
-                        <li><Link href="index-2">Home Two</Link></li>
-                        <li><Link href="index-3">Home Three</Link></li>
-                        <li><Link href="index-4">Home Four</Link></li>
+                        <li><Link href="/girls/1">Package 1 - 70 CAD</Link></li>
+                        <li><Link href="/girls/2">Package 2 - 80 CAD</Link></li>
+                        <li><Link href="/girls/3">Package 3 - 90 CAD</Link></li>
+                        <li><Link href="/girls/4">Package 4 - 100 CAD</Link></li>
+                        <li><Link href="/girls/5">Package 5 - 120 CAD</Link></li>
+                        <li><Link href="/girls/6">Package 6 - 140 CAD</Link></li>
+                        <li><Link href="/girls/7">Package 7 - 150 CAD</Link></li>
+                        <li><Link href="/girls/8">Package 8 - 160 CAD</Link></li>
+                        <li><Link href="/girls/9">Package 9 - 180 CAD</Link></li>
+                        <li><Link href="/girls/10">Package 10 - 200 CAD</Link></li>
                     </ul>
                 </li>
                 <li className="dropdown">
-                    <Link href="#">About</Link>
+                    <Link href="#">For Him</Link>
                     <ul>
-                        <li><Link href="about">About</Link></li>
-                        <li><Link href="team">Team</Link></li>
-                        <li><Link href="restaurant">Restaurant</Link></li>
+                        <li><Link href="/for-him/1">Package 1 - 120 CAD</Link></li>
+                        <li><Link href="/for-him/2">Package 2 - 160 CAD</Link></li>
                     </ul>
                 </li>
                 <li className="dropdown">
-                    <Link href="#">Menu</Link>
+                    <Link href="#">Classic Collections</Link>
                     <ul>
-                        <li><Link href="menu">Menu</Link></li>
-                        <li><Link href="milkshake">Milk Shake</Link></li>
-                        <li><Link href="frappe">Frappe</Link></li>
-                        <li><Link href="boba-tea">Boba Tea</Link></li>
-                        <li><Link href="slushy">Slushy</Link></li>
-                        
+                        <li><Link href="/classic/numbers">Numbers - 120 CAD</Link></li>
+                        <li><Link href="/classic/sets">Sets - 160 CAD</Link></li>
                     </ul>
                 </li>
                 <li className="dropdown">
-                    <Link href="#">Gallery</Link>
+                    <Link href="#">Category 1</Link>
                     <ul>
-                        <li><Link href="gallery">Gallery</Link></li>
-                        <li><Link href="gallery-2">Gallery 02</Link></li>                        
+                        <li><Link href="/category1">Category 1</Link></li>
                     </ul>
                 </li>
                 <li className="dropdown">
-                    <Link href="#">Blog</Link>
+                    <Link href="#">Category 2</Link>
                     <ul>
-                        <li><Link href="blog-classic">Blog Classic</Link></li>
-                        <li><Link href="blog-details2">Blog Single 02</Link></li>
-                        <li><Link href="blog-details">Blog Details</Link></li>
-                        <li><Link href="/error">Not Found</Link></li>
+                        <li><Link href="/category2">Category 2</Link></li>
+                    </ul>
+                </li>
+                <li className="dropdown">
+                    <Link href="#">Category 3</Link>
+                    <ul>
+                        <li><Link href="/category3">Category 3</Link></li>
                     </ul>
                 </li>
                 <li>
-                    <Link href="contact">Contact</Link>
+                    <Link href="/contact">Contact</Link>
                 </li>
             </ul>
         </>

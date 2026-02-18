@@ -1,5 +1,9 @@
 {
+  "/page": "app/page.js",
   "/not-found": "app/not-found.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/page": "app/page.js"
+  "/index-4/page": "app/index-4/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/menu/page": "app/menu/page.js",
+  "/milkshake/page": "app/milkshake/page.js"
 }
