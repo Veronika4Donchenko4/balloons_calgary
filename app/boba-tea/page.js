@@ -52,9 +52,9 @@ export default function Home() {
                             <div className="menu-block">
                                 <div className="inner-box">
                                     <div className="menu-image">
-                                        <Link href="menu"><img src="assets/images/resource/menu-19.jpg" alt="" /></Link>
+                                        <Link href="/catalog"><img src="assets/images/resource/menu-19.jpg" alt="" /></Link>
                                     </div>
-                                    <h6><Link href="menu">Honeydew Boba tea</Link></h6>
+                                    <h6><Link href="/catalog">Honeydew Boba tea</Link></h6>
                                     <div className="title">Crispy black garlic</div>
                                     <div className="price-box">
                                         <span className="price">$15</span>
@@ -66,9 +66,9 @@ export default function Home() {
                             <div className="menu-block">
                                 <div className="inner-box">
                                     <div className="menu-image">
-                                        <Link href="menu"><img src="assets/images/resource/menu-20.jpg" alt="" /></Link>
+                                        <Link href="/catalog"><img src="assets/images/resource/menu-20.jpg" alt="" /></Link>
                                     </div>
-                                    <h6><Link href="menu">Lyche Boba tea</Link></h6>
+                                    <h6><Link href="/catalog">Lyche Boba tea</Link></h6>
                                     <div className="title">Crispy black garlic</div>
                                     <div className="price-box">
                                         <span className="price">$15</span>
@@ -80,9 +80,9 @@ export default function Home() {
                             <div className="menu-block">
                                 <div className="inner-box">
                                     <div className="menu-image">
-                                        <Link href="menu"><img src="assets/images/resource/menu-21.jpg" alt="" /></Link>
+                                        <Link href="/catalog"><img src="assets/images/resource/menu-21.jpg" alt="" /></Link>
                                     </div>
-                                    <h6><Link href="menu">Mango Boba tea</Link></h6>
+                                    <h6><Link href="/catalog">Mango Boba tea</Link></h6>
                                     <div className="title">Crispy black garlic</div>
                                     <div className="price-box">
                                         <span className="price">$15</span>
@@ -94,9 +94,9 @@ export default function Home() {
                             <div className="menu-block">
                                 <div className="inner-box">
                                     <div className="menu-image">
-                                        <Link href="menu"><img src="assets/images/resource/menu-22.jpg" alt="" /></Link>
+                                        <Link href="/catalog"><img src="assets/images/resource/menu-22.jpg" alt="" /></Link>
                                     </div>
-                                    <h6><Link href="menu">Passion Fruit Boba tea</Link></h6>
+                                    <h6><Link href="/catalog">Passion Fruit Boba tea</Link></h6>
                                     <div className="title">Crispy black garlic</div>
                                     <div className="price-box">
                                         <span className="price">$15</span>
@@ -114,9 +114,9 @@ export default function Home() {
                             <div className="menu-block">
                                 <div className="inner-box">
                                     <div className="menu-image">
-                                        <Link href="menu"><img src="assets/images/resource/menu-23.jpg" alt="" /></Link>
+                                        <Link href="/catalog"><img src="assets/images/resource/menu-23.jpg" alt="" /></Link>
                                     </div>
-                                    <h6><Link href="menu">Peach Boba tea</Link></h6>
+                                    <h6><Link href="/catalog">Peach Boba tea</Link></h6>
                                     <div className="title">Crispy black garlic</div>
                                     <div className="price-box">
                                         <span className="price">$15</span>
@@ -128,9 +128,9 @@ export default function Home() {
                             <div className="menu-block">
                                 <div className="inner-box">
                                     <div className="menu-image">
-                                        <Link href="menu"><img src="assets/images/resource/menu-24.jpg" alt="" /></Link>
+                                        <Link href="/catalog"><img src="assets/images/resource/menu-24.jpg" alt="" /></Link>
                                     </div>
-                                    <h6><Link href="menu">Plum Boba tea</Link></h6>
+                                    <h6><Link href="/catalog">Plum Boba tea</Link></h6>
                                     <div className="title">Crispy black garlic</div>
                                     <div className="price-box">
                                         <span className="price">$15</span>
@@ -142,9 +142,9 @@ export default function Home() {
                             <div className="menu-block">
                                 <div className="inner-box">
                                     <div className="menu-image">
-                                        <Link href="menu"><img src="assets/images/resource/menu-25.jpg" alt="" /></Link>
+                                        <Link href="/catalog"><img src="assets/images/resource/menu-25.jpg" alt="" /></Link>
                                     </div>
-                                    <h6><Link href="menu">Strawberry Boba tea</Link></h6>
+                                    <h6><Link href="/catalog">Strawberry Boba tea</Link></h6>
                                     <div className="title">Crispy black garlic</div>
                                     <div className="price-box">
                                         <span className="price">$15</span>
@@ -156,9 +156,9 @@ export default function Home() {
                             <div className="menu-block">
                                 <div className="inner-box">
                                     <div className="menu-image">
-                                        <Link href="menu"><img src="assets/images/resource/menu-26.jpg" alt="" /></Link>
+                                        <Link href="/catalog"><img src="assets/images/resource/menu-26.jpg" alt="" /></Link>
                                     </div>
-                                    <h6><Link href="menu">Avocado Boba tea</Link></h6>
+                                    <h6><Link href="/catalog">Avocado Boba tea</Link></h6>
                                     <div className="title">Crispy black garlic</div>
                                     <div className="price-box">
                                         <span className="price">$15</span>

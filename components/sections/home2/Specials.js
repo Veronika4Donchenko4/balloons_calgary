@@ -23,12 +23,12 @@ export default function Specials() {
                         <div className="special-block col-lg-4 col-md-6 col-sm-12">
                             <div className="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <div className="image">
-                                    <Link href="milkshake"><img src="assets/images/resource/special-1.jpg" alt="" /></Link>
+                                    <Link href="/catalog"><img src="assets/images/resource/special-1.jpg" alt="" /></Link>
                                 </div>
                                 <div className="lower-content">
                                     <div className="clearfix">
                                         <div className="pull-left">
-                                            <h4><Link href="milkshake">Fried Potatoes</Link></h4>
+                                            <h4><Link href="/catalog">Fried Potatoes</Link></h4>
                                         </div>
                                         <div className="pull-right">
                                             <div className="price">$15</div>
@@ -42,12 +42,12 @@ export default function Specials() {
                         <div className="special-block col-lg-4 col-md-6 col-sm-12">
                             <div className="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <div className="image">
-                                    <Link href="milkshake"><img src="assets/images/resource/special-2.jpg" alt="" /></Link>
+                                    <Link href="/catalog"><img src="assets/images/resource/special-2.jpg" alt="" /></Link>
                                 </div>
                                 <div className="lower-content">
                                     <div className="clearfix">
                                         <div className="pull-left">
-                                            <h4><Link href="milkshake">shawarma</Link></h4>
+                                            <h4><Link href="/catalog">shawarma</Link></h4>
                                         </div>
                                         <div className="pull-right">
                                             <div className="price">$15</div>
@@ -61,12 +61,12 @@ export default function Specials() {
                         <div className="special-block col-lg-4 col-md-6 col-sm-12">
                             <div className="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <div className="image">
-                                    <Link href="milkshake"><img src="assets/images/resource/special-3.jpg" alt="" /></Link>
+                                    <Link href="/catalog"><img src="assets/images/resource/special-3.jpg" alt="" /></Link>
                                 </div>
                                 <div className="lower-content">
                                     <div className="clearfix">
                                         <div className="pull-left">
-                                            <h4><Link href="milkshake">pizza</Link></h4>
+                                            <h4><Link href="/catalog">pizza</Link></h4>
                                         </div>
                                         <div className="pull-right">
                                             <div className="price">$15</div>
@@ -80,12 +80,12 @@ export default function Specials() {
                         <div className="special-block col-lg-4 col-md-6 col-sm-12">
                             <div className="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <div className="image">
-                                    <Link href="milkshake"><img src="assets/images/resource/special-4.jpg" alt="" /></Link>
+                                    <Link href="/catalog"><img src="assets/images/resource/special-4.jpg" alt="" /></Link>
                                 </div>
                                 <div className="lower-content">
                                     <div className="clearfix">
                                         <div className="pull-left">
-                                            <h4><Link href="milkshake">burger</Link></h4>
+                                            <h4><Link href="/catalog">burger</Link></h4>
                                         </div>
                                         <div className="pull-right">
                                             <div className="price">$15</div>
@@ -99,12 +99,12 @@ export default function Specials() {
                         <div className="special-block col-lg-4 col-md-6 col-sm-12">
                             <div className="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <div className="image">
-                                    <Link href="milkshake"><img src="assets/images/resource/special-5.jpg" alt="" /></Link>
+                                    <Link href="/catalog"><img src="assets/images/resource/special-5.jpg" alt="" /></Link>
                                 </div>
                                 <div className="lower-content">
                                     <div className="clearfix">
                                         <div className="pull-left">
-                                            <h4><Link href="milkshake">club sandwiches</Link></h4>
+                                            <h4><Link href="/catalog">club sandwiches</Link></h4>
                                         </div>
                                         <div className="pull-right">
                                             <div className="price">$15</div>
@@ -118,12 +118,12 @@ export default function Specials() {
                         <div className="special-block col-lg-4 col-md-6 col-sm-12">
                             <div className="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <div className="image">
-                                    <Link href="milkshake"><img src="assets/images/resource/special-6.jpg" alt="" /></Link>
+                                    <Link href="/catalog"><img src="assets/images/resource/special-6.jpg" alt="" /></Link>
                                 </div>
                                 <div className="lower-content">
                                     <div className="clearfix">
                                         <div className="pull-left">
-                                            <h4><Link href="milkshake">spicy chicken</Link></h4>
+                                            <h4><Link href="/catalog">spicy chicken</Link></h4>
                                         </div>
                                         <div className="pull-right">
                                             <div className="price">$15</div>

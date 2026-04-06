@@ -26,9 +26,9 @@ export default function Menu3() {
                                 <div className="menu-block">
                                     <div className="inner-box">
                                         <div className="menu-image">
-                                            <Link href="menu"><img src="assets/images/resource/menu-1.jpg" alt="" /></Link>
+                                            <Link href="/catalog"><img src="assets/images/resource/menu-1.jpg" alt="" /></Link>
                                         </div>
-                                        <h6><Link href="menu">Grilled Toast Burger</Link></h6>
+                                        <h6><Link href="/catalog">Grilled Toast Burger</Link></h6>
                                         <div className="title">Crispy black garlic</div>
                                         <div className="price-box">
                                             <span className="price">$15</span>
@@ -40,9 +40,9 @@ export default function Menu3() {
                                 <div className="menu-block">
                                     <div className="inner-box">
                                         <div className="menu-image">
-                                            <Link href="menu"><img src="assets/images/resource/menu-3.jpg" alt="" /></Link>
+                                            <Link href="/catalog"><img src="assets/images/resource/menu-3.jpg" alt="" /></Link>
                                         </div>
-                                        <h6><Link href="menu">Fried snacks</Link></h6>
+                                        <h6><Link href="/catalog">Fried snacks</Link></h6>
                                         <div className="title">Crispy black garlic</div>
                                         <div className="price-box">
                                             <span className="price">$15</span>
@@ -54,9 +54,9 @@ export default function Menu3() {
                                 <div className="menu-block">
                                     <div className="inner-box">
                                         <div className="menu-image">
-                                            <Link href="menu"><img src="assets/images/resource/menu-5.jpg" alt="" /></Link>
+                                            <Link href="/catalog"><img src="assets/images/resource/menu-5.jpg" alt="" /></Link>
                                         </div>
-                                        <h6><Link href="menu">Pizza</Link></h6>
+                                        <h6><Link href="/catalog">Pizza</Link></h6>
                                         <div className="title">Crispy black garlic</div>
                                         <div className="price-box">
                                             <span className="price">$15</span>
@@ -68,9 +68,9 @@ export default function Menu3() {
                                 <div className="menu-block">
                                     <div className="inner-box">
                                         <div className="menu-image">
-                                            <Link href="menu"><img src="assets/images/resource/menu-7.jpg" alt="" /></Link>
+                                            <Link href="/catalog"><img src="assets/images/resource/menu-7.jpg" alt="" /></Link>
                                         </div>
-                                        <h6><Link href="menu">Sandwiches</Link></h6>
+                                        <h6><Link href="/catalog">Sandwiches</Link></h6>
                                         <div className="title">Crispy black garlic</div>
                                         <div className="price-box">
                                             <span className="price">$15</span>
@@ -88,9 +88,9 @@ export default function Menu3() {
                                 <div className="menu-block">
                                     <div className="inner-box">
                                         <div className="menu-image">
-                                            <Link href="menu"><img src="assets/images/resource/menu-2.jpg" alt="" /></Link>
+                                            <Link href="/catalog"><img src="assets/images/resource/menu-2.jpg" alt="" /></Link>
                                         </div>
-                                        <h6><Link href="menu">Coca Cola</Link></h6>
+                                        <h6><Link href="/catalog">Coca Cola</Link></h6>
                                         <div className="title">Carbonated Drinks</div>
                                         <div className="price-box">
                                             <span className="price">$15</span>
@@ -102,9 +102,9 @@ export default function Menu3() {
                                 <div className="menu-block">
                                     <div className="inner-box">
                                         <div className="menu-image">
-                                            <Link href="menu"><img src="assets/images/resource/menu-4.jpg" alt="" /></Link>
+                                            <Link href="/catalog"><img src="assets/images/resource/menu-4.jpg" alt="" /></Link>
                                         </div>
-                                        <h6><Link href="menu">Papsi</Link></h6>
+                                        <h6><Link href="/catalog">Papsi</Link></h6>
                                         <div className="title">Carbonated Drinks</div>
                                         <div className="price-box">
                                             <span className="price">$15</span>
@@ -116,9 +116,9 @@ export default function Menu3() {
                                 <div className="menu-block">
                                     <div className="inner-box">
                                         <div className="menu-image">
-                                            <Link href="menu"><img src="assets/images/resource/menu-6.jpg" alt="" /></Link>
+                                            <Link href="/catalog"><img src="assets/images/resource/menu-6.jpg" alt="" /></Link>
                                         </div>
-                                        <h6><Link href="menu">Mirinda</Link></h6>
+                                        <h6><Link href="/catalog">Mirinda</Link></h6>
                                         <div className="title">Carbonated Drinks</div>
                                         <div className="price-box">
                                             <span className="price">$15</span>
@@ -130,9 +130,9 @@ export default function Menu3() {
                                 <div className="menu-block">
                                     <div className="inner-box">
                                         <div className="menu-image">
-                                            <Link href="menu"><img src="assets/images/resource/menu-8.jpg" alt="" /></Link>
+                                            <Link href="/catalog"><img src="assets/images/resource/menu-8.jpg" alt="" /></Link>
                                         </div>
-                                        <h6><Link href="menu">Fanta</Link></h6>
+                                        <h6><Link href="/catalog">Fanta</Link></h6>
                                         <div className="title">Carbonated Drinks</div>
                                         <div className="price-box">
                                             <span className="price">$15</span>

@@ -18,7 +18,7 @@ export default function Fluid() {
                             </div>
                             
                             <div className="button-box">
-                                <Link href="menu" className="theme-btn btn-style-two clearfix"><span className="icon"></span>All Product</Link>
+                                <Link href="/catalog" className="theme-btn btn-style-two clearfix"><span className="icon"></span>All Product</Link>
                             </div>
                         </div>
                     </div>

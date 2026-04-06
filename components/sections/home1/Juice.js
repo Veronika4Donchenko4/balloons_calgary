@@ -52,7 +52,7 @@ export default function Juice() {
                                 </div>
                             </div>
 
-                            <Link href="menu" className="theme-btn btn-style-two clearfix">
+                            <Link href="/catalog" className="theme-btn btn-style-two clearfix">
                                 <span className="icon"></span>Order Your Balloons
                             </Link>
 

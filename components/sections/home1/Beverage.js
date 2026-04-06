@@ -26,10 +26,10 @@ export default function Beverage() {
                         <div className="beverage-block col-xl-3 col-lg-4 col-md-6 col-sm-12">
                             <div className="inner-box">
                                 <div className="image">
-                                    <Link href="milkshake"><img src="assets/images/resource/beverage-1.jpg" alt="" /></Link>
+                                    <Link href="/girls/1"><img src="assets/images/resource/beverage-1.jpg" alt="" /></Link>
                                 </div>
                                 <div className="lower-content">
-                                    <h6><Link href="milkshake">Girls Collection</Link></h6>
+                                    <h6><Link href="/girls/1">Girls Collection</Link></h6>
                                     <div className="products">10 packages</div>
                                 </div>
                             </div>
@@ -39,10 +39,10 @@ export default function Beverage() {
                         <div className="beverage-block col-xl-3 col-lg-4 col-md-6 col-sm-12">
                             <div className="inner-box">
                                 <div className="image">
-                                    <Link href="milkshake"><img src="assets/images/resource/beverage-2.jpg" alt="" /></Link>
+                                    <Link href="/for-him/1"><img src="assets/images/resource/beverage-2.jpg" alt="" /></Link>
                                 </div>
                                 <div className="lower-content">
-                                    <h6><Link href="milkshake">For Him</Link></h6>
+                                    <h6><Link href="/for-him/1">For Him</Link></h6>
                                     <div className="products">2 packages</div>
                                 </div>
                             </div>
@@ -52,10 +52,10 @@ export default function Beverage() {
                         <div className="beverage-block col-xl-3 col-lg-4 col-md-6 col-sm-12">
                             <div className="inner-box">
                                 <div className="image">
-                                    <Link href="milkshake"><img src="assets/images/resource/beverage-3.jpg" alt="" /></Link>
+                                    <Link href="/birthday"><img src="assets/images/resource/beverage-3.jpg" alt="" /></Link>
                                 </div>
                                 <div className="lower-content">
-                                    <h6><Link href="milkshake">Birthday Sets</Link></h6>
+                                    <h6><Link href="/birthday">Birthday Sets</Link></h6>
                                     <div className="products">party bundles</div>
                                 </div>
                             </div>
@@ -65,10 +65,10 @@ export default function Beverage() {
                         <div className="beverage-block col-xl-3 col-lg-4 col-md-6 col-sm-12">
                             <div className="inner-box">
                                 <div className="image">
-                                    <Link href="milkshake"><img src="assets/images/resource/beverage-4.jpg" alt="" /></Link>
+                                    <Link href="/classic/numbers"><img src="assets/images/resource/beverage-4.jpg" alt="" /></Link>
                                 </div>
                                 <div className="lower-content">
-                                    <h6><Link href="milkshake">Number Balloons</Link></h6>
+                                    <h6><Link href="/classic/numbers">Number Balloons</Link></h6>
                                     <div className="products">age balloons</div>
                                 </div>
                             </div>
@@ -78,10 +78,10 @@ export default function Beverage() {
                         <div className="beverage-block col-xl-3 col-lg-4 col-md-6 col-sm-12">
                             <div className="inner-box">
                                 <div className="image">
-                                    <Link href="milkshake"><img src="assets/images/resource/beverage-5.jpg" alt="" /></Link>
+                                    <Link href="/baby-shower"><img src="assets/images/resource/beverage-5.jpg" alt="" /></Link>
                                 </div>
                                 <div className="lower-content">
-                                    <h6><Link href="milkshake">Baby Shower</Link></h6>
+                                    <h6><Link href="/baby-shower">Baby Shower</Link></h6>
                                     <div className="products">boy & girl themes</div>
                                 </div>
                             </div>
@@ -91,10 +91,10 @@ export default function Beverage() {
                         <div className="beverage-block col-xl-3 col-lg-4 col-md-6 col-sm-12">
                             <div className="inner-box">
                                 <div className="image">
-                                    <Link href="milkshake"><img src="assets/images/resource/beverage-6.jpg" alt="" /></Link>
+                                    <Link href="/romantic"><img src="assets/images/resource/beverage-6.jpg" alt="" /></Link>
                                 </div>
                                 <div className="lower-content">
-                                    <h6><Link href="milkshake">Romantic & Love</Link></h6>
+                                    <h6><Link href="/romantic">Romantic & Love</Link></h6>
                                     <div className="products">heart balloons</div>
                                 </div>
                             </div>
@@ -104,10 +104,10 @@ export default function Beverage() {
                         <div className="beverage-block col-xl-3 col-lg-4 col-md-6 col-sm-12">
                             <div className="inner-box">
                                 <div className="image">
-                                    <Link href="milkshake"><img src="assets/images/resource/beverage-7.jpg" alt="" /></Link>
+                                    <Link href="/luxury"><img src="assets/images/resource/beverage-7.jpg" alt="" /></Link>
                                 </div>
                                 <div className="lower-content">
-                                    <h6><Link href="milkshake">Luxury Sets</Link></h6>
+                                    <h6><Link href="/luxury">Luxury Sets</Link></h6>
                                     <div className="products">premium designs</div>
                                 </div>
                             </div>
@@ -117,10 +117,10 @@ export default function Beverage() {
                         <div className="beverage-block col-xl-3 col-lg-4 col-md-6 col-sm-12">
                             <div className="inner-box">
                                 <div className="image">
-                                    <Link href="milkshake"><img src="assets/images/resource/beverage-8.jpg" alt="" /></Link>
+                                    <Link href="/custom"><img src="assets/images/resource/beverage-8.jpg" alt="" /></Link>
                                 </div>
                                 <div className="lower-content">
-                                    <h6><Link href="milkshake">Custom Orders</Link></h6>
+                                    <h6><Link href="/custom">Custom Orders</Link></h6>
                                     <div className="products">personal design</div>
                                 </div>
                             </div>
@@ -130,7 +130,7 @@ export default function Beverage() {
 
                     {/* Button Box */}
                     <div className="button-box text-center">
-                        <Link href="menu" className="theme-btn btn-style-two clearfix">
+                        <Link href="/catalog" className="theme-btn btn-style-two clearfix">
                             <span className="icon"></span>View All Balloon Packages
                         </Link>
                     </div>

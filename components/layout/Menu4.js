@@ -33,8 +33,8 @@ export default function Menu() {
                 <li className="dropdown">
                     <Link href="#">Menu</Link>
                     <ul>
-                        <li><Link href="menu">Menu</Link></li>
-                        <li><Link href="milkshake">Milk Shake</Link></li>
+                        <li><Link href="/catalog">Menu</Link></li>
+                        <li><Link href="/catalog">Milk Shake</Link></li>
                         <li><Link href="frappe">Frappe</Link></li>
                         <li><Link href="boba-tea">Boba Tea</Link></li>
                         <li><Link href="slushy">Slushy</Link></li>                        

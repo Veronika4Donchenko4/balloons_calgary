@@ -2,8 +2,9 @@
   "/page": "app/page.js",
   "/not-found": "app/not-found.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/index-4/page": "app/index-4/page.js",
   "/contact/page": "app/contact/page.js",
-  "/menu/page": "app/menu/page.js",
-  "/milkshake/page": "app/milkshake/page.js"
+  "/birthday/page": "app/birthday/page.js",
+  "/luxury/page": "app/luxury/page.js",
+  "/classic/[slug]/page": "app/classic/[slug]/page.js",
+  "/girls/[id]/page": "app/girls/[id]/page.js"
 }

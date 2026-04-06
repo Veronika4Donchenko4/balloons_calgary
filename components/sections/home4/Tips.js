@@ -32,7 +32,7 @@ export default function Tips() {
                                     <div className="text">voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</div>
                                 </div>
                                 <div className="btns-box text-center">
-                                    <Link href="menu" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
+                                    <Link href="/catalog" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
                                 </div>
                                 <div className="signature-image">
                                     <img src="assets/images/icons/signature.png" alt="" />

@@ -64,7 +64,7 @@ export default function Banner() {
                                      Simple, beautiful and stylish solutions for those who want effortless decor with a modern aesthetic.
                                      </p></div>
                                     <div className="btns-box">
-                                        <Link href="menu" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
+                                        <Link href="/catalog" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
                                     </div>
                                     <div className="icons-box">
                                         <img src="assets/images/main-slider/icons.png" alt="" />
@@ -101,7 +101,7 @@ export default function Banner() {
                                     <img src="assets/images/logo.png" alt="Balloons Calgary" />
                                     <div className="text">Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</div>
                                     <div className="btns-box">
-                                        <Link href="menu" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
+                                        <Link href="/catalog" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
                                     </div>
                                     <div className="icons-box">
                                         <img src="assets/images/main-slider/icons.png" alt="" />
@@ -137,7 +137,7 @@ export default function Banner() {
                                     <h1><span className="first-letter">Calgary</span><span className="second-letter">Calgary</span></h1>
                                     <div className="text">Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</div>
                                     <div className="btns-box">
-                                        <Link href="menu" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
+                                        <Link href="/catalog" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
                                     </div>
                                     <div className="icons-box">
                                         <img src="assets/images/main-slider/icons.png" alt="" />

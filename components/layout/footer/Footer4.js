@@ -47,7 +47,7 @@ export default function Footer4() {
                                     <div className="footer-column col-lg-6 col-md-6 col-sm-12">
                                         <div className="footer-widget visit-widget">
                                             <h6>Visit</h6>
-                                            <div className="text">6Fifth Avenue 5501, Broadway, <br/> New York Morris Street <br/> London 1234</div>
+                                            <div className="text">Calgary, Alberta, <br/> Canada</div>
                                         </div>
                                     </div>
                                     
@@ -72,7 +72,7 @@ export default function Footer4() {
                 </div>
                 <div className="footer-bottom">
                     <div className="auto-container">
-                        <div className="copyright">&copy; 2024 <Link href="/">foodily</Link> All Rights Reserved.</div>
+                        <div className="copyright">&copy; 2024 <Link href="/">Balloons Calgary</Link> All Rights Reserved.</div>
                     </div>
                 </div>
             </footer>

@@ -29,7 +29,7 @@ export default function Recipe() {
                                 <div className="recipe-block">
                                     <div className="inner-box">
                                         <div className="icon"><img src="assets/images/resource/recipe-1.png" alt=""/></div>
-                                        <h6><Link href="menu">Cucumber</Link></h6>
+                                        <h6><Link href="/catalog">Cucumber</Link></h6>
                                         <div className="text">Us percipit urbanitas referrentur ea. Mei at numquam molestiae</div>
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@ export default function Recipe() {
                                 <div className="recipe-block">
                                     <div className="inner-box">
                                         <div className="icon"><img src="assets/images/resource/recipe-2.png" alt=""/></div>
-                                        <h6><Link href="menu">Apple</Link></h6>
+                                        <h6><Link href="/catalog">Apple</Link></h6>
                                         <div className="text">Us percipit urbanitas referrentur ea. Mei at numquam molestiae</div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@ export default function Recipe() {
                                 <div className="recipe-block style-two">
                                     <div className="inner-box">
                                         <div className="icon"><img src="assets/images/resource/recipe-3.png" alt=""/></div>
-                                        <h6><Link href="menu">Lemon</Link></h6>
+                                        <h6><Link href="/catalog">Lemon</Link></h6>
                                         <div className="text">Us percipit urbanitas referrentur ea. Mei at numquam molestiae</div>
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@ export default function Recipe() {
                                 <div className="recipe-block style-two">
                                     <div className="inner-box">
                                         <div className="icon"><img src="assets/images/resource/recipe-4.png" alt=""/></div>
-                                        <h6><Link href="menu">Fresh Water</Link></h6>
+                                        <h6><Link href="/catalog">Fresh Water</Link></h6>
                                         <div className="text">Us percipit urbanitas referrentur ea. Mei at numquam molestiae</div>
                                     </div>
                                 </div>

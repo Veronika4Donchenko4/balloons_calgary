@@ -48,7 +48,7 @@ export default function Banner() {
                             <div className="box-inner">
                                 <h1>Unique <br/> Restaurant</h1>
                                 <div className="btn-box text-center">
-                                    <Link href="menu" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
+                                    <Link href="/catalog" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ export default function Banner() {
                             <div className="box-inner">
                                 <h1>Unique <br/> Restaurant</h1>
                                 <div className="btn-box text-center">
-                                    <Link href="menu" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
+                                    <Link href="/catalog" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@ export default function Banner() {
                             <div className="box-inner">
                                 <h1>Unique <br/> Restaurant</h1>
                                 <div className="btn-box text-center">
-                                    <Link href="menu" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
+                                    <Link href="/catalog" className="theme-btn btn-style-one clearfix"><span className="icon"></span>Buy Now</Link>
                                 </div>
                             </div>
                         </div>

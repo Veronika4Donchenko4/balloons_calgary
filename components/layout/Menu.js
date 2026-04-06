@@ -43,24 +43,6 @@ export default function Menu() {
                         <li><Link href="/classic/sets">Sets - 160 CAD</Link></li>
                     </ul>
                 </li>
-                <li className="dropdown">
-                    <Link href="#">Category 1</Link>
-                    <ul>
-                        <li><Link href="/category1">Category 1</Link></li>
-                    </ul>
-                </li>
-                <li className="dropdown">
-                    <Link href="#">Category 2</Link>
-                    <ul>
-                        <li><Link href="/category2">Category 2</Link></li>
-                    </ul>
-                </li>
-                <li className="dropdown">
-                    <Link href="#">Category 3</Link>
-                    <ul>
-                        <li><Link href="/category3">Category 3</Link></li>
-                    </ul>
-                </li>
                 <li>
                     <Link href="/contact">Contact</Link>
                 </li>

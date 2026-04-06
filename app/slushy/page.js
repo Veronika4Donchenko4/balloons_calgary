@@ -53,9 +53,9 @@ export default function Home() {
                                         <div className="menu-block">
                                             <div className="inner-box">
                                                 <div className="menu-image">
-                                                    <Link href="menu"><img src="assets/images/resource/menu-27.jpg" alt="" /></Link>
+                                                    <Link href="/catalog"><img src="assets/images/resource/menu-27.jpg" alt="" /></Link>
                                                 </div>
-                                                <h6><Link href="menu">Strawberry</Link></h6>
+                                                <h6><Link href="/catalog">Strawberry</Link></h6>
                                                 <div className="title">Crispy black garlic</div>
                                                 <div className="price-box">
                                                     <span className="price">$15</span>
@@ -67,9 +67,9 @@ export default function Home() {
                                         <div className="menu-block">
                                             <div className="inner-box">
                                                 <div className="menu-image">
-                                                    <Link href="menu"><img src="assets/images/resource/menu-28.jpg" alt="" /></Link>
+                                                    <Link href="/catalog"><img src="assets/images/resource/menu-28.jpg" alt="" /></Link>
                                                 </div>
-                                                <h6><Link href="menu">Sour Apple</Link></h6>
+                                                <h6><Link href="/catalog">Sour Apple</Link></h6>
                                                 <div className="title">Crispy black garlic</div>
                                                 <div className="price-box">
                                                     <span className="price">$15</span>
@@ -81,9 +81,9 @@ export default function Home() {
                                         <div className="menu-block">
                                             <div className="inner-box">
                                                 <div className="menu-image">
-                                                    <Link href="menu"><img src="assets/images/resource/menu-29.jpg" alt="" /></Link>
+                                                    <Link href="/catalog"><img src="assets/images/resource/menu-29.jpg" alt="" /></Link>
                                                 </div>
-                                                <h6><Link href="menu">Bubblegum</Link></h6>
+                                                <h6><Link href="/catalog">Bubblegum</Link></h6>
                                                 <div className="title">Crispy black garlic</div>
                                                 <div className="price-box">
                                                     <span className="price">$15</span>
@@ -95,9 +95,9 @@ export default function Home() {
                                         <div className="menu-block">
                                             <div className="inner-box">
                                                 <div className="menu-image">
-                                                    <Link href="menu"><img src="assets/images/resource/menu-30.jpg" alt="" /></Link>
+                                                    <Link href="/catalog"><img src="assets/images/resource/menu-30.jpg" alt="" /></Link>
                                                 </div>
-                                                <h6><Link href="menu">Blue Raspberry</Link></h6>
+                                                <h6><Link href="/catalog">Blue Raspberry</Link></h6>
                                                 <div className="title">Crispy black garlic</div>
                                                 <div className="price-box">
                                                     <span className="price">$15</span>
@@ -115,9 +115,9 @@ export default function Home() {
                                         <div className="menu-block">
                                             <div className="inner-box">
                                                 <div className="menu-image">
-                                                    <Link href="menu"><img src="assets/images/resource/menu-31.jpg" alt="" /></Link>
+                                                    <Link href="/catalog"><img src="assets/images/resource/menu-31.jpg" alt="" /></Link>
                                                 </div>
-                                                <h6><Link href="menu">Grape</Link></h6>
+                                                <h6><Link href="/catalog">Grape</Link></h6>
                                                 <div className="title">Crispy black garlic</div>
                                                 <div className="price-box">
                                                     <span className="price">$15</span>
@@ -129,9 +129,9 @@ export default function Home() {
                                         <div className="menu-block">
                                             <div className="inner-box">
                                                 <div className="menu-image">
-                                                    <Link href="menu"><img src="assets/images/resource/menu-32.jpg" alt="" /></Link>
+                                                    <Link href="/catalog"><img src="assets/images/resource/menu-32.jpg" alt="" /></Link>
                                                 </div>
-                                                <h6><Link href="menu">Cherry</Link></h6>
+                                                <h6><Link href="/catalog">Cherry</Link></h6>
                                                 <div className="title">Crispy black garlic</div>
                                                 <div className="price-box">
                                                     <span className="price">$15</span>
@@ -143,9 +143,9 @@ export default function Home() {
                                         <div className="menu-block">
                                             <div className="inner-box">
                                                 <div className="menu-image">
-                                                    <Link href="menu"><img src="assets/images/resource/menu-33.jpg" alt="" /></Link>
+                                                    <Link href="/catalog"><img src="assets/images/resource/menu-33.jpg" alt="" /></Link>
                                                 </div>
-                                                <h6><Link href="menu">Sour Cherry</Link></h6>
+                                                <h6><Link href="/catalog">Sour Cherry</Link></h6>
                                                 <div className="title">Crispy black garlic</div>
                                                 <div className="price-box">
                                                     <span className="price">$15</span>
@@ -157,9 +157,9 @@ export default function Home() {
                                         <div className="menu-block">
                                             <div className="inner-box">
                                                 <div className="menu-image">
-                                                    <Link href="menu"><img src="assets/images/resource/menu-34.jpg" alt="" /></Link>
+                                                    <Link href="/catalog"><img src="assets/images/resource/menu-34.jpg" alt="" /></Link>
                                                 </div>
-                                                <h6><Link href="menu">Lemon and Lime</Link></h6>
+                                                <h6><Link href="/catalog">Lemon and Lime</Link></h6>
                                                 <div className="title">Crispy black garlic</div>
                                                 <div className="price-box">
                                                     <span className="price">$15</span>

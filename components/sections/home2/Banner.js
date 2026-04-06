@@ -54,7 +54,7 @@ export default function Banner() {
 								<h1>Delicious Food <br/> on the street.</h1>
 								<div className="text">We have the best sed non mauris vitae erat <br/> consequat auctor eu in elit.</div>
 								<div className="btns-box">
-									<Link href="menu" className="theme-btn btn-style-three clearfix"><span className="icon"></span>Buy Now</Link>
+									<Link href="/catalog" className="theme-btn btn-style-three clearfix"><span className="icon"></span>Buy Now</Link>
 								</div>
 							</div>
 						</div>
@@ -89,7 +89,7 @@ export default function Banner() {
 								<h1>Delicious Food <br/> on the street.</h1>
 								<div className="text">We have the best sed non mauris vitae erat <br/> consequat auctor eu in elit.</div>
 								<div className="btns-box">
-									<Link href="menu" className="theme-btn btn-style-three clearfix"><span className="icon"></span>Buy Now</Link>
+									<Link href="/catalog" className="theme-btn btn-style-three clearfix"><span className="icon"></span>Buy Now</Link>
 								</div>
 							</div>
 						</div>
@@ -123,7 +123,7 @@ export default function Banner() {
 								<h1>Delicious Food <br/> on the street.</h1>
 								<div className="text">We have the best sed non mauris vitae erat <br/> consequat auctor eu in elit.</div>
 								<div className="btns-box">
-									<Link href="menu" className="theme-btn btn-style-three clearfix"><span className="icon"></span>Buy Now</Link>
+									<Link href="/catalog" className="theme-btn btn-style-three clearfix"><span className="icon"></span>Buy Now</Link>
 								</div>
 							</div>
 						</div>
