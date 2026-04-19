@@ -32,7 +32,7 @@ export default function Contact() {
                 </div>
                 <div className="form-group">
                   <label htmlFor="phone">Phone Number</label>
-                  <input type="tel" id="phone" name="phone" placeholder="(403) 000-0000" />
+                  <input type="tel" id="phone" name="phone" placeholder="+1 (825) 288-6133" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="message">Your Message</label>
@@ -56,7 +56,7 @@ export default function Contact() {
                   <div className="contact-info-icon">&#128222;</div>
                   <div className="contact-info-text">
                     <h4>Phone</h4>
-                    <a href="tel:+14030000000">(403) 000-0000</a>
+                    <a href="tel:+18252886133">+1 (825) 288-6133</a>
                   </div>
                 </li>
                 <li className="contact-info-item">
@@ -70,7 +70,7 @@ export default function Contact() {
                   <div className="contact-info-icon">&#128247;</div>
                   <div className="contact-info-text">
                     <h4>Instagram</h4>
-                    <a href="https://www.instagram.com/balloonscalgary" target="_blank" rel="noopener noreferrer">@balloonscalgary</a>
+                    <a href="https://www.instagram.com/balloons_calgary_yyc?igsh=Y3RsN29jN3pkNXZw" target="_blank" rel="noopener noreferrer">@balloons_calgary_yyc</a>
                   </div>
                 </li>
               </ul>

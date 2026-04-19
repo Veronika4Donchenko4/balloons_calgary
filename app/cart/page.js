@@ -134,7 +134,7 @@ export default function CartPage() {
                       </div>
                       <div className="form-group">
                         <label htmlFor="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="(403) 000-0000" />
+                        <input type="tel" id="phone" name="phone" required placeholder="+1 (825) 288-6133" />
                       </div>
                     </div>
                     <div className="form-group">

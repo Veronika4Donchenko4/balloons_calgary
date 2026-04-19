@@ -25,7 +25,16 @@ export default function Home() {
       <Header />
 
       {/* Hero */}
-      <section className="hero">
+      <section className="hero has-balloons">
+        <div className="floating-balloon float-a delay-1 balloon-xl" style={{ top: '8%', right: -30 }}>
+          <img src="/assets/images/balloons/balloon-1.png" alt="" />
+        </div>
+        <div className="floating-balloon float-b delay-3 balloon-lg balloon-hide-mobile" style={{ bottom: '5%', right: 80 }}>
+          <img src="/assets/images/balloons/balloon-2.png" alt="" />
+        </div>
+        <div className="floating-balloon float-c delay-5 balloon-lg" style={{ top: '20%', left: -40 }}>
+          <img src="/assets/images/balloons/balloon-3.png" alt="" />
+        </div>
         <div className="container">
           <div className="hero-content">
             <h1>Beautiful Balloon Arrangements for Every <span>Celebration</span></h1>
@@ -39,7 +48,10 @@ export default function Home() {
       </section>
 
       {/* Categories */}
-      <section className="section">
+      <section className="section has-balloons">
+        <div className="floating-balloon float-b delay-2 balloon-lg balloon-hide-mobile" style={{ top: '3%', left: -50 }}>
+          <img src="/assets/images/balloons/balloon-4.png" alt="" />
+        </div>
         <div className="container">
           <div className="section-title">
             <h2>Our <span>Collections</span></h2>
@@ -89,7 +101,13 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <section className="section about-section">
+      <section className="section about-section has-balloons">
+        <div className="floating-balloon float-a delay-4 balloon-xl" style={{ top: '5%', right: -30 }}>
+          <img src="/assets/images/balloons/balloon-5.png" alt="" />
+        </div>
+        <div className="floating-balloon float-c delay-7 balloon-lg balloon-hide-mobile" style={{ bottom: '5%', left: -50 }}>
+          <img src="/assets/images/balloons/balloon-1.png" alt="" />
+        </div>
         <div className="container">
           <div className="about-content">
             <h2>About <span>Balloons Calgary</span></h2>
@@ -144,7 +162,7 @@ export default function Home() {
             <div className="contact-card">
               <div className="contact-card-icon">&#128222;</div>
               <h3>Phone</h3>
-              <a href="tel:+14030000000">(403) 000-0000</a>
+              <a href="tel:+18252886133">+1 (825) 288-6133</a>
             </div>
             <div className="contact-card">
               <div className="contact-card-icon">&#128205;</div>
