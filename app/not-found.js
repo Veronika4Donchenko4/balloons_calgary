@@ -1,34 +1,23 @@
-'use client'
-import Link from "next/link"
-import GallerySlider1 from '@/components/slider/GallerySlider1'
-import Layout from "@/components/layout/Layout"
+import Link from 'next/link'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
-
-export default function Error404() {
-    return (
-        <>
-            <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="404 Error">
-                {/* Error Section */}
-                <section className="error-section">
-                    <div className="auto-container">
-                        <div className="image">
-                            <img src="assets/images/resource/error.png" alt="" />
-                        </div>
-                        <h2>Page Not Found</h2>
-                        <Link href="/" className="theme-btn btn-style-two clearfix"><span className="icon"></span>Return To Home</Link>
-                    </div>
-                </section>
-                {/* End Error Section */}
-                {/* Gallery Section */}
-                <section className="gallery-section">
-                    <div className="outer-container">
-                        <GallerySlider1/>
-                    </div>
-                </section>
-                {/* End Gallery Section */}
-
-            </Layout>
-
-        </>
-    )
+export default function NotFound() {
+  return (
+    <>
+      <Header />
+      <div className="page-header">
+        <div className="container">
+          <h1>Page Not Found</h1>
+          <p>The page you are looking for does not exist.</p>
+        </div>
+      </div>
+      <section className="section">
+        <div className="container" style={{ textAlign: 'center', padding: '60px 20px' }}>
+          <Link href="/" className="btn btn-primary">Back to Home</Link>
+        </div>
+      </section>
+      <Footer />
+    </>
+  )
 }

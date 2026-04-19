@@ -1,44 +1,40 @@
-import Layout from "@/components/layout/Layout"
-import Link from "next/link"
+import Link from 'next/link'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import AddToCartButton from '@/components/AddToCartButton'
+import { classicCollections } from '@/lib/packages'
 
-const collections = {
-    'numbers': { name: 'Number Balloons', price: '120 CAD', description: 'Age and milestone number balloons perfect for birthdays and anniversaries. Available in a variety of colors and sizes.' },
-    'sets': { name: 'Classic Sets', price: '160 CAD', description: 'Timeless balloon sets for any celebration. Elegant arrangements that fit every occasion.' },
-}
+const gradients = { numbers: 'linear-gradient(135deg, #FEF3C7, #FDE68A)', sets: 'linear-gradient(135deg, #D1FAE5, #A7F3D0)' }
 
 export default async function ClassicCollection({ params }) {
-    const { slug } = await params
-    const collection = collections[slug] || { name: 'Classic Collection', price: 'Contact us', description: 'Beautiful classic balloon arrangements.' }
+  const { slug } = await params
+  const collection = classicCollections.find(c => c.slug === slug) || { id: `classic-${slug}`, slug, name: 'Classic Collection', price: 0, category: 'classic', description: 'Beautiful classic balloon arrangements.' }
 
-    return (
-        <Layout headerStyle={5} footerStyle={1} breadcrumbTitle={`Classic - ${collection.name}`}>
-            <section className="milkshake-section">
-                <div className="icon-layer-one" style={{ backgroundImage: 'url(/assets/images/icons/icon-1.png)' }}></div>
-                <div className="icon-layer-two" style={{ backgroundImage: 'url(/assets/images/icons/icon-2.png)' }}></div>
-                <div className="icon-layer-three" style={{ backgroundImage: 'url(/assets/images/icons/icon-3.png)' }}></div>
-                <div className="auto-container">
-                    <div className="inner-container">
-                        <div className="big-image">
-                            <img src="/assets/images/resource/beverage-4.jpg" alt={collection.name} />
-                        </div>
-                        <div className="lower-content">
-                            <div className="sec-title centered">
-                                <h2>{collection.name} — <span className="theme_color">{collection.price}</span></h2>
-                                <div className="separate"></div>
-                                <div className="text">{collection.description}</div>
-                            </div>
-                            <div className="button-box text-center" style={{ marginTop: '30px' }}>
-                                <Link href="/contact" className="theme-btn btn-style-two clearfix">
-                                    <span className="icon"></span>Order Now
-                                </Link>
-                                <Link href="/catalog" className="theme-btn btn-style-two clearfix" style={{ marginLeft: '15px' }}>
-                                    <span className="icon"></span>Back to Catalog
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </Layout>
-    )
+  return (
+    <>
+      <Header />
+
+      <section className="package-detail">
+        <div className="container">
+          <div className="breadcrumb-nav">
+            <Link href="/">Home</Link> &rsaquo; <Link href="/catalog">Collections</Link> &rsaquo; <Link href="/catalog#classic">Classic</Link> &rsaquo; {collection.name}
+          </div>
+          <div className="package-detail-inner">
+            <div className="package-detail-img" style={{ background: gradients[slug] || 'linear-gradient(135deg, #E5E7EB, #D1D5DB)' }} />
+            <div className="package-detail-info">
+              <h1>{collection.name}</h1>
+              <div className="price">${collection.price} CAD</div>
+              <p>{collection.description}</p>
+              <div className="package-detail-actions">
+                <AddToCartButton item={collection} />
+                <Link href="/catalog#classic" className="btn btn-outline">Back to Collections</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </>
+  )
 }
