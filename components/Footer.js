@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <h3>Balloons Calgary</h3>
+            <img src="/assets/images/logo-footer.png" alt="Balloons Calgary" className="footer-logo" />
             <p>Beautiful balloon arrangements for your special moments. Handcrafted with love for birthdays, baby showers, romantic surprises, and every celebration in between.</p>
             <div className="footer-social">
               <a href="https://www.instagram.com/balloonscalgary" target="_blank" rel="noopener noreferrer" aria-label="Instagram">

@@ -4,24 +4,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 :root {
-  --pink: #F8BBD9;
-  --pink-light: #FDE4F0;
-  --pink-dark: #E91E8C;
-  --lavender: #E8D5F5;
-  --lavender-light: #F3ECF9;
+  --pink: #FBAB9E;
+  --pink-light: #FFF0ED;
+  --pink-dark: #F88379;
+  --lavender: #FFD5CC;
+  --lavender-light: #FFF0ED;
   --gold: #D4A853;
   --gold-light: #F5E6C8;
   --white: #FFFFFF;
-  --gray-50: #F9FAFB;
+  --gray-50: #FFFAF9;
   --gray-100: #F3F4F6;
   --gray-200: #E5E7EB;
   --gray-300: #D1D5DB;
   --gray-400: #9CA3AF;
-  --gray-500: #6B7280;
+  --gray-500: #666666;
   --gray-600: #4B5563;
   --gray-700: #374151;
-  --gray-800: #1F2937;
-  --gray-900: #111827;
+  --gray-800: #2D2D2D;
+  --gray-900: #2D2D2D;
   --radius: 12px;
   --radius-lg: 16px;
   --radius-full: 9999px;
@@ -111,8 +111,9 @@ img {
 }
 
 .header-logo img {
-  height: 44px;
+  max-height: 60px;
   width: auto;
+  display: block;
 }
 
 .header-nav {
@@ -368,7 +369,7 @@ img {
 }
 
 .btn-primary:hover {
-  background: #C81878;
+  background: #E8736A;
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
@@ -454,10 +455,19 @@ img {
 .category-card-img {
   width: 100%;
   height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
+  overflow: hidden;
+  background: var(--pink-light);
+}
+
+.category-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-card-img img {
+  transform: scale(1.05);
 }
 
 .category-card-body {
@@ -668,10 +678,11 @@ img {
   border-bottom: 1px solid var(--gray-700);
 }
 
-.footer-brand h3 {
-  font-size: 1.5rem;
-  margin-bottom: 12px;
-  color: white;
+.footer-logo {
+  max-height: 100px;
+  width: auto;
+  display: block;
+  margin-bottom: 16px;
 }
 
 .footer-brand p {
@@ -792,11 +803,20 @@ img {
 
 .package-card-img {
   width: 100%;
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
+  height: 220px;
+  overflow: hidden;
+  background: var(--pink-light);
+}
+
+.package-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.package-card:hover .package-card-img img {
+  transform: scale(1.05);
 }
 
 .package-card-body {
@@ -855,11 +875,15 @@ img {
   width: 100%;
   height: 400px;
   border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 5rem;
+  overflow: hidden;
+  background: var(--pink-light);
   margin-bottom: 32px;
+}
+
+.package-detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .package-detail-info h1 {
@@ -935,7 +959,7 @@ img {
 .form-group select:focus {
   outline: none;
   border-color: var(--pink-dark);
-  box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.1);
+  box-shadow: 0 0 0 3px rgba(248, 131, 121, 0.15);
 }
 
 .form-group textarea {
@@ -1025,11 +1049,15 @@ img {
   width: 80px;
   height: 80px;
   border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
+  overflow: hidden;
+  background: var(--pink-light);
   flex-shrink: 0;
+}
+
+.cart-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .cart-item-info {

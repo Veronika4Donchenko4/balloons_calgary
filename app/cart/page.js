@@ -5,11 +5,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { useCartStore } from '@/lib/cartStore'
 
-const gradientMap = {
-  girls: 'linear-gradient(135deg, #FDE4F0, #F8BBD9)',
-  'for-him': 'linear-gradient(135deg, #DBEAFE, #93C5FD)',
-  classic: 'linear-gradient(135deg, #FEF3C7, #FDE68A)',
-}
+const defaultImg = '/assets/images/girl/girl1.png'
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, getTotal, clearCart } = useCartStore()
@@ -96,7 +92,9 @@ export default function CartPage() {
               <div className="cart-items">
                 {items.map(item => (
                   <div key={item.id} className="cart-item">
-                    <div className="cart-item-img" style={{ background: gradientMap[item.category] || 'linear-gradient(135deg, #E5E7EB, #D1D5DB)' }} />
+                    <div className="cart-item-img">
+                      <img src={item.image || defaultImg} alt={item.name} />
+                    </div>
                     <div className="cart-item-info">
                       <h3>{item.name}</h3>
                       <div className="price">${item.price} CAD</div>

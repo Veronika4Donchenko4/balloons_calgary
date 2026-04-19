@@ -32,7 +32,7 @@ export default function Header() {
         <div className="header-inner">
           <div className="header-logo">
             <Link href="/">
-              <img src="/assets/images/logo-2.png" alt="Balloons Calgary" />
+              <img src="/assets/images/logo-header.png" alt="Balloons Calgary" />
             </Link>
           </div>
 

@@ -1,8 +1,8 @@
 {
-  "/catalog/page": "app/catalog/page.js",
-  "/cart/page": "app/cart/page.js",
+  "/page": "app/page.js",
   "/contact/page": "app/contact/page.js",
-  "/girls/[id]/page": "app/girls/[id]/page.js",
-  "/classic/[slug]/page": "app/classic/[slug]/page.js",
-  "/api/send-order/route": "app/api/send-order/route.js"
+  "/cart/page": "app/cart/page.js",
+  "/catalog/page": "app/catalog/page.js",
+  "/api/send-order/route": "app/api/send-order/route.js",
+  "/category/[slug]/page": "app/category/[slug]/page.js"
 }
