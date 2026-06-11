@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import TestimonialsSlider from '@/components/TestimonialsSlider'
+import { accentE } from '@/lib/accentE'
 
 const homeCategories = [
   { name: 'Birthday Balloon Sets', desc: 'Elegant arrangements for every age', href: '/category/birthday-balloon-sets', image: '/assets/images/girl/girl5.png' },
@@ -37,7 +38,7 @@ export default function Home() {
         </div>
         <div className="container">
           <div className="hero-content">
-            <h1>Beautiful Balloon Arrangements for Every <span>Celebration</span></h1>
+            <h1>Beautiful Balloon Arrangements for {accentE('Every')} <span>Celebration</span></h1>
             <p>Handcrafted balloon compositions for birthdays, baby showers, romantic surprises & special events in Calgary.</p>
             <div className="hero-btns">
               <Link href="/catalog" className="btn btn-primary btn-lg">Browse Collections</Link>
@@ -64,8 +65,8 @@ export default function Home() {
                   <img src={cat.image} alt={cat.name} />
                 </div>
                 <div className="category-card-body">
-                  <h3>{cat.name}</h3>
-                  <p>{cat.desc}</p>
+                  <h3>{accentE(cat.name)}</h3>
+                  <p>{accentE(cat.desc)}</p>
                 </div>
               </Link>
             ))}
@@ -140,7 +141,7 @@ export default function Home() {
         <div className="container">
           <div className="section-title">
             <h2>What Our Customers <span>Say</span></h2>
-            <p>Real experiences from happy customers</p>
+            <p>{accentE('Real experiences from happy customers')}</p>
           </div>
           <TestimonialsSlider />
         </div>
@@ -156,7 +157,7 @@ export default function Home() {
           <div className="contact-grid">
             <div className="contact-card">
               <div className="contact-card-icon">&#9993;</div>
-              <h3>Email</h3>
+              <h3>{accentE('Email')}</h3>
               <a href="mailto:balloonscalgary@gmail.com">balloonscalgary@gmail.com</a>
             </div>
             <div className="contact-card">

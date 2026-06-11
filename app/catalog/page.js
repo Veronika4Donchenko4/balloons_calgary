@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { categories } from '@/lib/packages'
+import { accentE } from '@/lib/accentE'
 
 export default function Catalog() {
   return (
@@ -10,8 +11,8 @@ export default function Catalog() {
 
       <div className="page-header">
         <div className="container">
-          <h1>Our Collections</h1>
-          <p>Browse our full range of balloon arrangements for every occasion</p>
+          <h1>{accentE('Our Collections')}</h1>
+          <p>{accentE('Browse our full range of balloon arrangements for every occasion')}</p>
         </div>
       </div>
 
@@ -28,8 +29,8 @@ export default function Catalog() {
                   <img src={cat.image} alt={cat.name} />
                 </div>
                 <div className="category-card-body">
-                  <h3>{cat.name}</h3>
-                  <p>{cat.description.length > 100 ? cat.description.slice(0, 100) + '...' : cat.description}</p>
+                  <h3>{accentE(cat.name)}</h3>
+                  <p>{accentE(cat.description.length > 100 ? cat.description.slice(0, 100) + '...' : cat.description)}</p>
                   {cat.packages.length > 0 && (
                     <span className="category-card-badge">
                       {cat.packages.length} package{cat.packages.length > 1 ? 's' : ''}

@@ -1,5 +1,6 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { accentE } from '@/lib/accentE'
 
 export default function Contact() {
   return (
@@ -8,8 +9,8 @@ export default function Contact() {
 
       <div className="page-header">
         <div className="container">
-          <h1>Contact Us</h1>
-          <p>We would love to hear from you. Get in touch with us today.</p>
+          <h1>{accentE('Contact Us')}</h1>
+          <p>{accentE('We would love to hear from you. Get in touch with us today.')}</p>
         </div>
       </div>
 
@@ -18,7 +19,7 @@ export default function Contact() {
           <div className="contact-page-grid">
 
             <div className="contact-form-section">
-              <h2>Send Us a Message</h2>
+              <h2>{accentE('Send Us a Message')}</h2>
               <form>
                 <div className="form-row">
                   <div className="form-group">
@@ -43,33 +44,33 @@ export default function Contact() {
             </div>
 
             <div className="contact-info-section">
-              <h2>Contact Information</h2>
+              <h2>{accentE('Contact Information')}</h2>
               <ul className="contact-info-list">
                 <li className="contact-info-item">
                   <div className="contact-info-icon">&#9993;</div>
                   <div className="contact-info-text">
-                    <h4>Email</h4>
+                    <h4>{accentE('Email')}</h4>
                     <a href="mailto:balloonscalgary@gmail.com">balloonscalgary@gmail.com</a>
                   </div>
                 </li>
                 <li className="contact-info-item">
                   <div className="contact-info-icon">&#128222;</div>
                   <div className="contact-info-text">
-                    <h4>Phone</h4>
+                    <h4>{accentE('Phone')}</h4>
                     <a href="tel:+18252886133">+1 (825) 288-6133</a>
                   </div>
                 </li>
                 <li className="contact-info-item">
                   <div className="contact-info-icon">&#128205;</div>
                   <div className="contact-info-text">
-                    <h4>Location</h4>
+                    <h4>{accentE('Location')}</h4>
                     <p>Calgary, Alberta, Canada</p>
                   </div>
                 </li>
                 <li className="contact-info-item">
                   <div className="contact-info-icon">&#128247;</div>
                   <div className="contact-info-text">
-                    <h4>Instagram</h4>
+                    <h4>{accentE('Instagram')}</h4>
                     <a href="https://www.instagram.com/balloons_calgary_yyc?igsh=Y3RsN29jN3pkNXZw" target="_blank" rel="noopener noreferrer">@balloons_calgary_yyc</a>
                   </div>
                 </li>

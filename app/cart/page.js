@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { useCartStore } from '@/lib/cartStore'
+import { accentE } from '@/lib/accentE'
 
 const defaultImg = '/assets/images/girl/girl1.png'
 
@@ -12,6 +13,11 @@ export default function CartPage() {
   const [showForm, setShowForm] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [expanded, setExpanded] = useState({})
+
+  const toggleExpand = (id) => {
+    setExpanded(prev => ({ ...prev, [id]: !prev[id] }))
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -27,7 +33,13 @@ export default function CartPage() {
         time: formData.get('time'),
         notes: formData.get('notes'),
       },
-      items: items.map(i => ({ id: i.id, name: i.name, price: i.price, quantity: i.quantity })),
+      items: items.map(i => ({
+        id: i.id,
+        name: i.name,
+        price: i.price,
+        quantity: i.quantity,
+        ...(i.customizations && { customizations: i.customizations }),
+      })),
       total: getTotal(),
     }
 
@@ -57,8 +69,8 @@ export default function CartPage() {
           <div className="container">
             <div className="success-message">
               <div className="success-icon">&#10004;&#65039;</div>
-              <h2>Thank You for Your Order!</h2>
-              <p>We have received your order and will contact you shortly to confirm the details and delivery. You can also reach us at balloonscalgary@gmail.com</p>
+              <h2>{accentE('Thank You for Your Order!')}</h2>
+              <p>{accentE('We have received your order and will contact you shortly to confirm the details and delivery. You can also reach us at balloonscalgary@gmail.com')}</p>
               <Link href="/" className="btn btn-primary" style={{ marginTop: '24px' }}>Back to Home</Link>
             </div>
           </div>
@@ -83,8 +95,8 @@ export default function CartPage() {
         <div className="container">
           {items.length === 0 ? (
             <div className="cart-empty">
-              <h2>Nothing here yet</h2>
-              <p>Browse our collections and add your favorite balloon arrangements to the cart.</p>
+              <h2>{accentE('Nothing here yet')}</h2>
+              <p>{accentE('Browse our collections and add your favorite balloon arrangements to the cart.')}</p>
               <Link href="/catalog" className="btn btn-primary">Browse Collections</Link>
             </div>
           ) : (
@@ -96,8 +108,40 @@ export default function CartPage() {
                       <img src={item.image || defaultImg} alt={item.name} />
                     </div>
                     <div className="cart-item-info">
-                      <h3>{item.name}</h3>
+                      <h3>{accentE(item.name)}</h3>
                       <div className="price">${item.price} CAD</div>
+                      {item.customizations && (
+                        <div className="cart-customization">
+                          <button className="cart-cust-toggle" onClick={() => toggleExpand(item.id)}>
+                            {expanded[item.id] ? 'Hide' : 'View'} customization details
+                          </button>
+                          {expanded[item.id] && (
+                            <div className="cart-cust-details">
+                              {item.customizations.balloons?.map((b, i) => (
+                                <div key={i} className="cart-cust-line">
+                                  <span className="cart-cust-swatch" style={{ background: colorHex(b.color) }} />
+                                  Balloon {i + 1} ({b.size}) — {b.color}
+                                  {b.text && <span className="cart-cust-text"> — &ldquo;{b.text}&rdquo; in {b.textColor}</span>}
+                                </div>
+                              ))}
+                              {item.customizations.extraBalloons?.map((b, i) => (
+                                <div key={`e-${i}`} className="cart-cust-line extra">
+                                  <span className="cart-cust-swatch" style={{ background: colorHex(b.color) }} />
+                                  {b.type === 'number' ? `Number ${b.number}` : b.type} balloon — {b.color}
+                                  {b.text && <span className="cart-cust-text"> — &ldquo;{b.text}&rdquo; in {b.textColor}</span>}
+                                </div>
+                              ))}
+                              {item.customizations.basePrice !== item.price && (
+                                <div className="cart-cust-breakdown">
+                                  <span>Base: ${item.customizations.basePrice}</span>
+                                  {item.customizations.extraBalloonsCost > 0 && <span> + Extras: ${item.customizations.extraBalloonsCost}</span>}
+                                  {item.customizations.textCost > 0 && <span> + Text: ${item.customizations.textCost}</span>}
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                     <div className="cart-item-qty">
                       <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
@@ -125,7 +169,7 @@ export default function CartPage() {
 
               {showForm && (
                 <div className="order-form">
-                  <h2>Delivery Details</h2>
+                  <h2>{accentE('Delivery Details')}</h2>
                   <form onSubmit={handleSubmit}>
                     <div className="form-row">
                       <div className="form-group">
@@ -178,4 +222,14 @@ export default function CartPage() {
       <Footer />
     </>
   )
+}
+
+const COLOR_HEX = {
+  White: '#FFFFFF', Pink: '#F9B4C2', Rose: '#E8919B', Red: '#E74C3C',
+  Blue: '#5DADE2', Green: '#58D68D', Gold: '#D4A853', Purple: '#AF7AC5',
+  Silver: '#BDC3C7', Black: '#2D2D2D',
+}
+
+function colorHex(name) {
+  return COLOR_HEX[name] || '#ccc'
 }

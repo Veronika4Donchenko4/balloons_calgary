@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { accentE } from '@/lib/accentE'
 
 const testimonials = [
   {
@@ -36,9 +37,9 @@ export default function TestimonialsSlider() {
     <div className="testimonials-slider">
       <div className="testimonial-card">
         <div className="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p className="testimonial-text">&ldquo;{t.text}&rdquo;</p>
-        <div className="testimonial-author">{t.author}</div>
-        <div className="testimonial-role">{t.role}</div>
+        <p className="testimonial-text">&ldquo;{accentE(t.text)}&rdquo;</p>
+        <div className="testimonial-author">{accentE(t.author)}</div>
+        <div className="testimonial-role">{accentE(t.role)}</div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginTop: '24px' }}>
         <button onClick={prev} className="btn btn-outline btn-sm" aria-label="Previous testimonial">&larr;</button>

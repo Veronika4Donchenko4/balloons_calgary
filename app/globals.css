@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Tsukimi+Rounded:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Tsukimi+Rounded:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+.accent-letter {
+  font-family: 'Italiana', serif;
+}
 
 :root {
   --pink: #FBAB9E;
@@ -1242,6 +1246,413 @@ img {
   to { opacity: 0; transform: translateY(20px); }
 }
 
+/* ===== BALLOON CUSTOMIZER ===== */
+.customizer-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 24px;
+}
+
+.customizer-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--pink-light);
+  position: sticky;
+  top: 96px;
+}
+
+.customizer-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.customizer-panel h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.customizer-base-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--pink-dark);
+  margin-bottom: 16px;
+  font-family: 'Tsukimi Rounded', sans-serif;
+}
+
+.customizer-desc {
+  color: var(--gray-600);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  font-size: 0.95rem;
+}
+
+.cust-section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--pink-light);
+  color: var(--gray-800);
+  font-family: 'Tsukimi Rounded', sans-serif;
+}
+
+.customizer-balloons {
+  margin-bottom: 8px;
+}
+
+.cust-balloon-row {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.cust-balloon-row.extra-row {
+  background: var(--gray-50);
+  margin: 0 -12px;
+  padding: 14px 12px;
+  border-radius: var(--radius);
+  border-bottom: none;
+  margin-bottom: 4px;
+}
+
+.balloon-row-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.balloon-label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  min-width: 140px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.extra-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--pink-dark);
+  background: var(--pink-light);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+/* Color Picker */
+.cpicker {
+  position: relative;
+}
+
+.cpicker-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: white;
+  font-size: 0.85rem;
+  font-family: 'Tsukimi Rounded', sans-serif;
+  min-width: 130px;
+  transition: var(--transition);
+}
+
+.cpicker-trigger:hover {
+  border-color: var(--pink);
+}
+
+.cpicker-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--gray-200);
+  flex-shrink: 0;
+}
+
+.cpicker-arrow {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: var(--gray-400);
+}
+
+.cpicker-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+}
+
+.cpicker-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  z-index: 10;
+  margin-top: 4px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+.cpicker-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-size: 0.85rem;
+  font-family: 'Tsukimi Rounded', sans-serif;
+  color: var(--gray-700);
+}
+
+.cpicker-option:hover {
+  background: var(--pink-light);
+}
+
+.cpicker-option.selected {
+  background: var(--pink-light);
+  font-weight: 600;
+  color: var(--pink-dark);
+}
+
+/* Number select */
+.number-select {
+  padding: 7px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-family: 'Tsukimi Rounded', sans-serif;
+  background: white;
+  cursor: pointer;
+  min-width: 60px;
+}
+
+.number-select:focus {
+  outline: none;
+  border-color: var(--pink-dark);
+  box-shadow: 0 0 0 3px rgba(248, 131, 121, 0.15);
+}
+
+/* Text toggle */
+.cust-text-toggle {
+  background: none;
+  border: 1px solid var(--gray-200);
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-family: 'Tsukimi Rounded', sans-serif;
+  cursor: pointer;
+  color: var(--gray-500);
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.cust-text-toggle:hover,
+.cust-text-toggle.active {
+  border-color: var(--pink-dark);
+  color: var(--pink-dark);
+}
+
+/* Text options */
+.cust-text-options {
+  margin-top: 10px;
+  padding: 14px;
+  background: var(--pink-light);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cust-text-options input {
+  width: 100%;
+  padding: 9px 14px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-family: 'Tsukimi Rounded', sans-serif;
+  background: white;
+}
+
+.cust-text-options input:focus {
+  outline: none;
+  border-color: var(--pink-dark);
+  box-shadow: 0 0 0 3px rgba(248, 131, 121, 0.15);
+}
+
+.cust-text-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cust-text-price {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--pink-dark);
+  white-space: nowrap;
+}
+
+/* Remove button */
+.cust-remove-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gray-400);
+  font-size: 1rem;
+  padding: 4px 8px;
+  transition: var(--transition);
+  margin-left: auto;
+}
+
+.cust-remove-btn:hover {
+  color: #EF4444;
+}
+
+/* Add balloon section */
+.cust-add-balloon {
+  margin-top: 24px;
+}
+
+.cust-add-options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cust-add-btn {
+  padding: 9px 18px;
+  border: 1px dashed var(--gray-300);
+  border-radius: var(--radius-full);
+  background: white;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-family: 'Tsukimi Rounded', sans-serif;
+  color: var(--gray-600);
+  transition: var(--transition);
+}
+
+.cust-add-btn:hover {
+  border-color: var(--pink-dark);
+  color: var(--pink-dark);
+  background: var(--pink-light);
+}
+
+/* Price summary */
+.cust-summary {
+  margin-top: 28px;
+  padding: 20px;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+}
+
+.cust-summary-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 0.9rem;
+  color: var(--gray-600);
+}
+
+.cust-summary-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 14px;
+  margin-top: 10px;
+  border-top: 2px solid var(--gray-200);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: 'Tsukimi Rounded', sans-serif;
+}
+
+.cust-summary-total span:last-child {
+  color: var(--pink-dark);
+}
+
+.cust-cart-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Cart customization details */
+.cart-customization {
+  margin-top: 8px;
+}
+
+.cart-cust-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--pink-dark);
+  font-family: 'Tsukimi Rounded', sans-serif;
+  padding: 0;
+  text-decoration: underline;
+  transition: var(--transition);
+}
+
+.cart-cust-toggle:hover {
+  color: #E8736A;
+}
+
+.cart-cust-details {
+  margin-top: 8px;
+  padding: 10px 14px;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  color: var(--gray-600);
+}
+
+.cart-cust-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+}
+
+.cart-cust-line.extra {
+  font-style: italic;
+}
+
+.cart-cust-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--gray-200);
+  flex-shrink: 0;
+}
+
+.cart-cust-text {
+  color: var(--gray-500);
+}
+
+.cart-cust-breakdown {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--gray-200);
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+
 /* ===== FLOATING BALLOON DECORATIONS ===== */
 .has-balloons {
   position: relative;
@@ -1327,6 +1738,13 @@ img {
   .balloon-xl { width: 110px; height: 140px; }
   .floating-balloon { opacity: 0.3; }
   .balloon-hide-mobile { display: none; }
+  .customizer-layout { grid-template-columns: 1fr; gap: 24px; }
+  .customizer-image { position: static; }
+  .customizer-panel h1 { font-size: 1.6rem; }
+  .balloon-row-top { gap: 8px; }
+  .balloon-label { min-width: auto; width: 100%; margin-bottom: 4px; }
+  .cust-add-options { flex-direction: column; }
+  .cust-add-btn { width: 100%; text-align: center; }
 }
 
 @media (max-width: 480px) {

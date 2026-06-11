@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import AddToCartButton from '@/components/AddToCartButton'
-import { girlsPackages } from '@/lib/packages'
+import BalloonCustomizer from '@/components/BalloonCustomizer'
+import { girlsPackages, getDefaultBalloons } from '@/lib/packages'
+import { accentE } from '@/lib/accentE'
 
 export default async function GirlsPackage({ params }) {
   const { id } = await params
@@ -16,22 +17,9 @@ export default async function GirlsPackage({ params }) {
       <section className="package-detail">
         <div className="container">
           <div className="breadcrumb-nav">
-            <Link href="/">Home</Link> &rsaquo; <Link href="/catalog">Collections</Link> &rsaquo; <Link href="/category/birthday-balloon-sets">Birthday Balloon Sets</Link> &rsaquo; {pkg.name}
+            <Link href="/">Home</Link> &rsaquo; <Link href="/catalog">Collections</Link> &rsaquo; <Link href="/category/birthday-balloon-sets">{accentE('Birthday Balloon Sets')}</Link> &rsaquo; {accentE(pkg.name)}
           </div>
-          <div className="package-detail-inner">
-            <div className="package-detail-img">
-              <img src={pkg.image} alt={pkg.name} />
-            </div>
-            <div className="package-detail-info">
-              <h1>Girls Collection — {pkg.name}</h1>
-              <div className="price">${pkg.price} CAD</div>
-              <p>{pkg.description}</p>
-              <div className="package-detail-actions">
-                <AddToCartButton item={pkg} />
-                <Link href="/category/birthday-balloon-sets" className="btn btn-outline">Back to Category</Link>
-              </div>
-            </div>
-          </div>
+          <BalloonCustomizer pkg={pkg} defaultBalloons={getDefaultBalloons(pkg)} />
         </div>
       </section>
 
