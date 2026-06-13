@@ -23,8 +23,10 @@ const TEXT_COLORS = [
   { name: 'Red', hex: '#E74C3C' },
 ]
 
-const EXTRA_PRICES = { large: 8, small: 5, number: 15 }
-const TEXT_PRICES = { large: 12, small: 8 }
+const EXTRA_PRICES = { standard: 10, foil: 13, number: 30 }
+const TEXT_PRICE = 7
+const CONFETTI_PRICE = 5
+const BOW_PRICE = 5
 
 function ColorPicker({ value, onChange, colors }) {
   const [open, setOpen] = useState(false)
@@ -71,8 +73,12 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
   const [texts, setTexts] = useState(defaultBalloons.map(() => ({
     enabled: false, text: '', textColor: 'White'
   })))
+  const [addons, setAddons] = useState(defaultBalloons.map(() => ({
+    confetti: false, bow: false
+  })))
   const [extras, setExtras] = useState([])
   const [extraTexts, setExtraTexts] = useState([])
+  const [extraAddons, setExtraAddons] = useState([])
 
   const updateColor = (i, color) => {
     setColors(prev => prev.map((c, idx) => idx === i ? color : c))
@@ -88,14 +94,21 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
     setter(prev => prev.map((t, idx) => idx === i ? { ...t, [field]: value } : t))
   }
 
+  const toggleAddon = (i, addon, isExtra) => {
+    const setter = isExtra ? setExtraAddons : setAddons
+    setter(prev => prev.map((a, idx) => idx === i ? { ...a, [addon]: !a[addon] } : a))
+  }
+
   const addExtra = (type) => {
     setExtras(prev => [...prev, { type, color: 'White', number: type === 'number' ? 0 : null }])
     setExtraTexts(prev => [...prev, { enabled: false, text: '', textColor: 'White' }])
+    setExtraAddons(prev => [...prev, { confetti: false, bow: false }])
   }
 
   const removeExtra = (i) => {
     setExtras(prev => prev.filter((_, idx) => idx !== i))
     setExtraTexts(prev => prev.filter((_, idx) => idx !== i))
+    setExtraAddons(prev => prev.filter((_, idx) => idx !== i))
   }
 
   const updateExtraColor = (i, color) => {
@@ -107,16 +120,24 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
   }
 
   const extrasCost = extras.reduce((sum, e) => sum + EXTRA_PRICES[e.type], 0)
-  const defaultTextCost = texts.reduce((sum, t, i) => {
+  const defaultTextCost = texts.reduce((sum, t) => {
     if (!t.enabled || !t.text) return sum
-    return sum + TEXT_PRICES[defaultBalloons[i].size]
+    return sum + TEXT_PRICE
   }, 0)
-  const extraTextCost = extraTexts.reduce((sum, t, i) => {
+  const extraTextCost = extraTexts.reduce((sum, t) => {
     if (!t.enabled || !t.text) return sum
-    const size = extras[i]?.type === 'small' ? 'small' : 'large'
-    return sum + TEXT_PRICES[size]
+    return sum + TEXT_PRICE
   }, 0)
-  const total = pkg.price + extrasCost + defaultTextCost + extraTextCost
+  const defaultAddonCost = addons.reduce((sum, a) => {
+    return sum + (a.confetti ? CONFETTI_PRICE : 0) + (a.bow ? BOW_PRICE : 0)
+  }, 0)
+  const extraAddonCost = extraAddons.reduce((sum, a) => {
+    return sum + (a.confetti ? CONFETTI_PRICE : 0) + (a.bow ? BOW_PRICE : 0)
+  }, 0)
+  const textCost = defaultTextCost + extraTextCost
+  const confettiCost = [...addons, ...extraAddons].filter(a => a.confetti).length * CONFETTI_PRICE
+  const bowCost = [...addons, ...extraAddons].filter(a => a.bow).length * BOW_PRICE
+  const total = pkg.price + extrasCost + textCost + defaultAddonCost + extraAddonCost
 
   const handleAddToCart = () => {
     addItem({
@@ -132,6 +153,8 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
           color: colors[i],
           text: texts[i].enabled && texts[i].text ? texts[i].text : null,
           textColor: texts[i].enabled && texts[i].text ? texts[i].textColor : null,
+          confetti: addons[i].confetti,
+          bow: addons[i].bow,
         })),
         extraBalloons: extras.map((e, i) => ({
           type: e.type,
@@ -139,9 +162,13 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
           number: e.number,
           text: extraTexts[i].enabled && extraTexts[i].text ? extraTexts[i].text : null,
           textColor: extraTexts[i].enabled && extraTexts[i].text ? extraTexts[i].textColor : null,
+          confetti: extraAddons[i].confetti,
+          bow: extraAddons[i].bow,
         })),
         extraBalloonsCost: extrasCost,
-        textCost: defaultTextCost + extraTextCost,
+        textCost,
+        confettiCost,
+        bowCost,
       }
     })
     setShowToast(true)
@@ -149,7 +176,9 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
   }
 
   const extraLabel = (type) =>
-    type === 'number' ? 'Number Balloon' : type === 'large' ? 'Large Balloon' : 'Small Balloon'
+    type === 'number' ? 'Number Balloon' : type === 'foil' ? 'Foil Balloon' : 'Standard Balloon'
+
+  const sizeLabel = (size) => size === 'foil' ? 'foil' : 'standard'
 
   return (
     <div className="customizer-layout">
@@ -161,6 +190,7 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
         <h1>{accentE(pkg.name)}</h1>
         <div className="customizer-base-price">${pkg.price} CAD</div>
         <p className="customizer-desc">{accentE(pkg.description)}</p>
+        <p className="customizer-ribbon-note">Satin ribbons included with every balloon</p>
 
         <h2 className="cust-section-title">{accentE('Customize Your Set')}</h2>
 
@@ -168,10 +198,18 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
           {defaultBalloons.map((balloon, i) => (
             <div key={i} className="cust-balloon-row">
               <div className="balloon-row-top">
-                <span className="balloon-label">Balloon {i + 1} ({balloon.size})</span>
+                <span className="balloon-label">Balloon {i + 1} ({sizeLabel(balloon.size)})</span>
                 <ColorPicker value={colors[i]} onChange={(c) => updateColor(i, c)} colors={BALLOON_COLORS} />
-                <button type="button" className={`cust-text-toggle${texts[i].enabled ? ' active' : ''}`} onClick={() => toggleText(i, false)}>
-                  {texts[i].enabled ? 'Remove Text' : 'Add Text'}
+              </div>
+              <div className="cust-addon-toggles">
+                <button type="button" className={`cust-addon-pill${texts[i].enabled ? ' active' : ''}`} onClick={() => toggleText(i, false)}>
+                  Text +${TEXT_PRICE}
+                </button>
+                <button type="button" className={`cust-addon-pill${addons[i].confetti ? ' active' : ''}`} onClick={() => toggleAddon(i, 'confetti', false)}>
+                  Confetti +${CONFETTI_PRICE}
+                </button>
+                <button type="button" className={`cust-addon-pill${addons[i].bow ? ' active' : ''}`} onClick={() => toggleAddon(i, 'bow', false)}>
+                  Bow +${BOW_PRICE}
                 </button>
               </div>
               {texts[i].enabled && (
@@ -185,7 +223,7 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
                   />
                   <div className="cust-text-row">
                     <ColorPicker value={texts[i].textColor} onChange={(c) => updateText(i, 'textColor', c, false)} colors={TEXT_COLORS} />
-                    <span className="cust-text-price">+${TEXT_PRICES[balloon.size]} CAD</span>
+                    <span className="cust-text-price">+${TEXT_PRICE} CAD</span>
                   </div>
                 </div>
               )}
@@ -207,10 +245,18 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
                     ))}
                   </select>
                 )}
-                <button type="button" className={`cust-text-toggle${extraTexts[i].enabled ? ' active' : ''}`} onClick={() => toggleText(i, true)}>
-                  {extraTexts[i].enabled ? 'Remove Text' : 'Add Text'}
-                </button>
                 <button type="button" className="cust-remove-btn" onClick={() => removeExtra(i)} aria-label="Remove balloon">&#10005;</button>
+              </div>
+              <div className="cust-addon-toggles">
+                <button type="button" className={`cust-addon-pill${extraTexts[i].enabled ? ' active' : ''}`} onClick={() => toggleText(i, true)}>
+                  Text +${TEXT_PRICE}
+                </button>
+                <button type="button" className={`cust-addon-pill${extraAddons[i].confetti ? ' active' : ''}`} onClick={() => toggleAddon(i, 'confetti', true)}>
+                  Confetti +${CONFETTI_PRICE}
+                </button>
+                <button type="button" className={`cust-addon-pill${extraAddons[i].bow ? ' active' : ''}`} onClick={() => toggleAddon(i, 'bow', true)}>
+                  Bow +${BOW_PRICE}
+                </button>
               </div>
               {extraTexts[i].enabled && (
                 <div className="cust-text-options">
@@ -223,7 +269,7 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
                   />
                   <div className="cust-text-row">
                     <ColorPicker value={extraTexts[i].textColor} onChange={(c) => updateText(i, 'textColor', c, true)} colors={TEXT_COLORS} />
-                    <span className="cust-text-price">+${TEXT_PRICES[extra.type === 'small' ? 'small' : 'large']} CAD</span>
+                    <span className="cust-text-price">+${TEXT_PRICE} CAD</span>
                   </div>
                 </div>
               )}
@@ -234,9 +280,9 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
         <div className="cust-add-balloon">
           <h3 className="cust-section-title">{accentE('Add a Balloon')}</h3>
           <div className="cust-add-options">
-            <button type="button" className="cust-add-btn" onClick={() => addExtra('large')}>+ Large Balloon — $8 CAD</button>
-            <button type="button" className="cust-add-btn" onClick={() => addExtra('small')}>+ Small Balloon — $5 CAD</button>
-            <button type="button" className="cust-add-btn" onClick={() => addExtra('number')}>+ Number Balloon (0-9) — $15 CAD</button>
+            <button type="button" className="cust-add-btn" onClick={() => addExtra('standard')}>+ Standard Balloon — $10 CAD</button>
+            <button type="button" className="cust-add-btn" onClick={() => addExtra('foil')}>+ Foil Balloon (Heart/Star) — $13 CAD</button>
+            <button type="button" className="cust-add-btn" onClick={() => addExtra('number')}>+ Number Balloon (0-9) — $30 CAD</button>
           </div>
         </div>
 
@@ -251,10 +297,22 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
               <span>+${extrasCost} CAD</span>
             </div>
           )}
-          {(defaultTextCost + extraTextCost) > 0 && (
+          {textCost > 0 && (
             <div className="cust-summary-line">
               <span>Text add-ons</span>
-              <span>+${defaultTextCost + extraTextCost} CAD</span>
+              <span>+${textCost} CAD</span>
+            </div>
+          )}
+          {confettiCost > 0 && (
+            <div className="cust-summary-line">
+              <span>Confetti</span>
+              <span>+${confettiCost} CAD</span>
+            </div>
+          )}
+          {bowCost > 0 && (
+            <div className="cust-summary-line">
+              <span>Bows</span>
+              <span>+${bowCost} CAD</span>
             </div>
           )}
           <div className="cust-summary-total">

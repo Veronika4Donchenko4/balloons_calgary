@@ -22,7 +22,7 @@ export default function Footer1() {
 									<h6>Contact Us</h6>
 									<div className="text">Calgary, Alberta, Canada</div>
 									<ul className="contact-list">
-										<li><span className="icon fa fa-send"></span>balloonscalgary@gmail.com</li>
+										<li><span className="icon fa fa-send"></span>ballooncalgary@gmail.com</li>
 										<li><span className="icon fa fa-phone"></span><Link href="tel:+1-403-000-0000">(403) 000-0000</Link></li>
 									</ul>
 								</div>

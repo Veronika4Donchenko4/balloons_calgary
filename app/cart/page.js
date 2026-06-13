@@ -70,7 +70,7 @@ export default function CartPage() {
             <div className="success-message">
               <div className="success-icon">&#10004;&#65039;</div>
               <h2>{accentE('Thank You for Your Order!')}</h2>
-              <p>{accentE('We have received your order and will contact you shortly to confirm the details and delivery. You can also reach us at balloonscalgary@gmail.com')}</p>
+              <p>{accentE('We have received your order and will contact you shortly to confirm the details and delivery. You can also reach us at ballooncalgary@gmail.com')}</p>
               <Link href="/" className="btn btn-primary" style={{ marginTop: '24px' }}>Back to Home</Link>
             </div>
           </div>
@@ -154,6 +154,8 @@ export default function CartPage() {
                   </div>
                 ))}
               </div>
+
+              <p className="cart-ribbon-note">Satin ribbons included with every balloon</p>
 
               <div className="cart-summary">
                 <div className="cart-total">

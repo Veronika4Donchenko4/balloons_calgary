@@ -30,7 +30,7 @@ export default function Sidebar({ isSidebar, handleSidebar }) {
 								<ul className="list-style-one">
 									<li><span className="icon fa fa-location-arrow"></span>Calgary, Alberta, Canada</li>
 									<li><span className="icon fa fa-phone"></span>(403) 000-0000</li>
-									<li><span className="icon fa fa-envelope"></span>balloonscalgary@gmail.com</li>
+									<li><span className="icon fa fa-envelope"></span>ballooncalgary@gmail.com</li>
 									<li><span className="icon fa fa-clock-o"></span>Week Days: 09.00 to 18.00 Sunday: Closed</li>
 								</ul>
 							</div>

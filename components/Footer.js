@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="footer-links">
             <h4>Contact</h4>
             <ul>
-              <li><a href="mailto:balloonscalgary@gmail.com">balloonscalgary@gmail.com</a></li>
+              <li><a href="mailto:ballooncalgary@gmail.com">ballooncalgary@gmail.com</a></li>
               <li><a href="tel:+18252886133">+1 (825) 288-6133</a></li>
               <li>Calgary, Alberta, Canada</li>
               <li><a href="https://www.instagram.com/balloons_calgary_yyc?igsh=Y3RsN29jN3pkNXZw" target="_blank" rel="noopener noreferrer">@balloons_calgary_yyc</a></li>

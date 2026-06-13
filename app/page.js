@@ -147,8 +147,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Strip */}
+      {/* Delivery */}
       <section className="section section-alt">
+        <div className="container">
+          <div className="section-title">
+            <h2>Free <span>Delivery</span></h2>
+            <p>We bring the celebration to you</p>
+          </div>
+          <div className="delivery-info">
+            <div className="delivery-card">
+              <div className="delivery-icon">&#128666;</div>
+              <h3>{accentE('Free Delivery Within Calgary')}</h3>
+              <p>Free delivery within Calgary urban area*</p>
+              <p>We deliver within Calgary city limits. For deliveries outside the city, a $40 fee applies.</p>
+              <p className="delivery-note">*Minimum order: 3 standard balloons or 1 large balloon. Delivery outside the urban area — $40</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Strip */}
+      <section className="section">
         <div className="container">
           <div className="section-title">
             <h2>Get in <span>Touch</span></h2>
@@ -158,7 +177,7 @@ export default function Home() {
             <div className="contact-card">
               <div className="contact-card-icon">&#9993;</div>
               <h3>{accentE('Email')}</h3>
-              <a href="mailto:balloonscalgary@gmail.com">balloonscalgary@gmail.com</a>
+              <a href="mailto:ballooncalgary@gmail.com">ballooncalgary@gmail.com</a>
             </div>
             <div className="contact-card">
               <div className="contact-card-icon">&#128222;</div>
