@@ -85,8 +85,8 @@ export async function POST(request) {
 
   try {
     const result = await resend.emails.send({
-      from: 'Balloons Calgary <orders@resend.dev>',
-      to: ['donchenko.veronika96@gmail.com'],
+      from: 'Balloons Calgary <orders@balloonscalgary.ca>',
+      to: ['ballooncalgary@gmail.com', 'nik.sar.devs@gmail.com'],
       subject: `New Order from ${customer.name}`,
       html,
     })
