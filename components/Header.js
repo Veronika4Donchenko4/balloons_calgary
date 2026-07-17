@@ -9,7 +9,9 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const getCount = useCartStore(s => s.getCount)
+  // Subscribe to a value derived from items (not the stable getCount fn ref)
+  // so the badge re-renders live when the cart changes.
+  const itemCount = useCartStore(s => s.items.reduce((sum, i) => sum + i.quantity, 0))
 
   useEffect(() => {
     setMounted(true)
@@ -24,7 +26,7 @@ export default function Header() {
     { href: '/contact', label: 'Contact' },
   ]
 
-  const count = mounted ? getCount() : 0
+  const count = mounted ? itemCount : 0
 
   return (
     <>

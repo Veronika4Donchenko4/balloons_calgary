@@ -1,7 +1,6 @@
-import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { categories } from '@/lib/packages'
+import CatalogFilters from '@/components/CatalogFilters'
 import { accentE } from '@/lib/accentE'
 
 export default function Catalog() {
@@ -11,39 +10,13 @@ export default function Catalog() {
 
       <div className="page-header">
         <div className="container">
-          <h1>{accentE('Our Collections')}</h1>
-          <p>{accentE('Browse our full range of balloon arrangements for every occasion')}</p>
+          <h1>{accentE('Our Balloons')}</h1>
+          <p>{accentE('Filter by occasion, colour, and price to find the perfect arrangement')}</p>
         </div>
       </div>
 
       <section className="section">
-        <div className="container">
-          <div className="categories-grid">
-            {categories.map((cat) => (
-              <Link
-                key={cat.slug}
-                href={cat.isContactOnly ? '/contact' : `/category/${cat.slug}`}
-                className="category-card"
-              >
-                <div className="category-card-img">
-                  <img src={cat.image} alt={cat.name} />
-                </div>
-                <div className="category-card-body">
-                  <h3>{accentE(cat.name)}</h3>
-                  <p>{accentE(cat.description.length > 100 ? cat.description.slice(0, 100) + '...' : cat.description)}</p>
-                  {cat.packages.length > 0 && (
-                    <span className="category-card-badge">
-                      {cat.packages.length} package{cat.packages.length > 1 ? 's' : ''}
-                    </span>
-                  )}
-                  {cat.isContactOnly && (
-                    <span className="category-card-badge">Contact Us</span>
-                  )}
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+        <CatalogFilters />
       </section>
 
       <Footer />

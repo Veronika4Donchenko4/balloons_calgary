@@ -1849,3 +1849,102 @@ img {
   .hero-btns .btn { width: 100%; justify-content: center; }
   .packages-grid { grid-template-columns: 1fr; }
 }
+
+/* ---- Filterable catalog (Stage 3) ---- */
+.catalog-toolbar {
+  background: var(--white);
+  border: 1px solid var(--pink-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 16px 18px;
+  margin-bottom: 28px;
+}
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--pink-light);
+}
+.filter-group:last-of-type { border-bottom: none; }
+.filter-group-label {
+  flex: 0 0 72px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9a8f8a;
+  font-weight: 600;
+}
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--lavender);
+  background: var(--white);
+  color: #4a4247;
+  padding: 5px 11px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: capitalize;
+}
+.filter-chip:hover { border-color: var(--pink); }
+.filter-chip.active {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: var(--white);
+}
+.filter-ct { font-size: 0.72rem; opacity: 0.65; }
+.filter-chip.active .filter-ct { opacity: 0.9; }
+.filter-swatch {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.15);
+  display: inline-block;
+}
+.catalog-count {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 12px;
+  font-size: 0.88rem;
+  color: #6a6167;
+}
+.catalog-count strong { color: var(--pink-dark); }
+.filter-clear {
+  background: none;
+  border: none;
+  color: var(--pink-dark);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 6px 0;
+}
+.card-tag {
+  font-size: 0.7rem;
+  background: var(--pink-light);
+  color: #8a5a52;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  text-transform: capitalize;
+}
+.card-tag-custom { background: #e4f5ea; color: #1f7a45; }
+.card-color-dots { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+.color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.15);
+  display: inline-block;
+}
+@media (max-width: 600px) {
+  .filter-group-label { flex-basis: 100%; }
+}

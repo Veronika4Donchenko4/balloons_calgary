@@ -1,18 +1,13 @@
 import Link from 'next/link'
-import { notFound, redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import AddToCartButton from '@/components/AddToCartButton'
-import { getCategoryBySlug, getAllPackagesForCategory } from '@/lib/packages'
+import { getCollectionBySlug, getProductsForCollection } from '@/lib/packages'
 import { accentE } from '@/lib/accentE'
 
 function PackageCard({ pkg, categorySlug }) {
-  const isGirls = pkg.id.startsWith('girls-')
-  const isHim = pkg.id.startsWith('him-')
-  let detailHref
-  if (isGirls) detailHref = `/girls/${pkg.id.replace('girls-', '')}`
-  else if (isHim) detailHref = `/for-him/${pkg.id.replace('him-', '')}`
-  else detailHref = `/product/${pkg.id}`
+  const detailHref = `/product/${pkg.id}`
 
   return (
     <div className="package-card">
@@ -35,14 +30,10 @@ function PackageCard({ pkg, categorySlug }) {
 export default async function CategoryPage({ params }) {
   const { slug } = await params
 
-  if (slug === 'custom-request') {
-    redirect('/contact')
-  }
-
-  const category = getCategoryBySlug(slug)
+  const category = getCollectionBySlug(slug)
   if (!category) notFound()
 
-  const packages = getAllPackagesForCategory(slug)
+  const packages = getProductsForCollection(slug)
 
   return (
     <>

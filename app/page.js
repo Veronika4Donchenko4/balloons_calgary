@@ -2,23 +2,16 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import TestimonialsSlider from '@/components/TestimonialsSlider'
+import { collections } from '@/lib/packages'
 import { accentE } from '@/lib/accentE'
 
-const homeCategories = [
-  { name: 'Birthday Balloon Sets', desc: 'Elegant arrangements for every age', href: '/category/birthday-balloon-sets', image: '/assets/images/girl/girl5.png' },
-  { name: 'Kids Birthday Balloons', desc: 'Fun and colourful party setups', href: '/category/kids-birthday-balloons', image: '/assets/images/girl/girl11.png' },
-  { name: 'Baby Shower Balloon Sets', desc: 'Boy, girl, and neutral themes', href: '/category/baby-shower-balloon-sets', image: '/assets/images/girl/girl14.png' },
-  { name: 'Gender Reveal', desc: 'Make the big reveal unforgettable', href: '/category/gender-reveal-balloon-sets', image: '/assets/images/girl/girl8.png' },
-  { name: 'Graduation Balloons', desc: 'Celebrate academic milestones', href: '/category/graduation-balloons', image: '/assets/images/for-him/120_cad.png' },
-  { name: 'Celebration Sets', desc: 'For every reason to celebrate', href: '/category/celebration-balloon-sets', image: '/assets/images/girl/girl10.png' },
-  { name: 'Mini Arrangements', desc: 'Small surprises, big smiles', href: '/category/mini-balloon-arrangements', image: '/assets/images/60-cad/60_cad2.png' },
-  { name: 'Themed Balloon Sets', desc: 'Tropical, princess, sports & more', href: '/category/themed-balloon-sets', image: '/assets/images/100-cad/100_cad1.png' },
-  { name: 'Neutral Colours', desc: 'Sophisticated and timeless palettes', href: '/category/neutral-colour-balloon-sets', image: '/assets/images/girl/girl9.png' },
-  { name: 'Seasonal Sets', desc: 'Holiday and seasonal themes', href: '/category/seasonal-balloon-sets', image: '/assets/images/girl/girl4.png' },
-  { name: 'Ready-to-Go Sets', desc: 'Pre-made for same-day pickup', href: '/category/ready-to-go-balloon-sets', image: '/assets/images/60-cad/60_cad3.png' },
-  { name: 'Simple Party Sets', desc: 'No theme needed — just great vibes', href: '/category/simple-party-balloon-sets', image: '/assets/images/60-cad/60_cad1.png' },
-  { name: 'Custom Request', desc: 'Call us for a bespoke design', href: '/contact', image: '/assets/images/girl/girl1.png' },
-]
+// Derived from the single collections source of truth (lib/packages)
+const homeCategories = collections.map((c) => ({
+  name: c.name,
+  desc: c.description.length > 60 ? c.description.slice(0, 60).trim() + '…' : c.description,
+  href: `/category/${c.slug}`,
+  image: c.image,
+}))
 
 export default function Home() {
   return (
