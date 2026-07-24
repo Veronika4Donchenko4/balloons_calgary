@@ -61,11 +61,16 @@ export default function Header() {
             </a>
 
             <Link href="/cart" className="cart-btn" aria-label="Cart">
-              {/* lucide: shopping-bag */}
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-                <path d="M3 6h18" />
-                <path d="M16 10a4 4 0 0 1-8 0" />
+              {/* lucide: shopping-bag. Same 22×22 box as the Instagram icon, but
+                  the bag's tall shape reads optically larger, so scale it to 0.87
+                  about the centre. strokeWidth is compensated (1.5 / 0.87) so the
+                  rendered stroke stays 1.5, matching the Instagram icon. */}
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <g transform="translate(12 12) scale(0.87) translate(-12 -12)" strokeWidth={1.5 / 0.87}>
+                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                  <path d="M3 6h18" />
+                  <path d="M16 10a4 4 0 0 1-8 0" />
+                </g>
               </svg>
               {count > 0 && <span className="cart-badge">{count}</span>}
             </Link>

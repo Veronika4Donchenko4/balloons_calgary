@@ -1,0 +1,65 @@
+<style>
+:root{--ink:#2A2422;--muted:#8C817C;--line:#EFE6E3;--card:#FFF;--ground:#FBF8F7;--gray700:#374151;--coral:#F88379;}
+@media (prefers-color-scheme:dark){:root{--ground:#18140F;--card:#221C19;--ink:#F2ECE9;--muted:#A99E98;--line:#342A26;--gray700:#D8D2CE;}}
+:root[data-theme="dark"]{--ground:#18140F;--card:#221C19;--ink:#F2ECE9;--muted:#A99E98;--line:#342A26;--gray700:#D8D2CE;}
+:root[data-theme="light"]{--ground:#FBF8F7;--card:#FFF;--ink:#2A2422;--muted:#8C817C;--line:#EFE6E3;--gray700:#374151;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:system-ui,-apple-system,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:720px;margin:0 auto;padding:44px 22px 64px;}
+.kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);font-weight:600;margin:0 0 8px;}
+h1{font-size:1.6rem;margin:0 0 8px;}
+.lead{color:var(--muted);margin:0 0 26px;max-width:60ch;}
+.row{display:grid;grid-template-columns:88px 1fr;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:16px;box-shadow:0 1px 2px rgba(0,0,0,.04);}
+.tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.tag.after{color:var(--coral);}
+.icons{display:flex;align-items:center;gap:26px;color:var(--gray700);}
+.icons svg{display:block;}
+.mag{display:flex;align-items:center;gap:26px;padding-left:20px;border-left:1px solid var(--line);}
+.mag svg{width:60px;height:60px;}
+.note{font-size:.82rem;color:var(--muted);margin-top:6px;}
+.label{font-size:.68rem;color:var(--muted);text-align:center;margin-top:5px;}
+.pair{display:flex;flex-direction:column;align-items:center;}
+</style>
+<div class="wrap">
+  <p class="kicker">Header icons · matched pair</p>
+  <h1>Instagram + Cart — before / after</h1>
+  <p class="lead">Left column is at true header size (22–24px); right column is magnified ~2.7× so the stroke/fill difference is obvious. Colour is the header’s <code>gray-700</code>.</p>
+
+  <div class="row">
+    <div><div class="tag">Before</div></div>
+    <div>
+      <div style="display:flex;gap:40px;align-items:center;">
+        <div class="icons">
+          <!-- Instagram: FILLED brand glyph, 22px -->
+          <div class="pair"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg><div class="label">filled · 22</div></div>
+          <!-- Cart: Heroicons outline 1.5, 24px -->
+          <div class="pair"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/></svg><div class="label">outline 1.5 · 24</div></div>
+        </div>
+        <div class="mag">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/></svg>
+        </div>
+      </div>
+      <p class="note">Different sets: a solid Instagram glyph next to a thin 1.5-stroke outline bag, and 22px vs 24px.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div><div class="tag after">After</div></div>
+    <div>
+      <div style="display:flex;gap:40px;align-items:center;">
+        <div class="icons">
+          <!-- Lucide instagram, outline 1.5, 22 -->
+          <div class="pair"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg><div class="label">Lucide · 22</div></div>
+          <!-- Lucide shopping-bag, outline 1.5, 22 -->
+          <div class="pair"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><div class="label">Lucide · 22</div></div>
+        </div>
+        <div class="mag">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+      </div>
+      <p class="note">Both Lucide · outline · stroke-width 1.5 · 22×22 · same <code>currentColor</code> — a matched pair (and consistent with the hamburger/close icons).</p>
+    </div>
+  </div>
+</div>
