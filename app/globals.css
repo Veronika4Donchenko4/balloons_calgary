@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Italiana&family=Tsukimi+Rounded:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* accentE() wraps every capital "E" in this span so it renders in the
+   Italiana face (the client dislikes the main font's capital E). It is a
+   typographic wrapper only — it must never take a colour of its own, so it
+   always inherits the surrounding text colour, overriding any section rule
+   that colours descendant spans (e.g. `.hero h1 span`). */
 .accent-letter {
   font-family: 'Italiana', serif;
+  color: inherit !important;
 }
 
 :root {
