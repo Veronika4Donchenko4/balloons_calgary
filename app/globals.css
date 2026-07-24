@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Tsukimi+Rounded:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tsukimi+Rounded:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Varela+Round&display=swap');
 
 /* accentE() wraps every capital "E" in this span so it renders in the
-   Italiana face (the client dislikes the main font's capital E). It is a
-   typographic wrapper only — it must never take a colour of its own, so it
-   always inherits the surrounding text colour, overriding any section rule
-   that colours descendant spans (e.g. `.hero h1 span`). */
+   Varela Round face (the client dislikes the main font's capital E). Varela
+   Round is a rounded sans that matches Tsukimi Rounded's weight and width, so
+   the swapped E blends instead of looking pasted in. It is a typographic
+   wrapper only — it must never take a colour of its own, so it always inherits
+   the surrounding text colour, overriding any section rule that colours
+   descendant spans (e.g. `.hero h1 span`). */
 .accent-letter {
-  font-family: 'Italiana', serif;
+  font-family: 'Varela Round', sans-serif;
   color: inherit !important;
 }
 
