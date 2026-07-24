@@ -31,7 +31,7 @@ export default function Home() {
         </div>
         <div className="container">
           <div className="hero-content">
-            <h1>Beautiful Balloon Arrangements for {accentE('Every')} <span>Celebration</span></h1>
+            <h1>Beautiful Balloon Arrangements for Every <span>Celebration</span></h1>
             <p>Handcrafted balloon compositions for birthdays, baby showers, romantic surprises & special events in Calgary.</p>
             <div className="hero-btns">
               <Link href="/catalog" className="btn btn-primary btn-lg">Browse Collections</Link>
