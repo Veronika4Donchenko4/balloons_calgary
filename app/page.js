@@ -26,8 +26,11 @@ export default function Home() {
         <div className="floating-balloon float-b delay-3 balloon-lg balloon-hide-mobile" style={{ bottom: '5%', right: 80 }}>
           <img src="/assets/images/balloons/balloon-2.png" alt="" />
         </div>
-        <div className="floating-balloon float-c delay-5 balloon-lg balloon-dim" style={{ top: '20%', left: -40 }}>
+        <div className="floating-balloon float-c delay-5 balloon-lg" style={{ top: '20%', left: -40 }}>
           <img src="/assets/images/balloons/balloon-3.png" alt="" />
+        </div>
+        <div className="floating-balloon float-b delay-2 balloon-lg balloon-hide-mobile" style={{ bottom: '12%', left: -50 }}>
+          <img src="/assets/images/balloons/balloon-4.png" alt="" />
         </div>
         <div className="container">
           <div className="hero-content">
@@ -43,9 +46,6 @@ export default function Home() {
 
       {/* Categories */}
       <section className="section has-balloons">
-        <div className="floating-balloon float-b delay-2 balloon-lg balloon-hide-mobile" style={{ top: '3%', left: -50 }}>
-          <img src="/assets/images/balloons/balloon-4.png" alt="" />
-        </div>
         <div className="container">
           <div className="section-title">
             <h2>Our <span>Collections</span></h2>

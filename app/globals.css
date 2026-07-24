@@ -344,6 +344,22 @@ img {
   max-width: 700px;
 }
 
+/* Soft light wash behind the heading so the dark h1 stays legible over the
+   now-solid balloons. It sits above the balloons (z-index 0) but below the
+   text, is weighted toward the heading (upper-left), and fades to nothing
+   before the buttons — subtle on the light background, enough over a balloon. */
+.hero-content::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -32px -30px -18px -46px;
+  background: radial-gradient(112% 96% at 24% 34%,
+    rgba(255, 248, 246, 0.92) 0%,
+    rgba(255, 248, 246, 0.70) 44%,
+    rgba(255, 248, 246, 0) 72%);
+  pointer-events: none;
+}
+
 .hero h1 {
   font-size: 3.5rem;
   color: var(--gray-900);
@@ -1770,14 +1786,6 @@ img {
   will-change: transform;
 }
 
-/* The left balloon (.balloon-dim) sits under the heading, so it stays dimmed
-   to protect the dark text's contrast. Right-side balloons render solid at
-   full opacity. The .floating-balloon.balloon-dim selector keeps the reduced
-   opacity winning over the responsive rules below at every breakpoint. */
-.floating-balloon.balloon-dim {
-  opacity: 0.5;
-}
-
 .floating-balloon img {
   width: 100%;
   height: 100%;
@@ -1826,7 +1834,6 @@ img {
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .balloon-lg { width: 130px; height: 170px; }
   .balloon-xl { width: 150px; height: 195px; }
-  .floating-balloon.balloon-dim { opacity: 0.4; }
 }
 
 @media (max-width: 768px) {
@@ -1847,7 +1854,6 @@ img {
   .page-header h1 { font-size: 2rem; }
   .balloon-lg { width: 90px; height: 120px; }
   .balloon-xl { width: 110px; height: 140px; }
-  .floating-balloon.balloon-dim { opacity: 0.3; }
   .balloon-hide-mobile { display: none; }
   .customizer-layout { grid-template-columns: 1fr; gap: 24px; }
   .customizer-image { position: static; }
