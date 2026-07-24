@@ -6,6 +6,23 @@ import AddToCartButton from '@/components/AddToCartButton'
 import { getCollectionBySlug, getProductsForCollection } from '@/lib/packages'
 import { accentE } from '@/lib/accentE'
 
+export async function generateMetadata({ params }) {
+  const { slug } = await params
+  const category = getCollectionBySlug(slug)
+  if (!category) return { title: 'Collection Not Found' }
+  return {
+    title: `${category.name} Balloons`,
+    description: category.description,
+    alternates: { canonical: `/category/${slug}` },
+    openGraph: {
+      title: `${category.name} Balloons · Balloons Calgary`,
+      description: category.description,
+      url: `/category/${slug}`,
+      images: [{ url: category.image }],
+    },
+  }
+}
+
 function PackageCard({ pkg, categorySlug }) {
   const detailHref = `/product/${pkg.id}`
 

@@ -3,6 +3,14 @@ import Footer from '@/components/Footer'
 import CatalogFilters from '@/components/CatalogFilters'
 import { accentE } from '@/lib/accentE'
 
+export const metadata = {
+  title: 'Shop All Balloon Arrangements',
+  description:
+    'Browse every balloon arrangement — filter by occasion, colour and price to ' +
+    'find the perfect set. Handcrafted in Calgary with free local delivery.',
+  alternates: { canonical: '/catalog' },
+}
+
 export default function Catalog() {
   return (
     <>

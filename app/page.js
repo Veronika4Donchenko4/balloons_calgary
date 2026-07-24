@@ -4,6 +4,15 @@ import Footer from '@/components/Footer'
 import TestimonialsSlider from '@/components/TestimonialsSlider'
 import { collections } from '@/lib/packages'
 import { accentE } from '@/lib/accentE'
+import { SITE_NAME, SITE_TAGLINE } from '@/lib/site'
+
+export const metadata = {
+  title: { absolute: `${SITE_NAME} — ${SITE_TAGLINE} in Calgary` },
+  description:
+    'Beautiful handcrafted balloon arrangements for birthdays, baby showers, ' +
+    'gender reveals and celebrations — with free delivery across Calgary.',
+  alternates: { canonical: '/' },
+}
 
 // Derived from the single collections source of truth (lib/packages)
 const homeCategories = collections.map((c) => ({
