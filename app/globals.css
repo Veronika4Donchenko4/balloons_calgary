@@ -57,6 +57,10 @@ body {
   background: var(--white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  /* Contain the small horizontal bleed of the edge balloons (e.g. the
+     straddling grey balloon at left:-28) without adding a vertical scrollbar.
+     overflow-x:clip pairs with overflow-y:visible, so the page still scrolls. */
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1790,6 +1794,38 @@ img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+/* Grey balloon that deliberately straddles the pink hero → white section edge.
+   It lives in .hero-bleed (a sibling of the clipped hero) so it escapes the
+   hero's overflow:hidden, and z-index lifts it above the collections section
+   so its lower half shows over the white. top:100% pins it to the hero's
+   bottom edge; translateY lifts it so the balloon body sits half in the pink,
+   half in the white. Sizing comes from .balloon-lg. */
+.hero-bleed {
+  position: relative;
+}
+
+.balloon-straddle {
+  position: absolute;
+  top: 100%;
+  left: -28px;
+  transform: translateY(-24%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.balloon-straddle-inner {
+  width: 100%;
+  height: 100%;
+  animation: floatB 6.5s ease-in-out infinite;
+}
+
+.balloon-straddle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .balloon-lg { width: 240px; height: 310px; }

@@ -19,6 +19,7 @@ export default function Home() {
       <Header />
 
       {/* Hero */}
+      <div className="hero-bleed">
       <section className="hero has-balloons">
         <div className="floating-balloon float-a delay-1 balloon-xl" style={{ top: '8%', right: -30 }}>
           <img src="/assets/images/balloons/balloon-1.png" alt="" />
@@ -28,9 +29,6 @@ export default function Home() {
         </div>
         <div className="floating-balloon float-c delay-5 balloon-lg" style={{ top: '20%', left: -40 }}>
           <img src="/assets/images/balloons/balloon-3.png" alt="" />
-        </div>
-        <div className="floating-balloon float-b delay-2 balloon-lg balloon-hide-mobile" style={{ bottom: '12%', left: -50 }}>
-          <img src="/assets/images/balloons/balloon-4.png" alt="" />
         </div>
         <div className="container">
           <div className="hero-content">
@@ -43,6 +41,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+        {/* Grey balloon straddling the hero → collections boundary (escapes the
+            hero's overflow:hidden as a sibling, painted above both sections) */}
+        <div className="balloon-straddle balloon-lg balloon-hide-mobile" aria-hidden="true">
+          <div className="balloon-straddle-inner">
+            <img src="/assets/images/balloons/balloon-4.png" alt="" />
+          </div>
+        </div>
+      </div>
 
       {/* Categories */}
       <section className="section has-balloons">
