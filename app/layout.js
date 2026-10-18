@@ -32,7 +32,7 @@ export const metadata = {
   // Favicons come from the App Router file convention: app/favicon.ico,
   // app/icon.png, app/apple-icon.png — Next emits the correct <link> tags.
   manifest: '/site.webmanifest',
-  themeColor: '#F88379',
+  themeColor: '#FAFAF8',
 }
 
 const localBusinessJsonLd = {
