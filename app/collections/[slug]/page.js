@@ -2,7 +2,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { boutiqueCollections, getBoutiqueCollection, getBoutiqueProducts } from '@/lib/premium'
+import Placeholder from '@/components/Placeholder'
+import BouquetsGrid from '@/components/BouquetsGrid'
+import { productGradient, boutiqueCollections, getBoutiqueCollection, getBoutiqueProducts } from '@/lib/premium'
 
 export function generateStaticParams() {
   return boutiqueCollections.map((c) => ({ slug: c.slug }))
@@ -41,13 +43,15 @@ export default async function CollectionPage({ params }) {
               <p>This collection is made to order. Tell us what you have in mind.</p>
               <Link href="/custom-order" className="btn btn-primary">Request a Custom Design</Link>
             </div>
+          ) : slug === 'bouquets' ? (
+            <BouquetsGrid items={items} />
           ) : (
             <div className="lux-products">
               {items.map((p) => (
                 <Link key={p.id} href={`/product/${p.id}`} className="lux-product">
-                  <div className="lux-product-img"><img src={p.image} alt={p.name} loading="lazy" /></div>
+                  <Placeholder gradient={productGradient(p)} label={p.name} />
                   <h3>{p.name}</h3>
-                  <span>{p.id === 'signature-trio' ? 'From ' : ''}${p.price} CAD</span>
+                  <span>${p.price} CAD</span>
                 </Link>
               ))}
             </div>

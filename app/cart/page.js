@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { useCartStore } from '@/lib/cartStore'
+import Placeholder from '@/components/Placeholder'
 import { accentE } from '@/lib/accentE'
 
 const defaultImg = '/assets/images/girl/girl1.png'
@@ -105,7 +106,7 @@ export default function CartPage() {
                 {items.map(item => (
                   <div key={item.id} className="cart-item">
                     <div className="cart-item-img">
-                      <img src={item.image || defaultImg} alt={item.name} />
+                      <Placeholder gradient={item.gradient} label={item.name} />
                     </div>
                     <div className="cart-item-info">
                       <h3>{accentE(item.name)}</h3>

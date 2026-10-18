@@ -4,6 +4,9 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import AddToCartButton from '@/components/AddToCartButton'
 import { getCollectionBySlug, getProductsForCollection } from '@/lib/packages'
+import Placeholder from '@/components/Placeholder'
+import { productGradient } from '@/lib/premium'
+import { OG_IMAGE } from '@/lib/site'
 import { accentE } from '@/lib/accentE'
 
 export async function generateMetadata({ params }) {
@@ -18,7 +21,7 @@ export async function generateMetadata({ params }) {
       title: `${category.name} Balloons · Balloons Calgary`,
       description: category.description,
       url: `/category/${slug}`,
-      images: [{ url: category.image }],
+      images: [{ url: OG_IMAGE }],
     },
   }
 }
@@ -29,7 +32,7 @@ function PackageCard({ pkg, categorySlug }) {
   return (
     <div className="package-card">
       <div className="package-card-img">
-        <img src={pkg.image} alt={pkg.name} />
+        <Placeholder gradient={productGradient(pkg)} label={pkg.name} />
       </div>
       <div className="package-card-body">
         <h3>{accentE(pkg.name)}</h3>

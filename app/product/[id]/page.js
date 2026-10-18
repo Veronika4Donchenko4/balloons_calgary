@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import BalloonCustomizer from '@/components/BalloonCustomizer'
 import { getProductById, getCategoryBySlug, getDefaultBalloons } from '@/lib/packages'
 import { accentE } from '@/lib/accentE'
-import { SITE_NAME, BUSINESS, abs } from '@/lib/site'
+import { SITE_NAME, BUSINESS, OG_IMAGE, abs } from '@/lib/site'
 
 export async function generateMetadata({ params }) {
   const { id } = await params
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
       title: `${pkg.name} · ${SITE_NAME}`,
       description,
       url: `/product/${id}`,
-      images: [{ url: pkg.image, alt: pkg.name }],
+      images: [{ url: OG_IMAGE }],
     },
   }
 }
@@ -38,7 +38,6 @@ export default async function ProductPage({ params }) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: pkg.name,
-    image: abs(pkg.image),
     description: pkg.description,
     brand: { '@type': 'Brand', name: SITE_NAME },
     offers: {

@@ -1,6 +1,8 @@
 'use client'
 import { useState } from 'react'
 import { useCartStore } from '@/lib/cartStore'
+import Placeholder from '@/components/Placeholder'
+import { productGradient } from '@/lib/premium'
 import { accentE } from '@/lib/accentE'
 
 const BALLOON_COLORS = [
@@ -144,7 +146,7 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
       id: `${pkg.id}-custom-${Date.now()}`,
       name: pkg.name,
       price: total,
-      image: pkg.image,
+      gradient: productGradient(pkg),
       category: pkg.category,
       customizations: {
         basePrice: pkg.price,
@@ -183,7 +185,7 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
   return (
     <div className="customizer-layout">
       <div className="customizer-image">
-        <img src={pkg.image} alt={pkg.name} />
+        <Placeholder gradient={productGradient(pkg)} label={pkg.name} />
       </div>
 
       <div className="customizer-panel">

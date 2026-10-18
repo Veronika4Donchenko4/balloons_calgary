@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { productGradient } from '@/lib/premium'
 import { useCartStore } from '@/lib/cartStore'
 
 export default function AddToCartButton({ item, className = '' }) {
@@ -7,7 +8,7 @@ export default function AddToCartButton({ item, className = '' }) {
   const [showToast, setShowToast] = useState(false)
 
   const handleAdd = () => {
-    addItem(item)
+    addItem({ ...item, gradient: item.gradient || productGradient(item) })
     setShowToast(true)
     setTimeout(() => setShowToast(false), 3000)
   }

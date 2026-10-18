@@ -1,10 +1,11 @@
 import Link from 'next/link'
+import Placeholder from '@/components/Placeholder'
 
 export default function CollectionCard({ c }) {
   return (
     <Link href={`/collections/${c.slug}`} className="boutique-card">
       <div className="boutique-card-img">
-        <img src={c.image} alt={c.name} loading="lazy" />
+        <Placeholder gradient={c.gradient} label={c.name} />
       </div>
       <div className="boutique-card-body">
         <h3>{c.name}</h3>

@@ -1,6 +1,8 @@
 'use client'
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
+import Placeholder from '@/components/Placeholder'
+import { productGradient } from '@/lib/premium'
 import AddToCartButton from '@/components/AddToCartButton'
 import { products, allColors, allOccasions, priceBuckets, primaryCollection } from '@/lib/packages'
 import { accentE } from '@/lib/accentE'
@@ -103,7 +105,7 @@ export default function CatalogFilters() {
           {shown.map((p) => (
             <div key={p.id} className="package-card">
               <div className="package-card-img">
-                <img src={p.image} alt={p.name} />
+                <Placeholder gradient={productGradient(p)} label={p.name} />
               </div>
               <div className="package-card-body">
                 <h3>{accentE(p.name)}</h3>
