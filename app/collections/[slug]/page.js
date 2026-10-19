@@ -4,7 +4,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Placeholder from '@/components/Placeholder'
 import VariantGrid from '@/components/VariantGrid'
-import { productGradient, boutiqueCollections, getBoutiqueCollection, getBoutiqueProducts } from '@/lib/premium'
+import { TRIO_COLOURWAYS, NUMBER_COLOURS, productGradient, boutiqueCollections, getBoutiqueCollection, getBoutiqueProducts } from '@/lib/premium'
 
 export function generateStaticParams() {
   return boutiqueCollections.map((c) => ({ slug: c.slug }))
@@ -44,7 +44,7 @@ export default async function CollectionPage({ params }) {
               <Link href="/custom-order" className="btn btn-primary">Request a Custom Design</Link>
             </div>
           ) : slug === 'bouquets' || slug === 'numbers' ? (
-            <VariantGrid items={items} leadId={slug === 'bouquets' ? 'signature-trio' : 'number-balloons'} />
+            <VariantGrid items={items} chipVariants={slug === 'bouquets' ? TRIO_COLOURWAYS : NUMBER_COLOURS} />
           ) : (
             <div className="lux-products">
               {items.map((p) => (

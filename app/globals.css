@@ -2197,4 +2197,5 @@ img {
 .trio-img.active { opacity: 1; }
 @media (max-width: 800px) { .trio-photo { position: relative; top: 0; } }
 .trio-number { max-width: 140px; margin-bottom: 20px; }
+.trio-number-hint { display: block; margin-top: 6px; color: var(--gray-500); font-size: 0.8rem; }
 .trio-number input { text-align: center; font-size: 1.1rem; letter-spacing: 0.1em; }

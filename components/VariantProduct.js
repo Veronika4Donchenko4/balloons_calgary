@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { useCartStore } from '@/lib/cartStore'
-import { VARIANT_PRODUCTS, variantImage } from '@/lib/premium'
+import { VARIANT_PRODUCTS } from '@/lib/premium'
 import ColourChips from '@/components/ColourChips'
 import VariantPhoto from '@/components/VariantPhoto'
 
@@ -14,12 +14,12 @@ export default function VariantProduct({ slug }) {
   const addItem = useCartStore((s) => s.addItem)
   const [selected, setSelected] = useState(0)
   const [addonOn, setAddonOn] = useState(false)
-  const [digits, setDigits] = useState('25')
+  const [digits, setDigits] = useState(numberField?.initial ?? '')
   const [toast, setToast] = useState(false)
   const [hint, setHint] = useState(false)
   const way = variants[selected]
-  const digitCount = numberField ? Math.max(digits.length, 1) : 1
-  const total = product.price * digitCount + (addonOn ? addon.price : 0)
+  const digitsOk = !numberField || digits.length === numberField.digits
+  const total = product.price + (addonOn ? addon.price : 0)
 
   // Preselect the colour chosen on the collection page (?c=index)
   useEffect(() => {
@@ -41,11 +41,11 @@ export default function VariantProduct({ slug }) {
       id: `${product.id}-${slugify(way.name)}${numberField ? `-${digits}` : ''}${addonOn ? '-animal' : ''}`,
       name,
       price: total,
-      image: variantImage(way, digitCount),
+      image: way.image,
       gradient: way.gradient,
       category: product.id,
       customizations: {
-        basePrice: product.price * digitCount,
+        basePrice: product.price,
         balloons,
         extraBalloons: addonOn ? [{ type: 'animal', color: 'Choose with us' }] : [],
         extraBalloonsCost: addonOn ? addon.price : 0,
@@ -57,10 +57,10 @@ export default function VariantProduct({ slug }) {
 
   return (
     <div className="trio-layout">
-      <VariantPhoto variants={variants} selected={selected} digitCount={digitCount} label={`${product.name} — ${way.name}`} sizes="(max-width: 800px) 100vw, 560px" />
+      <VariantPhoto variants={variants} selected={selected} label={`${product.name} — ${way.name}`} sizes="(max-width: 800px) 100vw, 560px" />
       <div className="trio-info">
         <h1>{product.name}</h1>
-        <div className="trio-price">${product.price} CAD{numberField && ' per digit'}</div>
+        <div className="trio-price">${product.price} CAD</div>
         <p>{blurb}</p>
 
         <div className="trio-label">Colour: <strong>{way.name}</strong></div>
@@ -72,11 +72,14 @@ export default function VariantProduct({ slug }) {
             <input
               id="digits"
               inputMode="numeric"
-              maxLength={3}
+              maxLength={numberField.digits}
               value={digits}
-              onChange={(e) => setDigits(e.target.value.replace(/\D/g, ''))}
-              placeholder="25"
+              onChange={(e) => setDigits(e.target.value.replace(/\D/g, '').slice(0, numberField.digits))}
+              placeholder={numberField.initial}
             />
+            <small className="trio-number-hint">
+              {numberField.digits === 1 ? 'One digit, 0–9' : 'Two digits, 00–99'}
+            </small>
           </div>
         )}
 
@@ -99,7 +102,7 @@ export default function VariantProduct({ slug }) {
           >
             Choose Colours
           </button>
-          <button type="button" className="btn btn-primary btn-lg" onClick={add} disabled={numberField && !digits}>
+          <button type="button" className="btn btn-primary btn-lg" onClick={add} disabled={!digitsOk}>
             Add to Cart — ${total}
           </button>
         </div>
