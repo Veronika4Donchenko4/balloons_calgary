@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { useCartStore } from '@/lib/cartStore'
-import { VARIANT_PRODUCTS } from '@/lib/premium'
+import { VARIANT_PRODUCTS, variantImage } from '@/lib/premium'
 import ColourChips from '@/components/ColourChips'
 import VariantPhoto from '@/components/VariantPhoto'
 
@@ -41,7 +41,7 @@ export default function VariantProduct({ slug }) {
       id: `${product.id}-${slugify(way.name)}${numberField ? `-${digits}` : ''}${addonOn ? '-animal' : ''}`,
       name,
       price: total,
-      image: way.image,
+      image: variantImage(way, digitCount),
       gradient: way.gradient,
       category: product.id,
       customizations: {
@@ -57,7 +57,7 @@ export default function VariantProduct({ slug }) {
 
   return (
     <div className="trio-layout">
-      <VariantPhoto variants={variants} selected={selected} label={`${product.name} — ${way.name}`} sizes="(max-width: 800px) 100vw, 560px" />
+      <VariantPhoto variants={variants} selected={selected} digitCount={digitCount} label={`${product.name} — ${way.name}`} sizes="(max-width: 800px) 100vw, 560px" />
       <div className="trio-info">
         <h1>{product.name}</h1>
         <div className="trio-price">${product.price} CAD{numberField && ' per digit'}</div>
