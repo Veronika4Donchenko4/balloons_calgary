@@ -2185,3 +2185,14 @@ img {
 .chip-dots i + i { margin-left: -6px; }
 .chips-title { text-align: center; font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-500); margin-bottom: 16px; }
 .lux-section .chips { justify-content: center; margin-bottom: 48px; }
+
+/* ===== REAL PHOTOS ===== */
+.boutique-card-img { position: relative; aspect-ratio: 4 / 5; background: var(--cream); }
+.boutique-card-img img { object-fit: cover; object-position: center; transition: transform 0.6s ease; }
+.boutique-card:hover .boutique-card-img img { transform: scale(1.04); }
+.trio-photo, .lux-trio-photo { position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: var(--cream); }
+.trio-photo { position: sticky; top: 96px; }
+.lux-trio-photo { margin-bottom: 14px; }
+.trio-img { object-fit: cover; opacity: 0; transition: opacity 0.45s ease; }
+.trio-img.active { opacity: 1; }
+@media (max-width: 800px) { .trio-photo { position: relative; top: 0; } }

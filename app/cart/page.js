@@ -106,7 +106,7 @@ export default function CartPage() {
                 {items.map(item => (
                   <div key={item.id} className="cart-item">
                     <div className="cart-item-img">
-                      <Placeholder gradient={item.gradient} label={item.name} />
+                      {item.image ? <img src={item.image} alt={item.name} /> : <Placeholder gradient={item.gradient} label={item.name} />}
                     </div>
                     <div className="cart-item-info">
                       <h3>{accentE(item.name)}</h3>

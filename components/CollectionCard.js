@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import Placeholder from '@/components/Placeholder'
+import Image from 'next/image'
 
 export default function CollectionCard({ c }) {
   return (
     <Link href={`/collections/${c.slug}`} className="boutique-card">
       <div className="boutique-card-img">
-        <Placeholder gradient={c.gradient} label={c.name} />
+        <Image src={c.image} alt={c.name} fill sizes="(max-width: 1024px) 50vw, 300px" />
       </div>
       <div className="boutique-card-body">
         <h3>{c.name}</h3>

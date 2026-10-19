@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useCartStore } from '@/lib/cartStore'
 import { TRIO_COLOURWAYS, SIGNATURE_TRIO } from '@/lib/premium'
-import Placeholder from '@/components/Placeholder'
+import Image from 'next/image'
 import ColourChips from '@/components/ColourChips'
 
 export default function SignatureTrioPurchase() {
@@ -26,6 +26,7 @@ export default function SignatureTrioPurchase() {
       id: `${SIGNATURE_TRIO.id}-${way.name.replace(/\W+/g, '-').toLowerCase()}${animal ? '-animal' : ''}`,
       name: `${SIGNATURE_TRIO.name} — ${way.name}`,
       price: total,
+      image: way.image,
       gradient: way.gradient,
       category: 'bouquets',
       customizations: {
@@ -41,7 +42,19 @@ export default function SignatureTrioPurchase() {
 
   return (
     <div className="trio-layout">
-      <Placeholder gradient={way.gradient} label={`${SIGNATURE_TRIO.name} — ${way.name}`} className="ph-trio" />
+      <div className="trio-photo" role="img" aria-label={`${SIGNATURE_TRIO.name} — ${way.name}`}>
+        {TRIO_COLOURWAYS.map((w, i) => (
+          <Image
+            key={w.name}
+            src={w.image}
+            alt=""
+            fill
+            priority={i === 0}
+            sizes="(max-width: 800px) 100vw, 560px"
+            className={`trio-img${i === selected ? ' active' : ''}`}
+          />
+        ))}
+      </div>
       <div className="trio-info">
         <h1>{SIGNATURE_TRIO.name}</h1>
         <div className="trio-price">${SIGNATURE_TRIO.price} CAD</div>

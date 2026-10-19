@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Placeholder from '@/components/Placeholder'
 import ColourChips from '@/components/ColourChips'
 import { TRIO_COLOURWAYS, SIGNATURE_TRIO, productGradient } from '@/lib/premium'
@@ -18,7 +19,15 @@ export default function BouquetsGrid({ items }) {
           const trio = p.id === SIGNATURE_TRIO.id
           return (
             <Link key={p.id} href={trio ? `/product/${p.id}?c=${sel}` : `/product/${p.id}`} className="lux-product">
-              <Placeholder gradient={trio ? TRIO_COLOURWAYS[sel].gradient : productGradient(p)} label={p.name} />
+              trio ? (
+                <div className="lux-trio-photo">
+                  {TRIO_COLOURWAYS.map((w, i) => (
+                    <Image key={w.name} src={w.image} alt={i === sel ? p.name : ''} fill sizes="280px" className={`trio-img${i === sel ? ' active' : ''}`} />
+                  ))}
+                </div>
+              ) : (
+                <Placeholder gradient={productGradient(p)} label={p.name} />
+              )
               <h3>{p.name}</h3>
               <span>{trio ? `${TRIO_COLOURWAYS[sel].name} · From ` : ''}${p.price} CAD</span>
             </Link>
