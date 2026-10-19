@@ -57,14 +57,15 @@ export default function VariantProduct({ slug }) {
 
   return (
     <div className="trio-layout">
-      <VariantPhoto variants={variants} selected={selected} label={`${product.name} — ${way.name}`} sizes="(max-width: 800px) 100vw, 560px" />
+      <div className="trio-media">
+        <VariantPhoto variants={variants} selected={selected} label={`${product.name} — ${way.name}`} sizes="(max-width: 800px) 100vw, 560px" />
+        <div className="trio-label">Colour: <strong>{way.name}</strong></div>
+        <ColourChips id="trio-colours" options={variants} selected={selected} onSelect={setSelected} highlight={hint} />
+      </div>
       <div className="trio-info">
         <h1>{product.name}</h1>
         <div className="trio-price">${product.price} CAD</div>
         <p>{blurb}</p>
-
-        <div className="trio-label">Colour: <strong>{way.name}</strong></div>
-        <ColourChips id="trio-colours" options={variants} selected={selected} onSelect={setSelected} highlight={hint} />
 
         {numberField && (
           <div className="form-group trio-number">

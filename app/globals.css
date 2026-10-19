@@ -15,6 +15,11 @@
 :root {
   /* Premium neutral palette. Legacy --pink* names are kept so existing rules
      keep working; they now resolve to the neutral palette. */
+  /* Brand colour for header, footer and mobile drawer. The -rgb twin lets us
+     build translucent variants without repeating the hex. */
+  --color-brand: #C79582;
+  --color-brand-rgb: 199 149 130;
+  --footer-text: #fff;
   --charcoal: #2D2D2D;
   --taupe: #B8A99A;
   --cream: #E8DDD3;
@@ -101,13 +106,35 @@ img {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #EBA99A;
+  background: var(--color-brand);
   border-bottom: 1px solid rgba(255,255,255,0.25);
-  transition: var(--transition);
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease, box-shadow 0.3s ease;
 }
 
 .site-header.scrolled {
   box-shadow: var(--shadow-md);
+}
+
+.header-inner { transition: height 0.3s ease; }
+.header-logo img { transition: max-height 0.3s ease; }
+
+/* Mobile: once scrolled, go translucent + compact so the header covers less of the photo. */
+@media (max-width: 768px) {
+  .site-header.scrolled {
+    background: rgb(var(--color-brand-rgb) / 0.65);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: none;
+  }
+  .site-header.scrolled .header-inner { height: 56px; }
+  .site-header.scrolled .header-logo img { max-height: 42px; }
+  /* keep logo + icons legible over any photo */
+  .site-header.scrolled .header-logo img,
+  .site-header.scrolled .header-actions svg {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+  }
 }
 
 .header-inner {
@@ -216,7 +243,7 @@ img {
   top: 2px;
   right: 0;
   background: #fff;
-  color: #EBA99A;
+  color: var(--color-brand);
   font-size: 0.65rem;
   font-weight: 600;
   min-width: 16px;
@@ -257,7 +284,7 @@ img {
   right: -300px;
   width: 300px;
   height: 100vh;
-  background: white;
+  background: var(--color-brand);
   z-index: 1200;
   transition: right 0.3s ease;
   padding: 24px;
@@ -273,7 +300,7 @@ img {
   border: none;
   cursor: pointer;
   padding: 8px;
-  color: var(--gray-600);
+  color: #fff;
   position: absolute;
   top: 16px;
   right: 16px;
@@ -291,13 +318,15 @@ img {
   padding: 14px 0;
   font-size: 1.1rem;
   font-weight: 500;
-  color: var(--gray-700);
-  border-bottom: 1px solid var(--gray-100);
+  color: #fff;
+  border-bottom: 1px solid rgb(255 255 255 / 0.3);
   transition: var(--transition);
 }
 
+
 .mobile-menu-nav a:hover {
-  color: var(--pink-dark);
+  color: #fff;
+  opacity: 0.8;
   padding-left: 8px;
 }
 
@@ -743,8 +772,8 @@ img {
 
 /* ===== FOOTER ===== */
 .site-footer {
-  background: #EBA99A;
-  color: white;
+  background: var(--color-brand);
+  color: var(--footer-text);
   padding: 64px 0 0;
 }
 
@@ -753,7 +782,7 @@ img {
   grid-template-columns: 2fr 1fr 1fr;
   gap: 48px;
   padding-bottom: 48px;
-  border-bottom: 1px solid rgba(255,255,255,0.35);
+  border-bottom: 1px solid color-mix(in srgb, var(--footer-text) 35%, transparent);
 }
 
 .footer-logo {
@@ -765,7 +794,7 @@ img {
 
 .footer-brand p {
   font-size: 0.95rem;
-  color: #fff;
+  color: var(--footer-text);
   line-height: 1.7;
   max-width: 320px;
 }
@@ -780,11 +809,11 @@ img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.22);
+  background: color-mix(in srgb, var(--footer-text) 18%, transparent);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--footer-text);
   transition: var(--transition);
   font-size: 0.9rem;
 }
@@ -798,7 +827,7 @@ img {
   margin-bottom: 16px;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  color: white;
+  color: var(--footer-text);
 }
 
 .footer-links ul {
@@ -811,7 +840,7 @@ img {
 
 .footer-links a {
   font-size: 0.9rem;
-  color: #fff;
+  color: var(--footer-text);
   transition: var(--transition);
 }
 
@@ -819,7 +848,7 @@ img {
   opacity: 0.75;
 }
 
-.footer-links li { color: #fff; }
+.footer-links li { color: var(--footer-text); }
 
 .footer-bottom {
   padding: 24px 0;
@@ -828,7 +857,7 @@ img {
 
 .footer-bottom p {
   font-size: 0.85rem;
-  color: #fff;
+  color: var(--footer-text);
 }
 
 /* ===== CATALOG PAGE ===== */
@@ -2191,11 +2220,13 @@ img {
 .boutique-card-img img { object-fit: cover; object-position: center; transition: transform 0.6s ease; }
 .boutique-card:hover .boutique-card-img img { transform: scale(1.04); }
 .trio-photo, .lux-trio-photo { position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: var(--cream); }
-.trio-photo { position: sticky; top: 96px; }
+.trio-media { position: sticky; top: 96px; }
+.trio-media .chips { margin-bottom: 0; }
+.trio-media .trio-label { margin: 16px 0 10px; }
 .lux-trio-photo { margin-bottom: 14px; }
 .trio-img { object-fit: cover; opacity: 0; transition: opacity 0.45s ease; }
 .trio-img.active { opacity: 1; }
-@media (max-width: 800px) { .trio-photo { position: relative; top: 0; } }
+@media (max-width: 800px) { .trio-media { position: static; } }
 .trio-number { max-width: 140px; margin-bottom: 20px; }
 .trio-number-hint { display: block; margin-top: 6px; color: var(--gray-500); font-size: 0.8rem; }
 .trio-number input { text-align: center; font-size: 1.1rem; letter-spacing: 0.1em; }
@@ -2216,3 +2247,29 @@ img {
 .bubble-thumb span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.7rem; line-height: 1.2; color: var(--charcoal); padding: 4px; }
 @media (max-width: 800px) { .bubble-gallery { position: static; } }
 .cart-item-img .bubble-preview { border-radius: 0; }
+
+/* ===== Ceiling collections, number add-on, category cards ===== */
+.boutique-grid-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 520px) { .boutique-grid-3 { grid-template-columns: 1fr; } }
+.boutique-card-img { position: relative; }
+.soon-badge { position: absolute; top: 12px; left: 12px; background: rgb(255 255 255 / 0.92); color: var(--charcoal); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 10px; border-radius: 2px; }
+.lux-products + .lux-products { margin-top: 48px; }
+.trio-photo.portrait { aspect-ratio: 4 / 5; }
+.coll-thumbs { display: grid; grid-template-columns: repeat(4, 72px); gap: 10px; margin-top: 12px; }
+.coll-thumb { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; border: 1px solid var(--gray-200); padding: 0; cursor: pointer; background: var(--cream); }
+.coll-thumb img { object-fit: cover; }
+.coll-thumb.selected { outline: 2px solid var(--charcoal); outline-offset: 2px; }
+.trio-price-note { font-size: 0.85rem; color: var(--gray-500); }
+.coll-count { font-size: 0.9rem; color: var(--gray-600); margin-top: -16px; }
+.numbers-upsell { border: 1px solid var(--gray-200); border-radius: 12px; background: #fff; padding: 14px 16px; margin: 4px 0 24px; transition: border-color 0.2s; }
+.numbers-upsell.on { border-color: var(--charcoal); }
+.numbers-upsell-head { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; font-weight: 500; line-height: 1.4; }
+.numbers-upsell-head input { margin-top: 4px; width: 18px; height: 18px; flex-shrink: 0; }
+.numbers-upsell-body { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--cream); }
+.numbers-upsell-row { display: flex; gap: 16px; align-items: flex-start; }
+.numbers-thumb { position: relative; width: 88px; height: 88px; border-radius: 8px; overflow: hidden; flex-shrink: 0; background: var(--cream); }
+.numbers-thumb img { object-fit: cover; }
+.numbers-upsell .trio-number { margin-bottom: 0; }
+.cart-addon { margin-left: 28px; border-left: 2px solid var(--cream); padding-left: 12px; margin-top: -1px; }
+.cart-addon .cart-item-img { width: 56px; height: 56px; }
+@media (max-width: 800px) { .coll-thumbs { grid-template-columns: repeat(4, 1fr); } }

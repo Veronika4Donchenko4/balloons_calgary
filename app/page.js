@@ -3,6 +3,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import CollectionCard from '@/components/CollectionCard'
 import { boutiqueCollections } from '@/lib/premium'
+import { COLLECTION_CATEGORIES, itemsInCategory } from '@/lib/collections'
 import { SITE_NAME } from '@/lib/site'
 
 export const metadata = {
@@ -40,6 +41,18 @@ export default function Home() {
           </div>
           <div className="boutique-grid">
             {boutiqueCollections.map((c) => <CollectionCard key={c.slug} c={c} />)}
+          </div>
+        </div>
+      </section>
+
+      <section className="section lux-section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section-title">
+            <h2>Ceiling Collections</h2>
+            <p>Ready-made sets for him, for her and for kids</p>
+          </div>
+          <div className="boutique-grid boutique-grid-3">
+            {COLLECTION_CATEGORIES.map((c) => <CollectionCard key={c.slug} c={c} soon={itemsInCategory(c.slug).length === 0} />)}
           </div>
         </div>
       </section>

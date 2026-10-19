@@ -37,9 +37,11 @@ export async function POST(request) {
              <div style="font-size:12px;color:#888;margin-top:6px;">Font: ${escHtml(c.bubble.font)} · Text colour: ${escHtml(c.bubble.textColor)}</div>
            </div>`
         : ''
+      const lines = (c.lines || []).map(l => `<div>${escHtml(l)}</div>`).join('')
       details = `
         ${bubble}
         <div style="margin-top:6px;padding:8px 12px;background:#f9f9f9;border-radius:6px;font-size:13px;color:#555;">
+          ${lines}
           ${balloonLines.map(l => `<div>${l}</div>`).join('')}
           ${extraLines.map(l => `<div style="font-style:italic;">${l}</div>`).join('')}
           ${addons.length > 0 ? `<div style="margin-top:4px;color:#888;">Base: $${c.basePrice} + ${addons.join(' + ')}</div>` : ''}
@@ -47,7 +49,7 @@ export async function POST(request) {
     }
     return `
       <tr>
-        <td style="padding:10px 12px;border-bottom:1px solid #eee;">${item.name}${details}</td>
+        <td style="padding:10px 12px;border-bottom:1px solid #eee;${item.addOnFor ? 'padding-left:28px;background:#fcfaf7;' : ''}">${item.addOnFor ? `<span style="color:#888;">↳ ADD-ON for “${escHtml(item.addOnFor)}”:</span> ` : ''}${item.name}${details}</td>
         <td style="padding:10px 12px;border-bottom:1px solid #eee;text-align:center;">${item.quantity}</td>
         <td style="padding:10px 12px;border-bottom:1px solid #eee;text-align:right;">$${item.price} CAD</td>
       </tr>`

@@ -5,10 +5,14 @@ import Footer from '@/components/Footer'
 import BalloonCustomizer from '@/components/BalloonCustomizer'
 import { getProductById, getCategoryBySlug, getDefaultBalloons } from '@/lib/packages'
 import { accentE } from '@/lib/accentE'
+import CollectionProductPage, { collectionItemMetadata } from '@/components/CollectionProductPage'
+import { getCollectionItem, COLLECTION_ITEMS } from '@/lib/collections'
 import { SITE_NAME, BUSINESS, OG_IMAGE, abs } from '@/lib/site'
 
 export async function generateMetadata({ params }) {
   const { id } = await params
+  const coll = getCollectionItem(id)
+  if (coll) return collectionItemMetadata(coll)
   const pkg = getProductById(id)
   if (!pkg) return { title: 'Product Not Found' }
   const description =
@@ -28,6 +32,8 @@ export async function generateMetadata({ params }) {
 
 export default async function ProductPage({ params }) {
   const { id } = await params
+  const coll = getCollectionItem(id)
+  if (coll) return <CollectionProductPage item={coll} />
   const pkg = getProductById(id)
   if (!pkg) notFound()
 

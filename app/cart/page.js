@@ -40,6 +40,7 @@ export default function CartPage() {
         name: i.name,
         price: i.price,
         quantity: i.quantity,
+        ...(i.parentId && { addOnFor: items.find(p => p.id === i.parentId)?.name }),
         ...(i.customizations && { customizations: i.customizations }),
       })),
       total: getTotal(),
@@ -89,7 +90,7 @@ export default function CartPage() {
       <div className="page-header">
         <div className="container">
           <h1>Your Cart</h1>
-          <p>{items.length === 0 ? 'Your cart is empty' : `${items.length} item${items.length > 1 ? 's' : ''} in your cart`}</p>
+          <p>{items.length === 0 ? 'Your cart is empty' : `${items.filter(i => !i.parentId).length} item${items.filter(i => !i.parentId).length > 1 ? 's' : ''} in your cart`}</p>
         </div>
       </div>
 
@@ -104,8 +105,9 @@ export default function CartPage() {
           ) : (
             <>
               <div className="cart-items">
-                {items.map(item => (
-                  <div key={item.id} className="cart-item">
+                {items.filter(i => !i.parentId).map(item => (
+                  <div key={item.id} className="cart-group">
+                  <div className="cart-item">
                     <div className="cart-item-img">
                       {item.customizations?.bubble ? <BubblePreview message={item.customizations.bubble.message} textColor={item.customizations.bubble.textColor} sizes="80px" /> : item.image ? <img src={item.image} alt={item.name} /> : <Placeholder gradient={item.gradient} label={item.name} />}
                     </div>
@@ -160,6 +162,16 @@ export default function CartPage() {
                     <button className="cart-item-remove" onClick={() => removeItem(item.id)} aria-label="Remove item">
                       &#10005;
                     </button>
+                  </div>
+                  {items.filter(c => c.parentId === item.id).map(child => (
+                    <div key={child.id} className="cart-item cart-addon">
+                      <div className="cart-item-img">{child.image ? <img src={child.image} alt={child.name} /> : <Placeholder gradient={child.gradient} label={child.name} />}</div>
+                      <div className="cart-item-info">
+                        <h3>+ {child.name}</h3>
+                        <div className="price">${child.price} CAD</div>
+                      </div>
+                    </div>
+                  ))}
                   </div>
                 ))}
               </div>
@@ -238,7 +250,7 @@ export default function CartPage() {
 const COLOR_HEX = {
   White: '#FFFFFF', Pink: '#F9B4C2', Rose: '#E8919B', Red: '#E74C3C',
   Blue: '#5DADE2', Green: '#58D68D', Gold: '#D4A853', Purple: '#AF7AC5',
-  Silver: '#BDC3C7', Black: '#2D2D2D',
+  Silver: '#BDC3C7', 'Rose Gold': '#D4A69A', Black: '#2D2D2D',
 }
 
 function colorHex(name) {

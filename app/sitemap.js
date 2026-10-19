@@ -1,6 +1,7 @@
 import { products } from '@/lib/catalog'
 import { collections } from '@/lib/packages'
 import { boutiqueCollections } from '@/lib/premium'
+import { COLLECTION_CATEGORIES, COLLECTION_ITEMS } from '@/lib/collections'
 import { abs } from '@/lib/site'
 
 // Generates /sitemap.xml (Next App Router convention).
@@ -31,13 +32,15 @@ export default function sitemap() {
     priority: 0.8,
   }))
 
+  const categoryPages = COLLECTION_CATEGORIES.map((c) => ({ url: abs(`/collections/${c.slug}`), changeFrequency: 'weekly', priority: 0.7 }))
+  const itemPages = COLLECTION_ITEMS.map((i) => ({ url: abs(`/product/${i.id}`), changeFrequency: 'monthly', priority: 0.7 }))
   const productPages = products.map((p) => ({
     url: abs(`/product/${p.id}`),
     changeFrequency: 'monthly',
     priority: 0.7,
   }))
 
-  return [...staticPages, ...boutiquePages, ...collectionPages, ...productPages].map((e) => ({
+  return [...staticPages, ...boutiquePages, ...categoryPages, ...itemPages, ...collectionPages, ...productPages].map((e) => ({
     ...e,
     lastModified: now,
   }))
