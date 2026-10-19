@@ -12,6 +12,7 @@ export default function sitemap() {
     { url: abs('/collections'), changeFrequency: 'weekly', priority: 0.9 },
     { url: abs('/custom-order'), changeFrequency: 'monthly', priority: 0.8 },
     { url: abs('/product/signature-trio'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: abs('/product/number-balloons'), changeFrequency: 'monthly', priority: 0.8 },
     { url: abs('/catalog'), changeFrequency: 'weekly', priority: 0.7 },
     { url: abs('/contact'), changeFrequency: 'monthly', priority: 0.6 },
   ]

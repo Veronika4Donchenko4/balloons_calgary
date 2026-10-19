@@ -1,11 +1,10 @@
 'use client'
-import { TRIO_COLOURWAYS } from '@/lib/premium'
 
-// Selectable colour-combination chips: two swatch circles + the combo name.
-export default function ColourChips({ selected, onSelect, id, highlight = false }) {
+// Selectable colour chips: one or two swatch circles + the option name.
+export default function ColourChips({ options, selected, onSelect, id, highlight = false, label = 'Colour' }) {
   return (
-    <div className={`chips${highlight ? ' hint' : ''}`} role="radiogroup" aria-label="Colour combination" id={id}>
-      {TRIO_COLOURWAYS.map((w, i) => (
+    <div className={`chips${highlight ? ' hint' : ''}`} role="radiogroup" aria-label={label} id={id}>
+      {options.map((w, i) => (
         <button
           key={w.name}
           type="button"
@@ -15,8 +14,7 @@ export default function ColourChips({ selected, onSelect, id, highlight = false 
           onClick={() => onSelect(i)}
         >
           <span className="chip-dots">
-            <i style={{ background: w.colors[0] }} />
-            <i style={{ background: w.colors[1] }} />
+            {w.colors.map((c) => <i key={c} style={{ background: c }} />)}
           </span>
           {w.name}
         </button>

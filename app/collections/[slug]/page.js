@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Placeholder from '@/components/Placeholder'
-import BouquetsGrid from '@/components/BouquetsGrid'
+import VariantGrid from '@/components/VariantGrid'
 import { productGradient, boutiqueCollections, getBoutiqueCollection, getBoutiqueProducts } from '@/lib/premium'
 
 export function generateStaticParams() {
@@ -43,8 +43,8 @@ export default async function CollectionPage({ params }) {
               <p>This collection is made to order. Tell us what you have in mind.</p>
               <Link href="/custom-order" className="btn btn-primary">Request a Custom Design</Link>
             </div>
-          ) : slug === 'bouquets' ? (
-            <BouquetsGrid items={items} />
+          ) : slug === 'bouquets' || slug === 'numbers' ? (
+            <VariantGrid items={items} leadId={slug === 'bouquets' ? 'signature-trio' : 'number-balloons'} />
           ) : (
             <div className="lux-products">
               {items.map((p) => (

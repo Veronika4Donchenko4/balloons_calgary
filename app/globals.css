@@ -2196,3 +2196,5 @@ img {
 .trio-img { object-fit: cover; opacity: 0; transition: opacity 0.45s ease; }
 .trio-img.active { opacity: 1; }
 @media (max-width: 800px) { .trio-photo { position: relative; top: 0; } }
+.trio-number { max-width: 140px; margin-bottom: 20px; }
+.trio-number input { text-align: center; font-size: 1.1rem; letter-spacing: 0.1em; }
