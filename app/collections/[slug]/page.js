@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -49,9 +50,13 @@ export default async function CollectionPage({ params }) {
             <div className="lux-products">
               {items.map((p) => (
                 <Link key={p.id} href={`/product/${p.id}`} className="lux-product">
-                  <Placeholder gradient={productGradient(p)} label={p.name} />
+                  {p.image ? (
+                    <div className="lux-trio-photo"><Image src={p.image} alt={p.name} fill sizes="280px" className="trio-img active" /></div>
+                  ) : (
+                    <Placeholder gradient={productGradient(p)} label={p.name} />
+                  )}
                   <h3>{p.name}</h3>
-                  <span>${p.price} CAD</span>
+                  <span>{p.price == null ? 'Price coming soon' : `$${p.price} CAD`}</span>
                 </Link>
               ))}
             </div>

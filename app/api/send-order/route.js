@@ -2,6 +2,8 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+const escHtml = (v) => String(v ?? '').replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]))
+
 export async function POST(request) {
   console.log('[order] RESEND_API_KEY loaded:', process.env.RESEND_API_KEY ? `yes (${process.env.RESEND_API_KEY.slice(0, 8)}...)` : 'NO — missing!')
 
@@ -28,7 +30,15 @@ export async function POST(request) {
       if (c.textCost > 0) addons.push(`Text: $${c.textCost}`)
       if (c.confettiCost > 0) addons.push(`Confetti: $${c.confettiCost}`)
       if (c.bowCost > 0) addons.push(`Bows: $${c.bowCost}`)
+      const bubble = c.bubble
+        ? `<div style="margin-top:6px;padding:10px 12px;background:#fff;border:1px solid #ddd;border-radius:6px;">
+             <div style="font-size:12px;color:#888;margin-bottom:4px;">PRINT THIS TEXT (line breaks as shown)</div>
+             <div style="font-size:18px;color:#222;line-height:1.5;">${escHtml(c.bubble.message).replace(/\n/g, '<br>')}</div>
+             <div style="font-size:12px;color:#888;margin-top:6px;">Font: ${escHtml(c.bubble.font)} · Text colour: ${escHtml(c.bubble.textColor)}</div>
+           </div>`
+        : ''
       details = `
+        ${bubble}
         <div style="margin-top:6px;padding:8px 12px;background:#f9f9f9;border-radius:6px;font-size:13px;color:#555;">
           ${balloonLines.map(l => `<div>${l}</div>`).join('')}
           ${extraLines.map(l => `<div style="font-style:italic;">${l}</div>`).join('')}

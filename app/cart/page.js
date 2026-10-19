@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { useCartStore } from '@/lib/cartStore'
 import Placeholder from '@/components/Placeholder'
+import BubblePreview from '@/components/BubblePreview'
 import { accentE } from '@/lib/accentE'
 
 const defaultImg = '/assets/images/girl/girl1.png'
@@ -106,7 +107,7 @@ export default function CartPage() {
                 {items.map(item => (
                   <div key={item.id} className="cart-item">
                     <div className="cart-item-img">
-                      {item.image ? <img src={item.image} alt={item.name} /> : <Placeholder gradient={item.gradient} label={item.name} />}
+                      {item.customizations?.bubble ? <BubblePreview message={item.customizations.bubble.message} textColor={item.customizations.bubble.textColor} sizes="80px" /> : item.image ? <img src={item.image} alt={item.name} /> : <Placeholder gradient={item.gradient} label={item.name} />}
                     </div>
                     <div className="cart-item-info">
                       <h3>{accentE(item.name)}</h3>
@@ -118,6 +119,13 @@ export default function CartPage() {
                           </button>
                           {expanded[item.id] && (
                             <div className="cart-cust-details">
+                              {item.customizations.bubble && (
+                                <div className="cart-cust-line">
+                                  <span className="cart-cust-text" style={{ whiteSpace: 'pre-line' }}>
+                                    &ldquo;{item.customizations.bubble.message}&rdquo; — {item.customizations.bubble.font}, {item.customizations.bubble.textColor}
+                                  </span>
+                                </div>
+                              )}
                               {item.customizations.balloons?.map((b, i) => (
                                 <div key={i} className="cart-cust-line">
                                   <span className="cart-cust-swatch" style={{ background: colorHex(b.color) }} />

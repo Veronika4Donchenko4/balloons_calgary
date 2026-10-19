@@ -12,6 +12,7 @@ export default function sitemap() {
     { url: abs('/collections'), changeFrequency: 'weekly', priority: 0.9 },
     { url: abs('/custom-order'), changeFrequency: 'monthly', priority: 0.8 },
     { url: abs('/product/signature-trio'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: abs('/product/personalized-bubble'), changeFrequency: 'monthly', priority: 0.8 },
     { url: abs('/product/single-number'), changeFrequency: 'monthly', priority: 0.8 },
     { url: abs('/product/double-number'), changeFrequency: 'monthly', priority: 0.8 },
     { url: abs('/catalog'), changeFrequency: 'weekly', priority: 0.7 },
