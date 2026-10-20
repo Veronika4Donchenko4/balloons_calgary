@@ -9,8 +9,7 @@ import ColourChips from '@/components/ColourChips'
 
 const INSTAGRAM = 'https://www.instagram.com/balloons_calgary_yyc'
 
-// `matteImage`: set by the page when bubble-blank-matte.jpg exists, else Matte reuses the glossy photo.
-export default function PersonalizedBubble({ matteImage = null }) {
+export default function PersonalizedBubble() {
   const addItem = useCartStore((s) => s.addItem)
   const [message, setMessage] = useState('')
   const [colour, setColour] = useState(0)
@@ -19,8 +18,6 @@ export default function PersonalizedBubble({ matteImage = null }) {
   const [toast, setToast] = useState(false)
   const textColor = TEXT_COLOURS[colour].name
   const price = FINISHES[finish].price
-  const bases = matteImage ? [BUBBLE.blank, matteImage] : [BUBBLE.blank]
-  const base = matteImage ? finish : 0
   const finishOptions = FINISHES.map((f) => ({ ...f, colors: [], label: `${f.name} · $${f.price} CAD` }))
   const lines = message ? message.split('\n').length : 0
 
@@ -29,11 +26,11 @@ export default function PersonalizedBubble({ matteImage = null }) {
       id: `${BUBBLE.id}-${Date.now()}`,
       name: BUBBLE.name,
       price,
-      image: bases[base],
+      image: BUBBLE.photos[FINISHES[finish].name].src,
       category: 'signature',
       customizations: {
         basePrice: price,
-        bubble: { message: message.trim(), font: BUBBLE_FONT_NAME, textColor, finish: FINISHES[finish].name, image: bases[base] },
+        bubble: { message: message.trim(), font: BUBBLE_FONT_NAME, textColor, finish: FINISHES[finish].name, image: BUBBLE.photos[FINISHES[finish].name].src },
       },
     })
     setToast(true)
@@ -45,7 +42,7 @@ export default function PersonalizedBubble({ matteImage = null }) {
       <div className="bubble-gallery">
         <div className="bubble-main">
           <div className={`bubble-slide${view === -1 ? ' active' : ''}`}>
-            <BubblePreview message={message} textColor={textColor} bases={bases} base={base} placeholder priority sizes="(max-width: 800px) 100vw, 560px" />
+            <BubblePreview message={message} textColor={textColor} finish={FINISHES[finish].name} stack placeholder priority sizes="(max-width: 800px) 100vw, 560px" />
           </div>
           {BUBBLE.examples.map((src, i) => (
             <Image

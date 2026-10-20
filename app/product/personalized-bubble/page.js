@@ -1,5 +1,3 @@
-import fs from 'fs'
-import path from 'path'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -18,7 +16,6 @@ export const metadata = {
 }
 
 export default function Page() {
-  const matteImage = fs.existsSync(path.join(process.cwd(), 'public', BUBBLE.blankMatte)) ? BUBBLE.blankMatte : null
   return (
     <>
       <Header />
@@ -28,7 +25,7 @@ export default function Page() {
             <Link href="/">Home</Link> &rsaquo; <Link href="/collections">Collections</Link> &rsaquo;{' '}
             <Link href="/collections/signature">Signature Balloons</Link> &rsaquo; {BUBBLE.name}
           </div>
-          <PersonalizedBubble matteImage={matteImage} />
+          <PersonalizedBubble />
         </div>
       </section>
       <Footer />

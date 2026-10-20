@@ -9,8 +9,11 @@ const BASE = 9 // starting font size, in cqw (% of the preview's width)
 // Blank bubble photo + HTML text overlay centred on the balloon. All sizes are
 // container-relative (cqw / %), so it scales with its box. The font auto-shrinks
 // so the text always stays inside ~65% of the balloon's width.
-// `bases` = balloon photos to stack (cross-faded); `base` = which one shows.
-export default function BubblePreview({ message, textColor = 'Black', placeholder = false, sizes = '560px', priority = false, bases = [BUBBLE.blank], base = 0 }) {
+// `finish` picks the balloon photo and its measured circle; with `stack` both finishes are
+// rendered and cross-faded (page), otherwise only the chosen one (cart thumbnail).
+export default function BubblePreview({ message, textColor = 'Black', placeholder = false, sizes = '560px', priority = false, finish = 'Glossy', stack = false }) {
+  const g = BUBBLE.photos[finish] || BUBBLE.photos.Glossy
+  const names = stack ? Object.keys(BUBBLE.photos) : [BUBBLE.photos[finish] ? finish : 'Glossy']
   const boxRef = useRef(null)
   const textRef = useRef(null)
   const [size, setSize] = useState(BASE)
@@ -30,8 +33,8 @@ export default function BubblePreview({ message, textColor = 'Black', placeholde
       if (!W) return
       const prev = text.style.fontSize
       text.style.fontSize = `${BASE}cqw`
-      const allowedW = ((BUBBLE.r * 2 * BUBBLE.textWidth) / 100) * W
-      const allowedH = ((BUBBLE.r * 2 * BUBBLE.textHeight) / 100) * W
+      const allowedW = ((g.r * 2 * BUBBLE.textWidth) / 100) * W
+      const allowedH = ((g.r * 2 * BUBBLE.textHeight) / 100) * W
       const scale = Math.min(1, allowedW / Math.max(text.scrollWidth, 1), allowedH / Math.max(text.scrollHeight, 1))
       text.style.fontSize = prev // restore so React's inline style stays in sync
       setSize(BASE * scale)
@@ -41,20 +44,20 @@ export default function BubblePreview({ message, textColor = 'Black', placeholde
     ro.observe(box)
     document.fonts?.ready.then(fit)
     return () => ro.disconnect()
-  }, [shown])
+  }, [shown, finish])
 
   return (
     <div ref={boxRef} className="bubble-preview">
-      {bases.map((src, i) => (
-        <Image key={src} src={src} alt="" fill sizes={sizes} priority={priority && i === 0} className={`trio-img${i === base ? ' active' : ''}`} />
+      {names.map((n, i) => (
+        <Image key={n} src={BUBBLE.photos[n].src} alt="" fill sizes={sizes} priority={priority && i === 0} className={`trio-img${n === finish || names.length === 1 ? ' active' : ''}`} />
       ))}
       <div
         className="bubble-text-box"
         style={{
-          left: `${BUBBLE.cx}%`,
-          top: `${BUBBLE.cy}%`,
-          width: `${BUBBLE.r * 2 * BUBBLE.textWidth}%`,
-          height: `${BUBBLE.r * 2 * BUBBLE.textHeight}%`,
+          left: `${g.cx}%`,
+          top: `${g.cy}%`,
+          width: `${g.r * 2 * BUBBLE.textWidth}%`,
+          height: `${g.r * 2 * BUBBLE.textHeight}%`,
         }}
       >
         <div
