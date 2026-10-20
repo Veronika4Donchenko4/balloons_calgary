@@ -77,7 +77,7 @@ export default async function CollectionPage({ params }) {
                     <Placeholder gradient={productGradient(p)} label={p.name} />
                   )}
                   <h3>{p.name}</h3>
-                  <span>{p.price == null ? 'Price coming soon' : `$${p.price} CAD`}</span>
+                  <span>{p.priceFrom ? 'From ' : ''}${p.price} CAD</span>
                 </Link>
               ))}
             </div>

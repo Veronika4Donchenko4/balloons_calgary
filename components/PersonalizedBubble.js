@@ -2,30 +2,38 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { useCartStore } from '@/lib/cartStore'
-import { BUBBLE, TEXT_COLOURS, clampMessage } from '@/lib/bubble'
+import { BUBBLE, FINISHES, TEXT_COLOURS, clampMessage } from '@/lib/bubble'
 import { BUBBLE_FONT_NAME } from '@/lib/bubbleFont'
 import BubblePreview from '@/components/BubblePreview'
 import ColourChips from '@/components/ColourChips'
 
-export default function PersonalizedBubble() {
+const INSTAGRAM = 'https://www.instagram.com/balloons_calgary_yyc'
+
+// `matteImage`: set by the page when bubble-blank-matte.jpg exists, else Matte reuses the glossy photo.
+export default function PersonalizedBubble({ matteImage = null }) {
   const addItem = useCartStore((s) => s.addItem)
   const [message, setMessage] = useState('')
   const [colour, setColour] = useState(0)
+  const [finish, setFinish] = useState(0)
   const [view, setView] = useState(-1) // -1 = live preview, 0.. = example photo
   const [toast, setToast] = useState(false)
   const textColor = TEXT_COLOURS[colour].name
-  const hasPrice = BUBBLE.price != null
+  const price = FINISHES[finish].price
+  const bases = matteImage ? [BUBBLE.blank, matteImage] : [BUBBLE.blank]
+  const base = matteImage ? finish : 0
+  const finishOptions = FINISHES.map((f) => ({ ...f, colors: [], label: `${f.name} · $${f.price} CAD` }))
   const lines = message ? message.split('\n').length : 0
 
   const add = () => {
     addItem({
       id: `${BUBBLE.id}-${Date.now()}`,
       name: BUBBLE.name,
-      price: BUBBLE.price,
+      price,
+      image: bases[base],
       category: 'signature',
       customizations: {
-        basePrice: BUBBLE.price,
-        bubble: { message: message.trim(), font: BUBBLE_FONT_NAME, textColor },
+        basePrice: price,
+        bubble: { message: message.trim(), font: BUBBLE_FONT_NAME, textColor, finish: FINISHES[finish].name, image: bases[base] },
       },
     })
     setToast(true)
@@ -37,7 +45,7 @@ export default function PersonalizedBubble() {
       <div className="bubble-gallery">
         <div className="bubble-main">
           <div className={`bubble-slide${view === -1 ? ' active' : ''}`}>
-            <BubblePreview message={message} textColor={textColor} placeholder priority sizes="(max-width: 800px) 100vw, 560px" />
+            <BubblePreview message={message} textColor={textColor} bases={bases} base={base} placeholder priority sizes="(max-width: 800px) 100vw, 560px" />
           </div>
           {BUBBLE.examples.map((src, i) => (
             <Image
@@ -65,7 +73,7 @@ export default function PersonalizedBubble() {
 
       <div className="trio-info">
         <h1>{BUBBLE.name}</h1>
-        <div className="trio-price">{hasPrice ? `$${BUBBLE.price} CAD` : 'Price coming soon'}</div>
+        <div className="trio-price">${price} CAD</div>
         <p>{BUBBLE.description} Type your message and watch it appear on the balloon.</p>
 
         <div className="form-group">
@@ -82,12 +90,16 @@ export default function PersonalizedBubble() {
           </small>
         </div>
 
+        <div className="trio-label">Finish: <strong>{FINISHES[finish].name}</strong></div>
+        <ColourChips options={finishOptions} selected={finish} onSelect={(i) => { setFinish(i); setView(-1) }} label="Finish" />
+
         <div className="trio-label">Text colour: <strong>{textColor}</strong></div>
         <ColourChips options={TEXT_COLOURS} selected={colour} onSelect={(i) => { setColour(i); setView(-1) }} label="Text colour" />
+        <p className="colour-note">Looking for a different colour? Please <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer">ask us</a></p>
 
         <div className="trio-actions">
-          <button type="button" className="btn btn-primary btn-lg" onClick={add} disabled={!hasPrice || !message.trim()}>
-            {hasPrice ? `Add to Cart — $${BUBBLE.price}` : 'Price coming soon'}
+          <button type="button" className="btn btn-primary btn-lg" onClick={add} disabled={!message.trim()}>
+            Add to cart — ${price}
           </button>
         </div>
 

@@ -34,7 +34,7 @@ export async function POST(request) {
         ? `<div style="margin-top:6px;padding:10px 12px;background:#fff;border:1px solid #ddd;border-radius:6px;">
              <div style="font-size:12px;color:#888;margin-bottom:4px;">PRINT THIS TEXT (line breaks as shown)</div>
              <div style="font-size:18px;color:#222;line-height:1.5;">${escHtml(c.bubble.message).replace(/\n/g, '<br>')}</div>
-             <div style="font-size:12px;color:#888;margin-top:6px;">Font: ${escHtml(c.bubble.font)} · Text colour: ${escHtml(c.bubble.textColor)}</div>
+             <div style="font-size:12px;color:#888;margin-top:6px;">Finish: ${escHtml(c.bubble.finish || 'Glossy')} · Font: ${escHtml(c.bubble.font)} · Text colour: ${escHtml(c.bubble.textColor)}</div>
            </div>`
         : ''
       const lines = (c.lines || []).map(l => `<div>${escHtml(l)}</div>`).join('')

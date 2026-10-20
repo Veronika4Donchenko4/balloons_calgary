@@ -13,10 +13,12 @@ export default function ColourChips({ options, selected, onSelect, id, highlight
           className={`chip${i === selected ? ' selected' : ''}`}
           onClick={() => onSelect(i)}
         >
-          <span className="chip-dots">
-            {w.colors.map((c) => <i key={c} style={{ background: c }} />)}
-          </span>
-          {w.name}
+          {w.colors?.length > 0 && (
+            <span className="chip-dots">
+              {w.colors.map((c) => <i key={c} style={{ background: c }} />)}
+            </span>
+          )}
+          {w.label || w.name}
         </button>
       ))}
     </div>

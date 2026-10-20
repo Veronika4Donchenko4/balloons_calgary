@@ -109,7 +109,7 @@ export default function CartPage() {
                   <div key={item.id} className="cart-group">
                   <div className="cart-item">
                     <div className="cart-item-img">
-                      {item.customizations?.bubble ? <BubblePreview message={item.customizations.bubble.message} textColor={item.customizations.bubble.textColor} sizes="80px" /> : item.image ? <img src={item.image} alt={item.name} /> : <Placeholder gradient={item.gradient} label={item.name} />}
+                      {item.customizations?.bubble ? <BubblePreview message={item.customizations.bubble.message} textColor={item.customizations.bubble.textColor} bases={item.customizations.bubble.image ? [item.customizations.bubble.image] : undefined} sizes="80px" /> : item.image ? <img src={item.image} alt={item.name} /> : <Placeholder gradient={item.gradient} label={item.name} />}
                     </div>
                     <div className="cart-item-info">
                       <h3>{accentE(item.name)}</h3>
@@ -124,7 +124,7 @@ export default function CartPage() {
                               {item.customizations.bubble && (
                                 <div className="cart-cust-line">
                                   <span className="cart-cust-text" style={{ whiteSpace: 'pre-line' }}>
-                                    &ldquo;{item.customizations.bubble.message}&rdquo; — {item.customizations.bubble.font}, {item.customizations.bubble.textColor}
+                                    &ldquo;{item.customizations.bubble.message}&rdquo; — {item.customizations.bubble.finish ? `${item.customizations.bubble.finish}, ` : ''}{item.customizations.bubble.font}, {item.customizations.bubble.textColor}
                                   </span>
                                 </div>
                               )}

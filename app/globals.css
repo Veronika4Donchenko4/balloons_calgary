@@ -2273,3 +2273,8 @@ img {
 .cart-addon { margin-left: 28px; border-left: 2px solid var(--cream); padding-left: 12px; margin-top: -1px; }
 .cart-addon .cart-item-img { width: 56px; height: 56px; }
 @media (max-width: 800px) { .coll-thumbs { grid-template-columns: repeat(4, 1fr); } }
+
+/* Bubble: finish/colour notes; matte/glossy photos are stacked and cross-faded */
+.colour-note { font-size: 0.85rem; color: var(--gray-500); margin: -12px 0 24px; }
+.colour-note a { color: var(--charcoal); text-decoration: underline; }
+.bubble-preview .trio-img { z-index: 0; }
