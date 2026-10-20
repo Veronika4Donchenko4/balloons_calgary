@@ -2,115 +2,97 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { useCartStore } from '@/lib/cartStore'
-import { NUMBERS_ADDON, numberOptions } from '@/lib/collections'
+import { numberAddon, priceLabel } from '@/lib/readySets'
 import ColourChips from '@/components/ColourChips'
+import MediaGallery from '@/components/MediaGallery'
 
-// Ceiling collection product page. Everything comes from the item's data entry:
-// gallery, price, and (optionally) the colours allowed for the two-giant-numbers add-on.
+// Ready Set product page. Everything comes from the item's data entry: gallery, price,
+// and (optionally) the number add-on — single or double, with its allowed colours.
 export default function CollectionProduct({ item }) {
   const addBundle = useCartStore((s) => s.addBundle)
   const addItem = useCartStore((s) => s.addItem)
-  const colours = numberOptions(item)
-  const [photo, setPhoto] = useState(0)
+  const addon = numberAddon(item)
   const [numbersOn, setNumbersOn] = useState(false)
   const [colour, setColour] = useState(0)
   const [digits, setDigits] = useState('')
   const [toast, setToast] = useState(false)
-  const [touchX, setTouchX] = useState(null)
-  const n = item.images.length
-  // swipe left/right on the photo to change picture
-  const onTouchEnd = (e) => {
-    if (touchX == null || n < 2) return
-    const dx = e.changedTouches[0].clientX - touchX
-    if (Math.abs(dx) > 40) setPhoto((p) => (p + (dx < 0 ? 1 : n - 1)) % n)
-    setTouchX(null)
-  }
-  const chosen = colours[colour]
-  const digitsOk = !numbersOn || digits.length === NUMBERS_ADDON.digits
-  const total = item.price + (numbersOn ? NUMBERS_ADDON.price : 0)
+  const buyable = item.price != null
+  const chosen = addon?.options[colour]
+  const digitsOk = !numbersOn || digits.length === addon.digits
+  const total = (item.price ?? 0) + (numbersOn ? addon.price : 0)
 
+  const flash = () => {
+    setToast(true)
+    setTimeout(() => setToast(false), 3000)
+  }
   const add = () => {
     const parent = {
       id: numbersOn ? `${item.id}__${chosen.name.toLowerCase().replace(/\W+/g, '-')}-${digits}` : item.id,
       name: item.name,
       price: item.price,
       image: item.images[0],
-      category: 'ceiling',
+      category: 'ready-set',
       customizations: {
         basePrice: item.price,
-        lines: [`Ceiling collection${item.count ? ` — ${item.count} balloons` : ''}`],
+        lines: [item.count ? `Ready set — ${item.count} balloons` : 'Ready set'],
       },
     }
-    if (!numbersOn) return addItem(parent), flash()
+    if (!numbersOn) {
+      addItem(parent)
+      return flash()
+    }
     addBundle(parent, {
       id: `${parent.id}__numbers`,
-      name: `Two giant numbers: ${digits} in ${chosen.name}`,
-      price: NUMBERS_ADDON.price,
+      name: `${addon.productName}: ${digits} in ${chosen.name}`,
+      price: addon.price,
       image: chosen.image,
-      category: 'double-number',
+      category: addon.categoryId,
       customizations: {
-        basePrice: NUMBERS_ADDON.price,
+        basePrice: addon.price,
         balloons: digits.split('').map((d) => ({ size: `Number ${d}`, color: chosen.name })),
       },
     })
     flash()
   }
-  const flash = () => {
-    setToast(true)
-    setTimeout(() => setToast(false), 3000)
-  }
 
   return (
     <div className="trio-layout">
       <div className="trio-media">
-        <div className="trio-photo portrait" role="img" aria-label={item.name} onTouchStart={(e) => setTouchX(e.touches[0].clientX)} onTouchEnd={onTouchEnd} style={{ touchAction: 'pan-y' }}>
-          {item.images.map((src, i) => (
-            <Image key={src} src={src} alt="" fill priority={i === 0} sizes="(max-width: 800px) 100vw, 560px" className={`trio-img${i === photo ? ' active' : ''}`} />
-          ))}
-        </div>
-        {item.images.length > 1 && (
-          <div className="coll-thumbs">
-            {item.images.map((src, i) => (
-              <button key={src} type="button" className={`coll-thumb${i === photo ? ' selected' : ''}`} onClick={() => setPhoto(i)} aria-label={`Photo ${i + 1}`}>
-                <Image src={src} alt="" fill sizes="80px" />
-              </button>
-            ))}
-          </div>
-        )}
+        <MediaGallery images={item.images} videos={item.videos} name={item.name} />
       </div>
 
       <div className="trio-info">
         <h1>{item.name}</h1>
         <div className="trio-price">
-          ${total} CAD
-          {numbersOn && <small className="trio-price-note"> ${item.price} + ${NUMBERS_ADDON.price} numbers</small>}
+          {buyable ? `$${total} CAD` : priceLabel(item)}
+          {buyable && numbersOn && <small className="trio-price-note"> ${item.price} + ${addon.price} number{addon.digits > 1 ? 's' : ''}</small>}
         </div>
 
-        {colours.length > 0 && (
+        {addon && buyable && (
           <div className={`numbers-upsell${numbersOn ? ' on' : ''}`}>
             <label className="numbers-upsell-head">
               <input type="checkbox" checked={numbersOn} onChange={(e) => setNumbersOn(e.target.checked)} />
-              <span>Make it personal — add two giant numbers for ${NUMBERS_ADDON.price}</span>
+              <span>{addon.label}</span>
             </label>
             {numbersOn && (
               <div className="numbers-upsell-body">
                 <div className="trio-label">Number colour: <strong>{chosen.name}</strong></div>
-                <ColourChips options={colours} selected={colour} onSelect={setColour} label="Number colour" />
+                <ColourChips options={addon.options} selected={colour} onSelect={setColour} label="Number colour" />
                 <div className="numbers-upsell-row">
                   <div className="numbers-thumb">
-                    <Image src={chosen.image} alt={`Giant numbers in ${chosen.name}`} fill sizes="96px" />
+                    <Image src={chosen.image} alt={`Giant number in ${chosen.name}`} fill sizes="96px" />
                   </div>
                   <div className="form-group trio-number">
                     <label htmlFor="coll-digits">Your number</label>
                     <input
                       id="coll-digits"
                       inputMode="numeric"
-                      maxLength={NUMBERS_ADDON.digits}
+                      maxLength={addon.digits}
                       value={digits}
-                      onChange={(e) => setDigits(e.target.value.replace(/\D/g, '').slice(0, NUMBERS_ADDON.digits))}
-                      placeholder="25"
+                      onChange={(e) => setDigits(e.target.value.replace(/\D/g, '').slice(0, addon.digits))}
+                      placeholder={addon.placeholder}
                     />
-                    <small className="trio-number-hint">Two digits, 00–99</small>
+                    <small className="trio-number-hint">{addon.hint}</small>
                   </div>
                 </div>
               </div>
@@ -122,8 +104,8 @@ export default function CollectionProduct({ item }) {
         {item.count && <p className="coll-count">{item.count} balloons</p>}
 
         <div className="trio-actions">
-          <button type="button" className="btn btn-primary btn-lg" onClick={add} disabled={!digitsOk}>
-            Add to Cart — ${total}
+          <button type="button" className="btn btn-primary btn-lg" onClick={add} disabled={!buyable || !digitsOk}>
+            {buyable ? `Add to Cart — $${total}` : 'Price coming soon'}
           </button>
         </div>
         <div className="trio-delivery">Same-day delivery available in Calgary. Free on orders $100+</div>

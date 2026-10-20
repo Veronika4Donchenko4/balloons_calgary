@@ -1,8 +1,9 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Link from 'next/link'
 import CollectionCard from '@/components/CollectionCard'
 import { boutiqueCollections } from '@/lib/premium'
-import { COLLECTION_CATEGORIES, itemsInCategory } from '@/lib/collections'
+import { OCCASION_CARDS } from '@/lib/readySets'
 
 export const metadata = {
   title: 'Collections',
@@ -26,12 +27,13 @@ export default function Collections() {
             {boutiqueCollections.map((c) => <CollectionCard key={c.slug} c={c} />)}
           </div>
           <div className="section-title" style={{ marginTop: 96 }}>
-            <h2>Ceiling Collections</h2>
-            <p>Ready-made ceiling balloon sets, by recipient</p>
+            <h2>Ready Sets</h2>
+            <p>Ready-made balloon sets, by occasion</p>
           </div>
           <div className="boutique-grid">
-            {COLLECTION_CATEGORIES.map((c) => <CollectionCard key={c.slug} c={c} soon={itemsInCategory(c.slug).length === 0} />)}
+            {OCCASION_CARDS.map((c) => <CollectionCard key={c.slug} c={c} href={`/ready-sets?occasion=${c.slug}`} />)}
           </div>
+          <div style={{ textAlign: 'center', marginTop: 40 }}><Link href="/ready-sets" className="btn btn-outline btn-lg">Browse all Ready Sets</Link></div>
         </div>
       </section>
       <Footer />

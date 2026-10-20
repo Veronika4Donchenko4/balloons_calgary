@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import CollectionCard from '@/components/CollectionCard'
 import { boutiqueCollections } from '@/lib/premium'
-import { COLLECTION_CATEGORIES, itemsInCategory } from '@/lib/collections'
+import { OCCASION_CARDS } from '@/lib/readySets'
 import { SITE_NAME } from '@/lib/site'
 
 export const metadata = {
@@ -48,12 +48,13 @@ export default function Home() {
       <section className="section lux-section" style={{ paddingTop: 0 }}>
         <div className="container">
           <div className="section-title">
-            <h2>Ceiling Collections</h2>
+            <h2>Ready Sets</h2>
             <p>Ready-made sets for him, for her and for kids</p>
           </div>
           <div className="boutique-grid boutique-grid-3">
-            {COLLECTION_CATEGORIES.map((c) => <CollectionCard key={c.slug} c={c} soon={itemsInCategory(c.slug).length === 0} />)}
+            {OCCASION_CARDS.map((c) => <CollectionCard key={c.slug} c={c} href={`/ready-sets?occasion=${c.slug}`} />)}
           </div>
+          <div style={{ textAlign: 'center', marginTop: 40 }}><Link href="/ready-sets" className="btn btn-outline btn-lg">Browse all Ready Sets</Link></div>
         </div>
       </section>
 

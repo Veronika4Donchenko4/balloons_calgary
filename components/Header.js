@@ -11,7 +11,7 @@ export default function Header() {
   const [mounted, setMounted] = useState(false)
   // Subscribe to a value derived from items (not the stable getCount fn ref)
   // so the badge re-renders live when the cart changes.
-  const itemCount = useCartStore(s => s.items.reduce((sum, i) => sum + i.quantity, 0))
+  const itemCount = useCartStore(s => s.items.reduce((sum, i) => sum + (i.parentId ? 0 : i.quantity), 0))
 
   useEffect(() => {
     setMounted(true)
@@ -23,6 +23,7 @@ export default function Header() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/collections', label: 'Collections' },
+    { href: '/ready-sets', label: 'Ready Sets' },
     { href: '/custom-order', label: 'Custom Order' },
     { href: '/contact', label: 'Contact' },
   ]

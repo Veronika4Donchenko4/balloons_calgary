@@ -19,6 +19,7 @@
      build translucent variants without repeating the hex. */
   --color-brand: #C79582;
   --color-brand-rgb: 199 149 130;
+  --color-brand-dark: #8A5341; /* brand shade with 4.6:1 contrast on the cream banners (#C79582 itself is only 1.9:1) */
   --footer-text: #fff;
   --charcoal: #2D2D2D;
   --taupe: #B8A99A;
@@ -2278,3 +2279,51 @@ img {
 .colour-note { font-size: 0.85rem; color: var(--gray-500); margin: -12px 0 24px; }
 .colour-note a { color: var(--charcoal); text-decoration: underline; }
 .bubble-preview .trio-img { z-index: 0; }
+
+/* ===== Page banners ===== */
+.page-header h1 { color: var(--color-brand-dark); }
+
+/* ===== Ready Sets listing + filters ===== */
+.rs-section { padding-top: 48px; }
+.rs-layout { display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: start; }
+.rs-toolbar { display: none; }
+.rs-filters { position: sticky; top: 96px; }
+.rs-filters-head, .rs-filters-foot, .rs-close, .rs-backdrop { display: none; }
+.rs-group { border: 0; padding: 0; margin: 0 0 28px; }
+.rs-group legend { font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-500); margin-bottom: 12px; padding: 0; }
+.rs-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.rs-chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--gray-200); border-radius: 999px; background: #fff; font: inherit; font-size: 0.88rem; cursor: pointer; color: var(--charcoal); }
+.rs-chip i { width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.15); }
+.rs-chip:hover { border-color: var(--taupe); }
+.rs-chip.on { border-color: var(--charcoal); background: var(--charcoal); color: #fff; }
+.rs-chip:disabled { opacity: 0.4; cursor: default; }
+.rs-count-desktop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; color: var(--gray-600); font-size: 0.95rem; }
+.rs-clear { background: none; border: 0; padding: 0; font: inherit; font-size: 0.9rem; color: var(--color-brand-dark); text-decoration: underline; cursor: pointer; }
+.rs-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 28px; }
+.rs-card-video, .lux-product-img video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 900px) {
+  .rs-layout { grid-template-columns: 1fr; gap: 20px; }
+  .rs-toolbar { display: flex; align-items: center; gap: 16px; position: sticky; top: 72px; z-index: 5; background: var(--bg); padding: 10px 0; }
+  .rs-toolbar .rs-open { padding: 10px 18px; }
+  .rs-count { color: var(--gray-600); font-size: 0.95rem; margin-right: auto; }
+  .rs-count-desktop { display: none; }
+  .rs-backdrop { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1100; }
+  .rs-filters { position: fixed; left: 0; right: 0; bottom: 0; top: auto; z-index: 1101; background: #fff; border-radius: 16px 16px 0 0; max-height: 82vh; overflow-y: auto; padding: 0 20px 20px; transform: translateY(105%); transition: transform 0.3s ease; box-shadow: 0 -8px 30px rgba(0,0,0,0.15); }
+  .rs-filters.open { transform: translateY(0); }
+  .rs-filters-head { display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: #fff; padding: 16px 0; margin-bottom: 8px; }
+  .rs-close { display: block; background: none; border: 0; font-size: 1.2rem; cursor: pointer; padding: 4px 8px; }
+  .rs-filters-foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; position: sticky; bottom: 0; background: #fff; padding-top: 12px; }
+  .rs-filters-foot .btn { flex: 1; justify-content: center; }
+  .rs-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .rs-grid .lux-product h3 { font-size: 1.05rem; }
+}
+
+/* ===== Gallery video thumb, quantity stepper ===== */
+.trio-img[src$=".mp4"] { object-fit: cover; }
+video.trio-img { width: 100%; height: 100%; }
+.coll-thumb-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1rem; background: rgb(0 0 0 / 0.25); }
+.qty-stepper { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+.qty-stepper button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--gray-200); background: #fff; font-size: 1.2rem; cursor: pointer; }
+.qty-stepper button:disabled { opacity: 0.35; cursor: default; }
+.qty-stepper span { min-width: 2ch; text-align: center; font-size: 1.2rem; }
+.qty-stepper small { color: var(--gray-500); }

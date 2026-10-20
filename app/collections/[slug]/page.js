@@ -5,32 +5,28 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Placeholder from '@/components/Placeholder'
 import VariantGrid from '@/components/VariantGrid'
-import { COLLECTION_CATEGORIES, COLLECTION_ITEMS, getCollectionCategory, itemsInCategory } from '@/lib/collections'
 import { TRIO_COLOURWAYS, NUMBER_COLOURS, productGradient, boutiqueCollections, getBoutiqueCollection, getBoutiqueProducts } from '@/lib/premium'
 
 export function generateStaticParams() {
-  return [...boutiqueCollections, ...COLLECTION_CATEGORIES].map((c) => ({ slug: c.slug }))
+  return boutiqueCollections.map((c) => ({ slug: c.slug }))
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params
-  const c = getBoutiqueCollection(slug) || getCollectionCategory(slug)
+  const c = getBoutiqueCollection(slug)
   if (!c) return { title: 'Collection Not Found' }
   return {
     title: c.name,
-    description: c.description || `${c.name} ceiling balloon collections, made in Calgary.`,
+    description: c.description,
     alternates: { canonical: `/collections/${slug}` },
   }
 }
 
 export default async function CollectionPage({ params }) {
   const { slug } = await params
-  const cat = getCollectionCategory(slug)
-  const c = getBoutiqueCollection(slug) || cat
+  const c = getBoutiqueCollection(slug)
   if (!c) notFound()
-  // Audience categories list their own items; /collections/ceiling lists every collection item too.
-  const collItems = cat ? itemsInCategory(slug) : slug === 'ceiling' ? COLLECTION_ITEMS : []
-  const items = cat ? [] : getBoutiqueProducts(slug)
+  const items = getBoutiqueProducts(slug)
 
   return (
     <>
@@ -38,29 +34,18 @@ export default async function CollectionPage({ params }) {
       <div className="page-header">
         <div className="container">
           <h1>{c.name}</h1>
-          <p>{c.description || c.blurb}</p>
+          <p>{c.description}</p>
         </div>
       </div>
       <section className="section lux-section">
         <div className="container">
-          {collItems.length > 0 && (
-            <div className="lux-products">
-              {collItems.map((i) => (
-                <Link key={i.id} href={`/product/${i.id}`} className="lux-product">
-                  <div className="lux-product-img" style={{ position: 'relative' }}><Image src={i.images[0]} alt={i.name} fill sizes="280px" style={{ objectFit: 'cover' }} /></div>
-                  <h3>{i.name}</h3>
-                  <span>${i.price} CAD</span>
-                </Link>
-              ))}
+          {slug === 'ceiling' && (
+            <div className="lux-empty" style={{ marginBottom: 48 }}>
+              <p>Looking for ready-made ceiling sets? Browse them all, with filters for colour, price and occasion.</p>
+              <Link href="/ready-sets" className="btn btn-primary">Shop Ready Sets</Link>
             </div>
           )}
-          {cat && collItems.length === 0 ? (
-            <div className="lux-empty">
-              <h2 style={{ marginBottom: 12 }}>Coming soon</h2>
-              <p>We&rsquo;re putting the finishing touches on this collection. Want something now? We&rsquo;ll design it with you.</p>
-              <Link href="/custom-order" className="btn btn-primary">Request a Custom Design</Link>
-            </div>
-          ) : collItems.length > 0 && items.length === 0 ? null : items.length === 0 ? (
+          {items.length === 0 ? (
             <div className="lux-empty">
               <p>This collection is made to order. Tell us what you have in mind.</p>
               <Link href="/custom-order" className="btn btn-primary">Request a Custom Design</Link>
