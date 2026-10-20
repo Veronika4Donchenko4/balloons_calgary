@@ -16,6 +16,15 @@ export default function CollectionProduct({ item }) {
   const [colour, setColour] = useState(0)
   const [digits, setDigits] = useState('')
   const [toast, setToast] = useState(false)
+  const [touchX, setTouchX] = useState(null)
+  const n = item.images.length
+  // swipe left/right on the photo to change picture
+  const onTouchEnd = (e) => {
+    if (touchX == null || n < 2) return
+    const dx = e.changedTouches[0].clientX - touchX
+    if (Math.abs(dx) > 40) setPhoto((p) => (p + (dx < 0 ? 1 : n - 1)) % n)
+    setTouchX(null)
+  }
   const chosen = colours[colour]
   const digitsOk = !numbersOn || digits.length === NUMBERS_ADDON.digits
   const total = item.price + (numbersOn ? NUMBERS_ADDON.price : 0)
@@ -54,7 +63,7 @@ export default function CollectionProduct({ item }) {
   return (
     <div className="trio-layout">
       <div className="trio-media">
-        <div className="trio-photo portrait" role="img" aria-label={item.name}>
+        <div className="trio-photo portrait" role="img" aria-label={item.name} onTouchStart={(e) => setTouchX(e.touches[0].clientX)} onTouchEnd={onTouchEnd} style={{ touchAction: 'pan-y' }}>
           {item.images.map((src, i) => (
             <Image key={src} src={src} alt="" fill priority={i === 0} sizes="(max-width: 800px) 100vw, 560px" className={`trio-img${i === photo ? ' active' : ''}`} />
           ))}

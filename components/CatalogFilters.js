@@ -84,7 +84,7 @@ export default function CatalogFilters() {
             <button key={b} type="button"
               className={`filter-chip${bucketSel.has(b) ? ' active' : ''}`}
               onClick={() => toggle(setBucketSel)(b)}>
-              {b === 'Above 160' || b === 'Under 65' ? b : `$${b}`}
+              {b === 'From 159' || b === 'Under 65' ? b : `$${b}`}
               <span className="filter-ct">{counts.bucket[b] || 0}</span>
             </button>
           ))}

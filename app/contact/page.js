@@ -130,7 +130,7 @@ export default function Contact() {
                   <div className="contact-info-text">
                     <h4>{accentE('Delivery')}</h4>
                     <p>Free delivery within Calgary urban area*</p>
-                    <p className="delivery-note" style={{ fontSize: '0.8rem', color: '#9CA3AF', marginTop: '4px' }}>*Minimum order: 3 standard balloons or 1 large balloon. Delivery outside the urban area — $40</p>
+                    <p className="delivery-note" style={{ fontSize: '0.8rem', color: '#9CA3AF', marginTop: '4px' }}>*Minimum order: 3 standard balloons or 1 large balloon. Delivery outside the urban area — $39</p>
                   </div>
                 </li>
               </ul>

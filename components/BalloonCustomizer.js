@@ -25,7 +25,7 @@ const TEXT_COLORS = [
   { name: 'Red', hex: '#E74C3C' },
 ]
 
-const EXTRA_PRICES = { standard: 10, foil: 13, number: 30 }
+const EXTRA_PRICES = { standard: 9, foil: 13, number: 29 }
 const TEXT_PRICE = 7
 const CONFETTI_PRICE = 5
 const BOW_PRICE = 5
@@ -282,9 +282,9 @@ export default function BalloonCustomizer({ pkg, defaultBalloons }) {
         <div className="cust-add-balloon">
           <h3 className="cust-section-title">{accentE('Add a Balloon')}</h3>
           <div className="cust-add-options">
-            <button type="button" className="cust-add-btn" onClick={() => addExtra('standard')}>+ Standard Balloon — $10 CAD</button>
+            <button type="button" className="cust-add-btn" onClick={() => addExtra('standard')}>+ Standard Balloon — $9 CAD</button>
             <button type="button" className="cust-add-btn" onClick={() => addExtra('foil')}>+ Foil Balloon (Heart/Star) — $13 CAD</button>
-            <button type="button" className="cust-add-btn" onClick={() => addExtra('number')}>+ Number Balloon (0-9) — $30 CAD</button>
+            <button type="button" className="cust-add-btn" onClick={() => addExtra('number')}>+ Number Balloon (0-9) — $29 CAD</button>
           </div>
         </div>
 
